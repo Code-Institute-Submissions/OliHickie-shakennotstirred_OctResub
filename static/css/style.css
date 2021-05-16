@@ -44,5 +44,22 @@ h2 {
 /* login page */
 
 .login-page {
-    background: url("/static/images/cocktail1.jpg") no-repeat top right;
+    background: url("../images/cocktail3.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 90vh;
+}
+
+.login-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.login-card {
+    padding: 10px;
+    width: 80%;
 }
