@@ -40,3 +40,9 @@ h2 {
     color: #71706E;
     font-size: 20px;
 }
+
+/* login page */
+
+.login-page {
+    background: url("/static/images/cocktail1.jpg") no-repeat top right;
+}

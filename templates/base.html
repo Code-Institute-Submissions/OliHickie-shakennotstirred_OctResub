@@ -27,7 +27,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">My Cocktails</a></li>
-                    <li><a href="#">Log in</a></li>
+                    <li><a href="{{ url_for('login') }}">Log in</a></li>
                     <li><a href="#">Log Out</a></li>
                 </ul>
             </div>
@@ -37,16 +37,14 @@
         <ul id="mobile-demo" class="sidenav">
             <li><a href="#">Home</a></li>
             <li><a href="#">My Cocktails</a></li>
-            <li><a href="#">Log in</a></li>
+            <li><a href="{{ url_for('login') }}">Log in</a></li>
             <li><a href="#">Log Out</a></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"></a>
     </header>
 
-    <main class="container">
         {% block content %}
         {% endblock %}
-    </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

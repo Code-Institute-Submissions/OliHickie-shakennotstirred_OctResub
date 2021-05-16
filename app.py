@@ -25,6 +25,11 @@ def recipes():
     return render_template('recipes.html', spirits=spirits)
 
 
+@app.route("/login")
+def login():
+    return render_template('login.html')
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
