@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+
 
 body {
     background-color: #F1F1F1;
     font-family: 'Roboto', sans-serif;
 }
 
-h2 {
-    font-family: 'Open Sans', sans-serif;
+h1 {
+    font-family: 'Open sans', sans-serif;
+    font-size: 64px;
     font-weight: 800;
-    color: #71706E;
-    text-transform: uppercase;
+    color: #CE9F95;
+    /* text-transform: uppercase; */
 }
 
 /* nav bar */
@@ -43,6 +46,28 @@ h2 {
     margin-top: 0px;
     width: 100%;
     background-color: #fff;
+}
+
+/* recipes - banner  */
+
+.recipes-banner {
+    background: url("../images/cocktail4.jpg") no-repeat top right;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 450px;
+}
+
+.recipes-banner h1 {
+    padding-top: 30px;
+    text-shadow: 2px 2px 2px #F8DCD1;
+}
+
+@media screen and (max-width: 600px) {
+    .recipes-banner h1 {
+        font-size: 48px;
+    }
 }
 
 /* recipes - side bar */

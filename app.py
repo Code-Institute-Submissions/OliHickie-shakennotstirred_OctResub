@@ -35,13 +35,15 @@ def login():
 
         if existing_user:
             flash("Username already in use!")
-            return redirect(url_for("register"))
+            return redirect(url_for("login"))
 
+        # check if passwords match
         if request.form.get("password") != request.form.get(
                     "confirm-password"):
             flash("Passwords do not match!")
-            return redirect(url_for("register"))
+            return redirect(url_for("login"))
 
+        # register user
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get(
@@ -50,8 +52,11 @@ def login():
         mongo.db.users.insert_one(register)
         flash("Successfully Registered!")
 
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+
         # change to my recipes once built <----------------------
-        return render_template("login.html")
+        return redirect(url_for("recipes", username=session["user"]))
 
     return render_template("login.html")
 
@@ -59,6 +64,14 @@ def login():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     return render_template("login.html")
+
+
+@app.route('/logout')
+def logout():
+    # remove user from session cookie
+    flash('You have been logged out')
+    session.pop('user')
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
