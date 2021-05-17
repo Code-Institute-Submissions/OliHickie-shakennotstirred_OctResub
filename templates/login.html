@@ -3,7 +3,7 @@
 
 <main class="login-page">
   <div class="row">
-    <div class="col s12 m6 offset-m6 login-card-container">
+    <div class="col s12 l6 offset-l6 login-card-container">
       <div class="card login-card">
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
@@ -11,10 +11,11 @@
             <li class="tab"><a href="#register">Register</a></li>
           </ul>
         </div>
+        <!-- log in form -->
         <form id="login" class="col s12" action="">
           <div class="input-field">
-            <input id="username" type="text" class="validate">
-            <label for="username">Username</label>
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
           </div>
           <div class="input-field">
             <input id="password" type="password" class="validate">
@@ -24,31 +25,30 @@
             Log In
           </button>
         </form>
-        <form id="register" action="">
-            <div class="input-field">
-              <input id="firstname" type="text" class="validate">
-              <label for="firstname">First Name</label>
+
+        <!-- register form -->
+        <form id="register" class="row" action="">
+            <div class="input-field col s12 l6">
+              <input id="register-email" type="email" class="validate">
+              <label for="register-email">Email Address</label>
             </div>
-            <div class="input-field">
-              <input id="surname" type="text" class="validate">
-              <label for="surname">Surname</label>
+            <div class="input-field col s12 l6">
+              <input id="datepicker" type="text" class="datepicker">
+              <label for="datepicker">Date of Birth</label>
             </div>
-            <div class="input-field">
-              <input id="username" type="text" class="validate">
-              <label for="username">Username</label>
+            <div class="input-field col s12 l6">
+              <input id="register-password" type="password" class="validate">
+              <label for="register-password">Password</label>
             </div>
-            <div class="input-field">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-            <div class="input-field">
+            <div class="input-field col s12 l6">
               <input id="confirm-password" type="password" class="validate">
-              <label for="confirm-password">Password</label>
+              <label for="confirm-password">Confirm Password</label>
             </div>
             <button type="submit" class="waves-effect waves-light btn-small">
               Register
             </button>
         </form>
+
       </div>
     </div>
   </div>

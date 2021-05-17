@@ -20,7 +20,7 @@ h2 {
     background-color: #71706E;
 }
 
-/* recipes - side bar */
+/* buttons  */
 
 .btn-small {
     background-color: #CE9F95;
@@ -36,6 +36,8 @@ h2 {
     color: #F1F1F1;
 }
 
+/* recipes - side bar */
+
 .spirit-list {
     color: #71706E;
     font-size: 20px;
@@ -49,17 +51,17 @@ h2 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 90vh;
+    height: 95vh;
 }
 
 .login-card-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 95vh;
 }
 
 .login-card {
-    padding: 10px;
+    padding: 30px 60px;
     width: 80%;
 }
