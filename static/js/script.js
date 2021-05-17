@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('.tabs').tabs();
@@ -8,4 +11,9 @@ $(document).ready(function () {
     maxDate: new Date(),
     yearRange: [1900, 2022]
   });
+  $('.modal').modal();
+
+  setTimeout(function() {
+    $('#flashes').fadeOut('fast');
+}, 3000);
 });
