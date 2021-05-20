@@ -1,26 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap');
+
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'Yeseva One', cursive;
+*/
 
 
 body {
-    background-color: #F1F1F1;
+    background-color: #EAEAEA;
     font-family: 'Roboto', sans-serif;
 }
 
 h1 {
-    font-family: 'Open sans', sans-serif;
+    font-family: 'Yeseva One', cursive;
     font-size: 64px;
     font-weight: 800;
-    color: #CE9F95;
-    /* text-transform: uppercase; */
+    color: #EAEAEA;
 }
 
 /* nav bar */
 
 .navbar {
-    height: 75px;
-    line-height: 75px;
-    background-color: #71706E;
+    height: 100px;
+    line-height: 100px;
+    background-color: #1f1a1b;
+}
+
+.navbar a {
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: #AD974F;
+}
+
+.brand-logo img {
+    height: 100px;
+    padding: 5px 10px;
 }
 
 /* buttons  */
@@ -51,7 +67,7 @@ h1 {
 /* recipes - banner  */
 
 .recipes-banner {
-    background: url("../images/cocktail4.jpg") no-repeat top right;
+    background: url("../images/cocktail1.jpg") no-repeat top right;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -61,7 +77,7 @@ h1 {
 
 .recipes-banner h1 {
     padding-top: 30px;
-    text-shadow: 2px 2px 2px #F8DCD1;
+    /* text-shadow: 2px 2px 2px #EAEAEA; */
 }
 
 @media screen and (max-width: 600px) {
@@ -73,14 +89,14 @@ h1 {
 /* recipes - side bar */
 
 .spirit-list {
-    color: #71706E;
+    color: #231F20;
     font-size: 20px;
 }
 
 /* login page */
 
 .login-page {
-    background: url("../images/cocktail3.jpg") no-repeat center center;
+    background: url("../images/cocktail3a.jpg") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
