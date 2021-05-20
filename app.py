@@ -82,6 +82,23 @@ def mycocktails(username):
         return render_template("mycocktails.html", username=username)
 
 
+@app.route('/create_recipe', methods=['GET', 'POST'])
+def create_recipe():
+    if request.method == "POST":
+        # add recipe
+        new_recipe = {
+            "cocktail_name": request.form.get("cocktail_name").lower(),
+            "difficulty": request.form.get("difficulty"),
+            "ingredients": request.form.get("ingredients").lower(),
+            "method": request.form.get("method").lower()
+        }
+        mongo.db.recipes.insert_one(new_recipe)
+        flash("Successfully Added Recipe")
+        return redirect(url_for("create_recipe"))
+
+    return render_template('create_recipe.html')
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

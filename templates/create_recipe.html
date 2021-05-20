@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="container">
+    <div class="card create-recipe-form">
+        <form method="POST" action="{{ url_for('create_recipe') }}">
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="prefix fas fa-glass-martini-alt"></i>
+                    <input id="cocktail_name" name="cocktail_name" type="text" required>
+                    <label for="cocktail_name">Cocktail Name</label>
+                </div>
+                <div class="input-field col s4">
+                    <i class="prefix fas fa-star"></i>
+                    <select name="difficulty">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                    </select>
+                    <label>Difficulty</label>
+                </div>
+                <div class="input-field col s8">
+                    <i class="prefix fas fa-wine-bottle"></i>
+                    <input name="ingredients" type="text" required>
+                    <label for="ingredients">Add Ingredient</label>
+                </div>
+                <div class="input-field col s4">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <div class="input-field col s12">
+                    <i class="prefix fas fa-glass-cheers"></i>
+                    <textarea id="method" name="method" class="materialize-textarea"></textarea>
+                    <label for="method">Method</label>
+                </div>
+                <button type="submit" class="btn-small">
+                    Add Cocktail</i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</main>
+
+
+
+{% endblock %}
