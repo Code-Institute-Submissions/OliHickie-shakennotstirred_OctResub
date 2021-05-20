@@ -41,18 +41,14 @@ h1 {
 
 /* buttons  */
 
-.btn-small {
-    background-color: #CE9F95;
-    color: #F1F1F1;
+.btn-small,
+.btn-small:focus {
+    background-color: #231F20;
+    color: #EAEAEA;
 }
 
 .btn-small:hover {
-    background-color: #F8DCD1;
-}
-
-.btn-small:focus {
-    background-color: #CE9F95;
-    color: #F1F1F1;
+    background-color: #AD974F;
 }
 
 /* flashes  */
