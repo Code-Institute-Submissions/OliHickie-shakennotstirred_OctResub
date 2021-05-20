@@ -20,6 +20,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    number_of_recipes = mongo.db.recipes.count()
+
+    return render_template('home.html', number_of_recipes=number_of_recipes)
+
+
 @app.route("/recipes")
 def recipes():
     spirits = mongo.db.spirits.find()

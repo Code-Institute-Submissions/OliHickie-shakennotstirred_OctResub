@@ -26,9 +26,14 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('recipes') }}">Home</a></li>
+
+                    {% if session.user %}
                     <li><a href="{{ url_for('mycocktails', username=session['user']) }}">My Cocktails</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+
+                    {% else %}
                     <li><a href="{{ url_for('login') }}">Log in</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
