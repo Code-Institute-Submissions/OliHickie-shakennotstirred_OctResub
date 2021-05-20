@@ -12,10 +12,16 @@ body {
 }
 
 h1 {
-    font-family: 'Yeseva One', cursive;
+    font-family: 'Yeseva One', 'cursive';
     font-size: 64px;
     font-weight: 800;
     color: #EAEAEA;
+}
+
+h3 {
+    font-family: 'Yeseva One', 'cursive';
+    font-size: 42px;
+    color: #231F20;
 }
 
 /* nav bar */
@@ -30,7 +36,7 @@ h1 {
     font-size: 18px;
 }
 
-.navbar a:hover {
+.navbar li:hover {
     background-color: #AD974F;
 }
 
@@ -136,3 +142,12 @@ h1 {
 .tabs .indicator {
     background-color:#AD974F;
 } 
+
+/* My Cocktails  */
+
+hr {
+    border : 0;
+    height: 3px; 
+    background-image: linear-gradient(to right, rgba(173, 151, 79, 0), rgba(173, 151, 79, 0.75), rgba(173, 151, 79, 0));
+    margin: 20px 0px;
+}

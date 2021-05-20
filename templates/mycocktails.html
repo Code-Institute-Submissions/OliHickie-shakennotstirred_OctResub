@@ -2,8 +2,21 @@
 {% block content %}
 
 <main class="container">
+    <h3>Welcome back, {{ session.user }} !</h3>
 
-    
+    <section class="users-recipes">
+        <h3>{{ session.user }}'s Recipes</h3>
+        <hr>
+        <a href="" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
+        <p>cards go here</p>
+    </section>
+
+    <section class="users-favourites">
+        <h3>{{ session.user }}'s Favourites</h3>
+        <hr>
+        <p>cards go here</p>
+    </section>
+
 </main>
 
 
