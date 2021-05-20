@@ -19,7 +19,10 @@
         {% for spirit in spirits %}
 
         <ul>
-            <li class="spirit-list" id="{{ spirit.name|lower }}">{{ spirit.name }}</li>
+            <li class="spirit-list" id="{{ spirit.name|lower }}">
+                {{ spirit.name }}
+                <i class="hide fas fa-glass-martini"></i>
+            </li>
         </ul>
 
         {% endfor %}

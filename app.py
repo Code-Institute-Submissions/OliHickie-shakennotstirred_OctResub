@@ -74,6 +74,14 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route('/mycocktails/<username>', methods=['GET', 'POST'])
+def mycocktails(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    if session['user']:
+        return render_template("mycocktails.html", username=username)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
