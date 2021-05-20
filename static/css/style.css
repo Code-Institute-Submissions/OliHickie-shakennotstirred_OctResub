@@ -80,6 +80,29 @@ h3 {
     z-index: 10;
 }
 
+/* recipe cards  */
+
+.recipe-favourite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+
+.recipe-favourite i {
+    font-size: 32px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.recipe-favourite .far {
+    color: #EAEAEA;
+}
+
+.recipe-favourite .fas {
+    color: #AD974F;
+}
+
 /* home page  */
 
 .carousel {

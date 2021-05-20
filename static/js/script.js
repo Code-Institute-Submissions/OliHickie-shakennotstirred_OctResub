@@ -25,6 +25,8 @@ $("#add-ingredient").click(function () {
   );
 })
 
+
+// Carousel photos
 function carousel() {
   var carouselImages = ["three-jugs.jpg", "friends.jpg", "large-cocktail.jpg", "serving-drinks.jpg"]
 
@@ -35,6 +37,14 @@ function carousel() {
   }
 }
 
+
+// User favourite a recipe
+$(".fa-heart").click(function(){
+  $(this).toggleClass("far").toggleClass("fas");
+})
+$(".fa-heart").hover(function(){
+  $(this).toggleClass("far").toggleClass("fas");
+})
 
 $(document).ready(function () {
   $('.sidenav').sidenav();
