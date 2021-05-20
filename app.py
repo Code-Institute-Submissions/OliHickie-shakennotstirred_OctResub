@@ -89,7 +89,7 @@ def create_recipe():
         new_recipe = {
             "cocktail_name": request.form.get("cocktail_name").lower(),
             "difficulty": request.form.get("difficulty"),
-            "ingredients": request.form.get("ingredients").lower(),
+            "ingredients": request.form.getlist("ingredients"),
             "method": request.form.get("method").lower()
         }
         mongo.db.recipes.insert_one(new_recipe)
