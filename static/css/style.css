@@ -174,3 +174,22 @@ hr {
     margin-left: auto;
     margin-right: auto;
 }
+
+.create-recipe-form .input-field .prefix.active {
+    color: #231F20;
+}
+.create-recipe-form .input-field input[type=text]:focus + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #AD974F;
+    
+  }
+
+  .create-recipe-form .input-field input[type=text]:focus,
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #AD974F;
+    box-shadow: 0 1px 0 0 #AD974F;
+  }
+
+  .create-recipe-form .dropdown-content li>span {
+      color: #231F20;
+  }

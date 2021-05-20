@@ -15,12 +15,11 @@ $(".spirit-list").mouseleave(function () {
 // add/remove ingreients lines in recipe form
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(
-    `<div class="row">
-      <div class="col s8">
+    `
+    <div class="col s10 m8 input-field">
         <i class="prefix fas fa-wine-bottle"></i>
         <input name="ingredients" type="text" required>
-        <label for="ingredients">Add Ingredient</label>
-      </div>
+        <label for="ingredients">Add Quantity/Ingredient</label>
     </div>`
   );
 })
