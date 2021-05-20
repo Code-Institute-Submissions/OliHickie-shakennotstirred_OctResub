@@ -19,7 +19,7 @@ $("#add-ingredient").click(function () {
     `
     <div class="col s10 m8 input-field">
         <i class="prefix fas fa-wine-bottle"></i>
-        <input name="ingredients" type="text" required>
+        <input name="ingredients" type="text">
         <label for="ingredients">Add Quantity/Ingredient</label>
     </div>`
   );

@@ -58,6 +58,18 @@ h3 {
     background-color: #AD974F;
 }
 
+.ghost-btn,
+.ghost-btn:focus {
+    background-color: #EAEAEA;
+    color: #231F20;
+    transition: 0.5s;
+}
+
+.ghost-btn:hover {
+    background-color: #231F20;
+    color: #EAEAEA;
+}
+
 /* flashes  */
 
 .flashes {
@@ -85,6 +97,10 @@ h3 {
 .link-to-recipes p a {
     color: #EAEAEA;
     display: block;
+}
+
+.link-to-recipes p a:hover {
+    color: #AD974F;
 }
 
 
