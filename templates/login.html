@@ -14,7 +14,7 @@
           </ul>
         </div>
         <!-- log in form -->
-        <form id="login" class="col s12" action="">
+        <form id="login" class="col s12" method="POST" action="{{ url_for('login') }}">
           <div class="input-field">
             <i class="prefix fas fa-user"></i>
             <input id="username" name="username" type="text" class="validate">
@@ -31,7 +31,7 @@
         </form>
 
         <!-- register form -->
-        <form id="register" method="POST" action="{{ url_for('login') }}">
+        <form id="register" method="POST" action="{{ url_for('register') }}">
           <div class="input-field">
             <i class="prefix fas fa-user"></i>
             <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="20" required>
