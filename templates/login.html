@@ -16,11 +16,13 @@
         <!-- log in form -->
         <form id="login" class="col s12" action="">
           <div class="input-field">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
+            <i class="prefix fas fa-user"></i>
+            <input id="username" name="username" type="text" class="validate">
+            <label for="username">Username</label>
           </div>
           <div class="input-field">
-            <input id="password" type="password" class="validate">
+            <i class="prefix fas fa-lock"></i>
+            <input id="password" name="password" type="password" class="validate">
             <label for="password">Password</label>
           </div>
           <button type="submit" class="waves-effect waves-light btn-small">
@@ -31,17 +33,20 @@
         <!-- register form -->
         <form id="register" method="POST" action="{{ url_for('login') }}">
           <div class="input-field">
+            <i class="prefix fas fa-user"></i>
             <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="20" required>
             <label for="username">Username</label>
             <span class="helper-text" data-error="Invalid Username" data-success="Username OK">Must be between 5 and 20 characters</span>
           </div>
           <div class="input-field">
+            <i class="prefix fas fa-lock"></i>
             <input id="password" name="password" type="password" class="validate" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain one uppercase and lowercase letter, and at least 8 or more characters" required>
             <label for="password">Password</label>
             <span class="helper-text">Must be 8 characters and include upper and lower case</span>
           </div>
           <div class="input-field">
+            <i class="prefix fas fa-lock"></i>
             <input id="confirm-password" name="confirm-password" type="password" class="validate" required>
             <label for="confirm-password">Confirm Password</label>
             <span class="helper-text" data-error="Password does not match"></span>
