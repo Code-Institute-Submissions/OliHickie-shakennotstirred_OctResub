@@ -23,14 +23,13 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     number_of_recipes = mongo.db.recipes.count()
-
     return render_template('home.html', number_of_recipes=number_of_recipes)
 
 
 @app.route("/cocktail_list")
 def cocktail_list():
     spirits = mongo.db.spirits.find()
-    recipes = mongo.db.recipes.find()
+    recipes = mongo.db.recipes.find().sort("cocktail_name", 1)
     return render_template(
         'cocktail_list.html', spirits=spirits, recipes=recipes)
 
@@ -109,10 +108,12 @@ def logout():
 
 @app.route('/mycocktails/<username>', methods=['GET', 'POST'])
 def mycocktails(username):
+    my_recipes = mongo.db.recipes.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session['user']:
-        return render_template("mycocktails.html", username=username)
+        return render_template(
+            "mycocktails.html", username=username, my_recipes=my_recipes)
 
 
 @app.route('/create_recipe', methods=['GET', 'POST'])

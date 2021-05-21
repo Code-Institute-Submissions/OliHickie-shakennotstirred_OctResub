@@ -14,7 +14,7 @@ $(".spirit-list").mouseleave(function () {
 
 
 // add/remove ingreients lines in recipe form
-$("#add-ingredient").click(function () {
+$("#add-ingredient").click(function() {
   $(".ingredients-list").append(
     `
     <div class="col s10 m8 input-field">
@@ -24,7 +24,6 @@ $("#add-ingredient").click(function () {
     </div>`
   );
 })
-
 
 // Carousel photos
 function carousel() {
@@ -46,17 +45,31 @@ $(".fa-heart").hover(function(){
   $(this).toggleClass("far").toggleClass("fas");
 })
 
+
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('.tabs').tabs();
   $('select').formSelect();
   M.textareaAutoResize($('#textarea1'));
 
+
+  // set up carousel and interval
   carousel()
   $('.carousel').carousel();
   setInterval(function() {
     $('.carousel').carousel('next');
   }, 5000);
-
   
+
+
+  // change recipe difficulty to icons
+  $(".easy").append(
+    `<span><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>`
+  )
+  $(".medium").append(
+    `<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>`
+  )
+  $(".difficult").append(
+    `<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>`
+  )
 });

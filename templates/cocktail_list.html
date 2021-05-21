@@ -35,12 +35,12 @@
                 <div class="col s6 m4">
                         <div class="card">
                             <div class="card-image">
-                                <img src="/static/images/three-jugs.jpg">
+                                <img class="cocktail-card-img" src="{{ recipe.image_url }}" alt="Picture of {{ recipe.cocktail_name }}">
                                 <span class="recipe-favourite"><i class="far fa-heart"></i></span>
                             </div>
                             <div class="card-content">
                                 <div class="card-title center-align cocktail-card-title"> {{ recipe.cocktail_name }}</div>
-                                <div class="">Difficulty: {{ recipe.difficulty }}</div>
+                                <div class="">Difficulty: <span class="{{ recipe.difficulty }}"></span></div>
                                 <div class="">Rating</div>
                                 <div class="right"><small>Added by: <em>{{ recipe.created_by }}</em></small></div>
                             </div>
