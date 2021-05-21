@@ -125,6 +125,7 @@ def create_recipe():
             "difficulty": request.form.get("difficulty"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.get("method"),
+            "image_url": request.form.get("image_url"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(new_recipe)

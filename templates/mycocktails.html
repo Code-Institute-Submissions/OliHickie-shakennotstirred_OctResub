@@ -15,8 +15,16 @@
             <div class="col s6 l3">
                 <div class="card">
                     <div class="card-image">
+
+                        {% if my_recipe.image_url %}
                         <img class="cocktail-card-img" src="{{ my_recipe.image_url }}"
                             alt="Picture of {{ my_recipe.cocktail_name }}">
+
+                        {% else %}
+                        <img class="cocktail-card-img" src="https://www.thespiritsbusiness.com/content/http://www.thespiritsbusiness.com/media/2014/07/Top-10-high-volume-cocktail-bars-350x350.jpg"
+                            alt="Picture of bar">
+                            
+                        {% endif %}
                     </div>
                     <div class="card-content">
                         <div class="card-title center-align cocktail-card-title"> {{ my_recipe.cocktail_name }}</div>
