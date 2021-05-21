@@ -30,7 +30,9 @@ def home():
 @app.route("/cocktail_list")
 def cocktail_list():
     spirits = mongo.db.spirits.find()
-    return render_template('cocktail_list.html', spirits=spirits)
+    recipes = mongo.db.recipes.find()
+    return render_template(
+        'cocktail_list.html', spirits=spirits, recipes=recipes)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -121,7 +123,8 @@ def create_recipe():
             "cocktail_name": request.form.get("cocktail_name").lower(),
             "difficulty": request.form.get("difficulty"),
             "ingredients": request.form.getlist("ingredients"),
-            "method": request.form.get("method").lower()
+            "method": request.form.get("method"),
+            "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(new_recipe)
         flash("Successfully Added Recipe")
@@ -131,7 +134,7 @@ def create_recipe():
 
 
 @app.route("/recipe/<cocktail_id>")
-def cocktail_recipe(cocktail_id):
+def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     return render_template("recipe.html", recipe=recipe)
 

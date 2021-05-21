@@ -103,6 +103,10 @@ h3 {
     color: #AD974F;
 }
 
+.cocktail-card-title {
+    text-transform: capitalize;
+}
+
 /* home page  */
 
 .carousel {
