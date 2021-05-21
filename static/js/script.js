@@ -28,7 +28,7 @@ $("#add-ingredient").click(function () {
 
 // Carousel photos
 function carousel() {
-  var carouselImages = ["three-jugs.jpg", "friends.jpg", "large-cocktail.jpg", "serving-drinks.jpg"]
+  var carouselImages = ["old-fashioned.jpg", "friends.jpg", "large-cocktail.jpg", "serving-drinks.jpg"]
 
   for (i = 0; i < carouselImages.length; i++) {
     $("#home-carousel").append(

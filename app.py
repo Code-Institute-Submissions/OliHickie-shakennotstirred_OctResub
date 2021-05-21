@@ -27,10 +27,10 @@ def home():
     return render_template('home.html', number_of_recipes=number_of_recipes)
 
 
-@app.route("/recipes")
-def recipes():
+@app.route("/cocktail_list")
+def cocktail_list():
     spirits = mongo.db.spirits.find()
-    return render_template('recipes.html', spirits=spirits)
+    return render_template('cocktail_list.html', spirits=spirits)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -128,6 +128,12 @@ def create_recipe():
         return redirect(url_for("create_recipe"))
 
     return render_template('create_recipe.html')
+
+
+@app.route("/recipe/<cocktail_id>")
+def cocktail_recipe(cocktail_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
+    return render_template("recipe.html", recipe=recipe)
 
 
 if __name__ == "__main__":
