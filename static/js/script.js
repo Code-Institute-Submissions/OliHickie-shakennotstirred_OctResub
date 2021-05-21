@@ -14,7 +14,7 @@ $(".spirit-list").mouseleave(function () {
 
 
 // add/remove ingreients lines in recipe form
-$("#add-ingredient").click(function() {
+$("#add-ingredient").click(function () {
   $(".ingredients-list").append(
     `
     <div class="col s10 m8 input-field">
@@ -32,16 +32,16 @@ function carousel() {
   for (i = 0; i < carouselImages.length; i++) {
     $("#home-carousel").append(
       `<a class="carousel-item" href="#"><img src="/static/images/${carouselImages[i]}"></a>`
-      );
+    );
   }
 }
 
 
 // User favourite a recipe
-$(".fa-heart").click(function(){
+$(".fa-heart").click(function () {
   $(this).toggleClass("far").toggleClass("fas");
 })
-$(".fa-heart").hover(function(){
+$(".fa-heart").hover(function () {
   $(this).toggleClass("far").toggleClass("fas");
 })
 
@@ -56,10 +56,12 @@ $(document).ready(function () {
   // set up carousel and interval
   carousel()
   $('.carousel').carousel();
-  setInterval(function() {
+  setInterval(function () {
     $('.carousel').carousel('next');
   }, 5000);
-  
+
+  $('.slider').slider();
+
 
 
   // change recipe difficulty to icons

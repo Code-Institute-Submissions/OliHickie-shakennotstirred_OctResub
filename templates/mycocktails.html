@@ -8,16 +8,15 @@
         <h3>{{ session.user }}'s Recipes</h3>
         <hr>
         <a href="{{ url_for('create_recipe') }}" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
+        <!-- <div class="row"> -->
         <div class="row">
             {% for my_recipe in my_recipes %}
             {% if my_recipe.created_by == session.user %}
-
-            <div class="col s6 m3">
+            <div class="col s6 l3">
                 <div class="card">
                     <div class="card-image">
                         <img class="cocktail-card-img" src="{{ my_recipe.image_url }}"
                             alt="Picture of {{ my_recipe.cocktail_name }}">
-                        <span class="recipe-favourite"><i class="far fa-heart"></i></span>
                     </div>
                     <div class="card-content">
                         <div class="card-title center-align cocktail-card-title"> {{ my_recipe.cocktail_name }}</div>
@@ -31,6 +30,8 @@
             {% endif %}
             {% endfor %}
         </div>
+
+        <!-- </div> -->
     </section>
 
     <section class="users-favourites">

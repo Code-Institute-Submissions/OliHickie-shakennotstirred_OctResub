@@ -224,6 +224,10 @@ hr {
     margin: 20px 0px;
 }
 
+.users-recipes a {
+    margin-bottom: 30px;
+}
+
 /* Add Cocktail Form  */
 
 .create-recipe-title {
