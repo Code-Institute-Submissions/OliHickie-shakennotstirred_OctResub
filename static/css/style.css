@@ -86,7 +86,6 @@ h3 {
     position: absolute;
     top: 0;
     right: 0;
-    
 }
 
 .recipe-favourite i {
@@ -103,6 +102,10 @@ h3 {
     color: #AD974F;
 }
 
+.recipe-card {
+    min-height: 364px;
+}
+
 .cocktail-card-title {
     text-transform: capitalize;
 }
@@ -113,6 +116,13 @@ h3 {
     object-fit: cover;
 }
 
+.card-content {
+    height: 164px;
+}
+
+.view-cocktail-button {
+    margin: 10px;
+}
 
 /* home page  */
 

@@ -13,7 +13,7 @@ $(".spirit-list").mouseleave(function () {
 })
 
 
-// add/remove ingreients lines in recipe form
+// add/remove ingredients line in recipe form
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(
     `
@@ -35,15 +35,6 @@ function carousel() {
     );
   }
 }
-
-
-// User favourite a recipe
-$(".fa-heart").click(function () {
-  $(this).toggleClass("far").toggleClass("fas");
-})
-$(".fa-heart").hover(function () {
-  $(this).toggleClass("far").toggleClass("fas");
-})
 
 
 $(document).ready(function () {

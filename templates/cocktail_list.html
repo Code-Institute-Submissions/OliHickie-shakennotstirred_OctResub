@@ -32,7 +32,7 @@
             <div class="row">
 
                 {% for recipe in recipes %}
-                <div class="col s6 m4">
+                <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image">
 
@@ -45,15 +45,18 @@
                             <img class="cocktail-card-img"
                                 src="https://www.thespiritsbusiness.com/content/http://www.thespiritsbusiness.com/media/2014/07/Top-10-high-volume-cocktail-bars-350x350.jpg"
                                 alt="Picture of bar">
-                                <span class="recipe-favourite"><i class="far fa-heart"></i></span>
+                            <span class="recipe-favourite"><i class="far fa-heart"></i></span>
 
                             {% endif %}
                         </div>
                         <div class="card-content">
-                            <div class="card-title center-align cocktail-card-title"> {{ recipe.cocktail_name }}</div>
-                            <div class="">Difficulty: <span class="{{ recipe.difficulty }}"></span></div>
-                            <div class="">Rating</div>
-                            <div class="right"><small>Added by: <em>{{ recipe.created_by }}</em></small></div>
+                            <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}">
+                                <div class="card-title center-align cocktail-card-title"> {{ recipe.cocktail_name }}
+                                </div>
+                                <div>Difficulty: <span class="{{ recipe.difficulty }}"></span></div>
+                                <div>Rating</div>
+                                <div><small>Added by: <em>{{ recipe.created_by }}</em></small></div>
+                            </a>
                         </div>
                     </div>
                 </div>
