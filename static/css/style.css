@@ -23,6 +23,7 @@ h3 {
     font-family: 'Yeseva One', 'cursive';
     font-size: 42px;
     color: #231F20;
+    text-transform: capitalize;
 }
 
 /* nav bar */
@@ -170,7 +171,7 @@ h3 {
 }
 
 
-/* recipes - banner  */
+/* cocktail list - banner  */
 
 .recipes-banner {
     background: url("../images/cocktail1.jpg") no-repeat top right;
@@ -191,7 +192,7 @@ h3 {
     }
 }
 
-/* recipes - side bar */
+/* cocktail list - side bar */
 
 .spirit-list {
     color: #231F20;
@@ -231,27 +232,29 @@ h3 {
     background-color: #EAEAEA
 }
 
-.tabs .tab a{
-    color:#231F20;
+.tabs .tab a {
+    color: #231F20;
     background-color: #EAEAEA;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active,
-.tabs .tab a:focus, .tabs .tab a:focus.active,
+.tabs .tab a:hover,
+.tabs .tab a.active,
+.tabs .tab a:focus,
+.tabs .tab a:focus.active,
 .tabs .tab a:hover {
-    color:#AD974F;
+    color: #AD974F;
     background-color: #EAEAEA;
 }
 
 .tabs .indicator {
-    background-color:#AD974F;
-} 
+    background-color: #AD974F;
+}
 
 /* My Cocktails  */
 
 hr {
-    border : 0;
-    height: 3px; 
+    border: 0;
+    height: 3px;
     background-image: linear-gradient(to right, rgba(173, 151, 79, 0), rgba(173, 151, 79, 0.75), rgba(173, 151, 79, 0));
     margin: 20px 0px;
 }
@@ -284,18 +287,44 @@ hr {
 .create-recipe-form .input-field .prefix.active {
     color: #231F20;
 }
-.create-recipe-form .input-field input[type=text]:focus + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
-    color: #AD974F;
-    
-  }
 
-  .create-recipe-form .input-field input[type=text]:focus,
-  textarea.materialize-textarea:focus:not([readonly]) {
+.create-recipe-form .input-field input[type=text]:focus+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #AD974F;
+
+}
+
+.create-recipe-form .input-field input[type=text]:focus,
+textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #AD974F;
     box-shadow: 0 1px 0 0 #AD974F;
-  }
+}
 
-  .create-recipe-form .dropdown-content li>span {
-      color: #231F20;
-  }
+.create-recipe-form .dropdown-content li>span {
+    color: #231F20;
+}
+
+/* cocktail recipe page  */
+
+.cocktail-img img {
+    width: 80%;
+}
+
+.recipe-container {
+    margin-top: 60px;
+}
+
+.ingredients-list {
+    margin-left: 45px;
+    margin-top: 45px;
+}
+
+.ingredients-list li {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.recipe-method {
+    font-size: 18px;
+    margin: 45px;
+}
