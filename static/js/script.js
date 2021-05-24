@@ -25,17 +25,6 @@ $("#add-ingredient").click(function () {
   );
 })
 
-// Carousel photos
-function carousel() {
-  var carouselImages = ["old-fashioned.jpg", "friends.jpg", "large-cocktail.jpg", "serving-drinks.jpg"]
-
-  for (i = 0; i < carouselImages.length; i++) {
-    $("#home-carousel").append(
-      `<a class="carousel-item" href="#"><img src="/static/images/${carouselImages[i]}"></a>`
-    );
-  }
-}
-
 // User favourite a recipe
 $(".fa-heart").click(function () {
   $(this).toggleClass("far").toggleClass("fas");
@@ -51,11 +40,10 @@ $(document).ready(function () {
 
 
   // set up carousel and interval
-  carousel()
   $('.carousel').carousel();
   setInterval(function () {
     $('.carousel').carousel('next');
-  }, 5000);
+  }, 6000);
 
   $('.slider').slider();
 

@@ -10,6 +10,7 @@
         <a href="{{ url_for('create_recipe') }}" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
     </div>
 
+    <!-- confirm delete modal  -->
     <div id="delete-modal" class="modal">
         <div class="modal-content">
             <p>Are you sure you would like to delete this recipe?</p>
@@ -18,9 +19,11 @@
             <button class="btn-small delete-btn">
                 <a href="{{ url_for('delete_recipe', cocktail_id=recipe._id) }}">Delete</a>
             </button>
+            <button class="btn-small edit-btn modal-close">cancel</button>
         </div>
     </div>
 
+    <!-- recipe edit form  -->
     <div class="card create-recipe-form">
         <form method="POST" action="{{ url_for('edit_recipe', cocktail_id=recipe._id) }}">
             <div class="row">

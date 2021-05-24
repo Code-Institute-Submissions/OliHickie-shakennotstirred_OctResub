@@ -129,8 +129,10 @@ def create_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(new_recipe)
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
         flash("Successfully Added Recipe")
-        return redirect(url_for("create_recipe"))
+        return redirect(url_for("mycocktails", username=username))
 
     return render_template('create_recipe.html')
 
@@ -160,7 +162,9 @@ def edit_recipe(cocktail_id):
 def delete_recipe(cocktail_id):
     mongo.db.recipes.remove({"_id": ObjectId(cocktail_id)})
     flash("Recipe Has Been Removed!")
-    return redirect(url_for("login"))
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+    return redirect(url_for('mycocktails', username=username))
 
 
 @app.route("/recipe/<cocktail_id>")

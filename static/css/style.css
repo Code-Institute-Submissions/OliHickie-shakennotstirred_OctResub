@@ -32,6 +32,10 @@ h3 {
     text-transform: capitalize;
 }
 
+h5 {
+    font-size: 28px;
+}
+
 /* nav bar */
 
 .navbar {
@@ -110,6 +114,17 @@ h3 {
     z-index: 10;
 }
 
+/* modals */
+
+.modal {
+    width: 80%;
+    max-width: 350px;
+}
+
+.modal p {
+    font-size: 18px;
+}
+
 /* recipe cards  */
 
 .recipe-favourite {
@@ -161,7 +176,10 @@ h3 {
 /* home page  */
 
 .carousel {
-    height: 500px;
+    height: 600px;
+}
+
+.carousel .carousel-item {
     max-width: 800px;
     margin: 60px auto;
 }
@@ -180,6 +198,17 @@ h3 {
 .link-to-recipes p a:hover {
     color: #AD974F;
 }
+
+.home-icon {
+    font-size: 48px;
+    color: #AD974F;
+}
+
+@media screen and (max-width: 600px) {
+    .carousel {
+        height: 300px;
+    }
+  }
 
 
 /* cocktail list - banner  */
