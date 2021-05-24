@@ -19,6 +19,12 @@ h1 {
     text-transform: uppercase;
 }
 
+h2 {
+    font-family: 'Yeseva One', 'cursive';
+    font-size: 52px;
+    color: #231F20;
+}
+
 h3 {
     font-family: 'Yeseva One', 'cursive';
     font-size: 42px;

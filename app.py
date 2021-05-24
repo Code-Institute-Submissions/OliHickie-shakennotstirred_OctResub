@@ -135,6 +135,34 @@ def create_recipe():
     return render_template('create_recipe.html')
 
 
+@app.route('/edit_recipe/<cocktail_id>', methods=["GET", "POST"])
+def edit_recipe(cocktail_id):
+    if request.method == "POST":
+        edit_recipe = {
+            "cocktail_name": request.form.get("cocktail_name").lower(),
+            "difficulty": request.form.get("difficulty"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method": request.form.get("method"),
+            "image_url": request.form.get("image_url"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(cocktail_id)}, edit_recipe)
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        flash('Recipe has been Updated')
+        return redirect(url_for('mycocktails', username=username))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
+    return render_template('edit_recipe.html', recipe=recipe)
+
+
+@app.route("/delete_recipe/<cocktail_id>")
+def delete_recipe(cocktail_id):
+    mongo.db.recipes.remove({"_id": ObjectId(cocktail_id)})
+    flash("Recipe Has Been Removed!")
+    return redirect(url_for("login"))
+
+
 @app.route("/recipe/<cocktail_id>")
 def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})

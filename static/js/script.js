@@ -46,6 +46,7 @@ $(document).ready(function () {
   $('.sidenav').sidenav();
   $('.tabs').tabs();
   $('select').formSelect();
+  $('.modal').modal();
   M.textareaAutoResize($('#textarea1'));
 
 

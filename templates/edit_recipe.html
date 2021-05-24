@@ -3,34 +3,47 @@
 
 <main class="container">
     <div class="center-align">
-        <h3 class="create-recipe-title">Create a new recipe</h3>
+        <h3 class="create-recipe-title">Edit Recipe</h3>
     </div>
 
     <div class="card create-recipe-form">
-        <form method="POST" action="{{ url_for('create_recipe') }}">
+        <form method="POST" action="{{ url_for('edit_recipe', cocktail_id=recipe._id) }}">
             <div class="row">
                 <div class="input-field col s12 m8">
                     <i class="prefix fas fa-glass-martini-alt"></i>
-                    <input id="cocktail_name" name="cocktail_name" type="text" required>
+                    <input id="cocktail_name" name="cocktail_name" type="text"
+                    value="{{ recipe.cocktail_name }}" required>
                     <label for="cocktail_name">Cocktail Name</label>
                 </div>
                 <div class="input-field col s12 m4">
                     <i class="prefix fas fa-star"></i>
                     <select name="difficulty">
+                        {% if recipe.difficulty == "easy" %}
                         <option value="easy" selected>Easy</option>
                         <option value="medium">Medium</option>
                         <option value="difficult">Difficult</option>
+                        {% elif recipe.difficulty == "medium" %}
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="difficult">Difficult</option>
+                        {% elif recipe.difficulty == "difficult" %}
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="difficult" selected>Difficult</option>
+                        {% endif %}
                     </select>
                     <label>Difficulty</label>
                 </div>
 
                 <div class="input-field col s12">
                     <div class="row ingredients-list">
+                        {% for ingredient in recipe.ingredients %}
                         <div class="col s10 m8 input-field">
                             <i class="prefix fas fa-wine-bottle"></i>
-                            <input name="ingredients" type="text" required>
+                            <input name="ingredients" type="text" value="{{ ingredient }}" required>
                             <label for="ingredients">Add Quantity/Ingredient</label>
                         </div>
+                        {% endfor %}
                         <div class="input-field col s2 m4 add-ingredient-buttons">
                             <i id="add-ingredient" class="fas fa-plus-circle"></i>
                         </div>
@@ -38,17 +51,19 @@
                 </div>
                 <div class="input-field col s12">
                     <i class="prefix fas fa-glass-cheers"></i>
-                    <textarea id="method" name="method" class="materialize-textarea"></textarea>
+                    <textarea id="method" name="method" class="materialize-textarea">
+                        {{- recipe.method -}}
+                    </textarea>
                     <label for="method">Method</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="prefix fas fa-camera"></i>
-                    <input id="image_url" name="image_url" type="text">
+                    <input id="image_url" name="image_url" type="text" value="{{ recipe.image_url }}">
                     <label for="image_url">Image URL</label>
                 </div>
                 <div class="center-align col s12">
                     <button type="submit" class="btn-small">
-                        Add Cocktail
+                        Confirm
                     </button>
                     <button type="reset" class="btn-small ghost-btn">
                         reset
@@ -59,7 +74,5 @@
     </div>
 
 </main>
-
-
 
 {% endblock %}
