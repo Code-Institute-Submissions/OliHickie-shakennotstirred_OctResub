@@ -199,6 +199,10 @@ h5 {
     color: #AD974F;
 }
 
+.season-img img {
+    width: 100%;
+}
+
 .home-icon {
     font-size: 48px;
     color: #AD974F;

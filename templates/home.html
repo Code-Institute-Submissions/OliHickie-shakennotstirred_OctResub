@@ -5,9 +5,11 @@
 <main class="container">
 
   <div class="carousel carousel-slider" id="home-carousel">
-    <a class="carousel-item" href="{{ url_for('recipe', cocktail_id='60a6b327ccda71deb2cd57fa') }}"><img src="/static/images/old-fashioned.jpg"></a>
+    <a class="carousel-item" href="{{ url_for('recipe', cocktail_id='60a6b327ccda71deb2cd57fa') }}"><img
+        src="/static/images/old-fashioned.jpg"></a>
     <a class="carousel-item" href="{{ url_for('login') }}"><img src="/static/images/friends-join.png"></a>
-    <a class="carousel-item" href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}"><img src="/static/images/classicmojito.png"></a>
+    <a class="carousel-item" href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}"><img
+        src="/static/images/classicmojito.png"></a>
   </div>
 
   <div class="link-to-recipes center-align">
@@ -15,10 +17,36 @@
         Click here for all {{ number_of_recipes }} recipes <i class="fas fa-arrow-alt-circle-right"></i>
       </a></p>
   </div>
-
+  <hr>
+  <section>
+    <h3>Cocktails for every season...</h3>
+    <div class="row">
+      <div class="col s6 l3 season-img">
+        <a href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}">
+          <img src="/static/images/Spring.png" alt="Southside">
+        </a>
+      </div>
+      <div class="col s6 l3 season-img">
+        <a href="{{ url_for('recipe', cocktail_id='60ab7d8dc47a342be1648ccc') }}">
+          <img src="/static/images/Margarita.png" alt="Margarita">
+        </a>
+      </div>
+      <div class="col s6 l3 season-img">
+        <a href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}">
+          <img src="/static/images/Autumn.png" alt="Manhattan">
+        </a>
+      </div>
+      <div class="col s6 l3 season-img">
+        <a href="{{ url_for('recipe', cocktail_id='60a6b605ccda71deb2cd57fc') }}">
+          <img src="/static/images/Winter.png" alt="Hot Toddy">
+        </a>
+      </div>
+    </div>
+  </section>
+  <hr>
   <section>
     <h3 class="center-align">sign up for free!</h3>
-    <hr>
+
     <div class="row">
       <div class="col s12 m4 offset-m2 center-align">
         <h5>Create your own recipes</h5>
