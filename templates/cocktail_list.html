@@ -50,13 +50,16 @@
                             {% endif %}
                         </div>
                         <div class="card-content">
-                            <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}">
-                                <div class="card-title center-align cocktail-card-title"> {{ recipe.cocktail_name }}
-                                </div>
-                                <div>Difficulty: <span class="{{ recipe.difficulty }}"></span></div>
-                                <div>Rating</div>
-                                <div><small>Added by: <em>{{ recipe.created_by }}</em></small></div>
-                            </a>
+                            <div class="card-title center-align cocktail-card-title"> {{ recipe.cocktail_name }}
+                            </div>
+                            <div class="center-align see-recipe-btn">
+                                <button class="btn-small">
+                                    <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}">see recipe</a>
+                                </button>
+                            </div>
+                            <div>Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span></div>
+                            <div>Rating</div>
+                            <div><small>Added by: <em>{{ recipe.created_by }}</em></small></div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ setTimeout(function () {
 }, 3000);
 
 
-// Add/remove icon to recipes side bar on hover
+// Add glass icon to recipes side bar on hover
 $(".spirit-list").hover(function () {
   $(this).children().removeClass("hide")
 })
@@ -13,7 +13,7 @@ $(".spirit-list").mouseleave(function () {
 })
 
 
-// add/remove ingredients line in recipe form
+// Add ingredients line in recipe form
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(
     `
@@ -36,6 +36,11 @@ function carousel() {
   }
 }
 
+// User favourite a recipe
+$(".fa-heart").click(function () {
+  $(this).toggleClass("far").toggleClass("fas");
+})
+
 
 $(document).ready(function () {
   $('.sidenav').sidenav();
@@ -56,13 +61,13 @@ $(document).ready(function () {
 
 
   // change recipe difficulty to icons
-  $(".easy").append(
+  $(".difficulty-easy").append(
     `<span><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>`
   )
-  $(".medium").append(
+  $(".difficulty-medium").append(
     `<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>`
   )
-  $(".difficult").append(
+  $(".difficulty-difficult").append(
     `<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>`
   )
 });

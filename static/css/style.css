@@ -54,6 +54,10 @@ h3 {
     color: #EAEAEA;
 }
 
+.btn-small a {
+    color: #EAEAEA;
+}
+
 .btn-small:hover {
     background-color: #AD974F;
 }
@@ -69,6 +73,20 @@ h3 {
     background-color: #231F20;
     color: #EAEAEA;
 }
+
+.edit-btn,
+.edit-btn:hover {
+    background-color: #EAEAEA;
+    color: #231F20;
+    margin: 5px;
+}
+
+.delete-btn,
+.delete-btn:hover {
+    background-color: #CC2828;
+    margin: 5px;
+}
+
 
 /* flashes  */
 
@@ -117,11 +135,15 @@ h3 {
 }
 
 .card-content {
-    height: 164px;
+    height: 180px;
 }
 
-.view-cocktail-button {
-    margin: 10px;
+.card-content {
+    color: #231F20
+}
+
+.see-recipe-btn {
+    margin-bottom: 10px;
 }
 
 /* home page  */
