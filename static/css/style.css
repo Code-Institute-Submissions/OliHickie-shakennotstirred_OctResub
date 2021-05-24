@@ -88,6 +88,11 @@ h3 {
     margin: 5px;
 }
 
+.edit-btn a,
+.edit-btn a:hover {
+    color: #231F20;
+}
+
 .delete-btn,
 .delete-btn:hover {
     background-color: #CC2828;
@@ -101,7 +106,7 @@ h3 {
     position: absolute;
     margin-top: 0px;
     width: 100%;
-    background-color: #fff;
+    background-color: #e7dcb7;
     z-index: 10;
 }
 

@@ -4,7 +4,16 @@
 <main class="container">
     <div class="row recipe-container">
         <div class="col s12 l6 center-align cocktail-img">
+
+            {% if recipe.image_url %}
             <img src="{{ recipe.image_url }}" alt="image of {{ recipe.cocktail_name }}">
+
+            {% else %}
+            <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="Picture of bar">
+
+            {% endif %}
+
         </div>
         <div class="col s12 l6">
             <h3>{{ recipe.cocktail_name }}</h3>

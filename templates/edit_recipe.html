@@ -4,6 +4,21 @@
 <main class="container">
     <div class="center-align">
         <h3 class="create-recipe-title">Edit Recipe</h3>
+        <button data-target="delete-modal" class=" btn-small delete-btn modal-trigger">
+            <i class="fas fa-trash-alt"></i> delete recipe
+        </button>
+        <a href="{{ url_for('create_recipe') }}" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you would like to delete this recipe?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-small delete-btn">
+                <a href="{{ url_for('delete_recipe', cocktail_id=recipe._id) }}">Delete</a>
+            </button>
+        </div>
     </div>
 
     <div class="card create-recipe-form">
@@ -11,8 +26,8 @@
             <div class="row">
                 <div class="input-field col s12 m8">
                     <i class="prefix fas fa-glass-martini-alt"></i>
-                    <input id="cocktail_name" name="cocktail_name" type="text"
-                    value="{{ recipe.cocktail_name }}" required>
+                    <input id="cocktail_name" name="cocktail_name" type="text" value="{{ recipe.cocktail_name }}"
+                        required>
                     <label for="cocktail_name">Cocktail Name</label>
                 </div>
                 <div class="input-field col s12 m4">
@@ -63,12 +78,12 @@
                 </div>
                 <div class="center-align col s12">
                     <button type="submit" class="btn-small">
-                        Confirm
+                        confirm 
                     </button>
                     <button type="reset" class="btn-small ghost-btn">
                         reset
                     </button>
-                </div>
+                </div>        
             </div>
         </form>
     </div>
