@@ -5,11 +5,13 @@
 <main class="container">
 
   <div class="carousel carousel-slider" id="home-carousel">
-    <a class="carousel-item" href="{{ url_for('recipe', cocktail_id='60a6b327ccda71deb2cd57fa') }}"><img
-        src="/static/images/old-fashioned.jpg"></a>
-    <a class="carousel-item" href="{{ url_for('login') }}"><img src="/static/images/friends-join.png"></a>
-    <a class="carousel-item" href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}"><img
-        src="/static/images/classicmojito.png"></a>
+
+    {% for item in carousel_items %}
+    <a class="carousel-item" href="{{ url_for( item.url, cocktail_id=item.cocktail_id )  }}">
+      <img src="{{ item.image }}">
+    </a>
+    {% endfor %}
+
   </div>
 
   <div class="link-to-recipes center-align">
@@ -22,7 +24,7 @@
     <h3>Cocktails for every season...</h3>
     <div class="row">
       <div class="col s6 l3 season-img">
-        <a href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}">
+        <a href="{{ url_for('recipe', cocktail_id='60abd6b85afe387784d624c2') }}">
           <img src="/static/images/Spring.png" alt="Southside">
         </a>
       </div>
@@ -32,7 +34,7 @@
         </a>
       </div>
       <div class="col s6 l3 season-img">
-        <a href="{{ url_for('recipe', cocktail_id='60abc1d55afe387784d624c1') }}">
+        <a href="{{ url_for('recipe', cocktail_id='60abd77b5afe387784d624c3') }}">
           <img src="/static/images/Autumn.png" alt="Manhattan">
         </a>
       </div>

@@ -7,7 +7,6 @@
         <button data-target="delete-modal" class=" btn-small delete-btn modal-trigger">
             <i class="fas fa-trash-alt"></i> delete recipe
         </button>
-        <a href="{{ url_for('create_recipe') }}" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
     </div>
 
     <!-- confirm delete modal  -->
@@ -17,7 +16,7 @@
         </div>
         <div class="modal-footer">
             <button class="btn-small delete-btn">
-                <a href="{{ url_for('delete_recipe', cocktail_id=recipe._id) }}">Delete</a>
+                <a href="{{ url_for('delete_recipe', cocktail_id=recipe._id) }}">delete</a>
             </button>
             <button class="btn-small edit-btn modal-close">cancel</button>
         </div>

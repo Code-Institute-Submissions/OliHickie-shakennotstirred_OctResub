@@ -22,8 +22,28 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    carousel_items = [
+        {
+            # old fashioned card
+            "url": "recipe",
+            "cocktail_id": "60a6b327ccda71deb2cd57fa",
+            "image": "/static/images/old-fashioned.jpg"
+        },
+        {
+            # login card
+            "url": "login",
+            "image": "/static/images/friends-join.png"
+        },
+        {
+            # classic mojito card
+            "url": "recipe",
+            "cocktail_id": "60abc1d55afe387784d624c1",
+            "image": "/static/images/classicmojito.png"
+        }
+    ]
     number_of_recipes = mongo.db.recipes.count()
-    return render_template('home.html', number_of_recipes=number_of_recipes)
+    return render_template('home.html', number_of_recipes=number_of_recipes,
+                           carousel_items=carousel_items)
 
 
 @app.route("/cocktail_list")

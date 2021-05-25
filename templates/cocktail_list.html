@@ -39,14 +39,14 @@
                             {% if recipe.image_url %}
                             <img class="cocktail-card-img" src="{{ recipe.image_url }}"
                                 alt="Picture of {{ recipe.cocktail_name }}">
-                            <span class="recipe-favourite"><i class="far fa-heart"></i></span>
-
                             {% else %}
                             <img class="cocktail-card-img"
                                 src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                                 alt="Picture of bar">
-                            <span class="recipe-favourite"><i class="far fa-heart"></i></span>
+                            {% endif %}
 
+                            {% if session.user %}
+                            <span class="recipe-favourite"><i class="far fa-heart"></i></span>
                             {% endif %}
                         </div>
                         <div class="card-content">
