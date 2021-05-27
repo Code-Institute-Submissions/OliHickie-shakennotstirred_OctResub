@@ -54,6 +54,14 @@ def cocktail_list():
         'cocktail_list.html', spirits=spirits, recipes=recipes)
 
 
+@app.route("/search")
+def search_vodka():
+    spirits = mongo.db.spirits.find()
+    recipes = mongo.db.recipes.find()
+    return render_template('cocktail_list.html',
+                           spirits=spirits, recipes=recipes)
+
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
@@ -143,6 +151,7 @@ def create_recipe():
         new_recipe = {
             "cocktail_name": request.form.get("cocktail_name").lower(),
             "difficulty": request.form.get("difficulty"),
+            "category": request.form.get("category"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.get("method"),
             "image_url": request.form.get("image_url"),
@@ -163,6 +172,7 @@ def edit_recipe(cocktail_id):
         edit_recipe = {
             "cocktail_name": request.form.get("cocktail_name").lower(),
             "difficulty": request.form.get("difficulty"),
+            "category": request.form.get("category"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.get("method"),
             "image_url": request.form.get("image_url"),

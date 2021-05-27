@@ -5,12 +5,12 @@ setTimeout(function () {
 
 
 // Add glass icon to recipes side bar on hover
-$(".spirit-list").hover(function () {
-  $(this).children().removeClass("hide")
-})
-$(".spirit-list").mouseleave(function () {
-  $(this).children().addClass("hide")
-})
+// $(".spirit-list").hover(function () {
+//   $(this).children().removeClass("hide")
+// })
+// $(".spirit-list").mouseleave(function () {
+//   $(this).children().addClass("hide")
+// })
 
 
 // Add ingredients line in recipe form

@@ -238,15 +238,22 @@ h5 {
     }
 }
 
-/* cocktail list - side bar */
+/* cocktail list - search bar */
 
 .spirit-list {
-    color: #231F20;
+    display: flex;
+    justify-content: space-around;    
+    background-color: #AD974F;
+    padding: 5px 0px;
+}
+
+.spirit-list li {
+    color: #EAEAEA;
     font-size: 20px;
     display: inline;
 }
 
-.spirit-list:hover {
+.spirit-list li:hover {
     cursor: pointer;
 }
 

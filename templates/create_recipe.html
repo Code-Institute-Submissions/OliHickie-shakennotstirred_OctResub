@@ -10,7 +10,7 @@
         <form method="POST" action="{{ url_for('create_recipe') }}">
             <div class="row">
                 <!-- Cocktail name  -->
-                <div class="input-field col s12 m8">
+                <div class="input-field col s12">
                     <i class="prefix fas fa-glass-martini-alt"></i>
                     <input id="cocktail_name" name="cocktail_name" type="text" 
                     maxlength="20" required>
@@ -25,6 +25,19 @@
                         <option value="difficult">Difficult</option>
                     </select>
                     <label>Difficulty</label>
+                </div>
+                <!-- category -->
+                <div class="input-field col s12 m4">
+                    <i class="prefix fas fa-glass-whiskey"></i>
+                    <select name="category">
+                        <option value="vodka" selected>Vodka</option>
+                        <option value="gin">Gin</option>
+                        <option value="whiskey">Whiskey</option>
+                        <option value="rum">Rum</option>
+                        <option value="tequila">Tequila</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label>Category</label>
                 </div>
                 <!-- Add ingredients  -->
                 <div class="input-field col s12">

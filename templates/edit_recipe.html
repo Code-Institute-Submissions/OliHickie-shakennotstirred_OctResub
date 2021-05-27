@@ -52,6 +52,55 @@
                     <label>Difficulty</label>
                 </div>
 
+                <div class="input-field col s12 m4">
+                    <i class="prefix fas fa-glass-whiskey"></i>
+                    <select name="category">
+                        {% if recipe.category == "vodka" %}
+                        <option value="vodka" selected>Vodka</option>
+                        <option value="gin">Gin</option>
+                        <option value="whiskey">Whiskey</option>
+                        <option value="rum">Rum</option>
+                        <option value="tequila">Tequila</option>
+                        <option value="other">Other</option>
+                        {% elif recipe.category == "gin" %}
+                        <option value="vodka">Vodka</option>
+                        <option value="gin" selected>Gin</option>
+                        <option value="whiskey">Whiskey</option>
+                        <option value="rum">Rum</option>
+                        <option value="tequila">Tequila</option>
+                        <option value="other">Other</option>
+                        {% elif recipe.category == "whiskey" %}
+                        <option value="vodka">Vodka</option>
+                        <option value="gin">Gin</option>
+                        <option value="whiskey" selected>Whiskey</option>
+                        <option value="rum">Rum</option>
+                        <option value="tequila">Tequila</option>
+                        <option value="other">Other</option>
+                        {% elif recipe.category == "rum" %}
+                        <option value="vodka">Vodka</option>
+                        <option value="gin">Gin</option>
+                        <option value="whiskey">Whiskey</option>
+                        <option value="rum" selected>Rum</option>
+                        <option value="tequila">Tequila</option>
+                        <option value="other">Other</option>
+                        {% elif recipe.category == "tequila" %}
+                        <option value="vodka">Vodka</option>
+                        <option value="gin">Gin</option>
+                        <option value="whiskey">Whiskey</option>
+                        <option value="rum">Rum</option>
+                        <option value="tequila" selected>Tequila</option>
+                        <option value="other">Other</option>
+                        {% elif recipe.category == "other" %}
+                        <option value="vodka">Vodka</option>
+                        <option value="gin">Gin</option>
+                        <option value="whiskey">Whiskey</option>
+                        <option value="rum">Rum</option>
+                        <option value="tequila">Tequila</option>
+                        <option value="other" selected>Other</option>
+                        {% endif %}
+                    </select>
+                    <label>Category</label>
+
                 <div class="input-field col s12">
                     <div class="row ingredients-list">
                         {% for ingredient in recipe.ingredients %}
