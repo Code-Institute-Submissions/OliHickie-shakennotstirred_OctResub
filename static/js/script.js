@@ -16,13 +16,18 @@ setTimeout(function () {
 // Add ingredients line in recipe form
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(
-    `
-    <div class="col s10 m8 input-field">
+    `<div class="input-field additional-line">
         <i class="prefix fas fa-wine-bottle"></i>
-        <input name="ingredients" type="text">
+        <input name="ingredients" type="text" required>
         <label for="ingredients">Add Quantity/Ingredient</label>
     </div>`
   );
+  $("#remove-ingredient").removeClass("hide");
+})
+
+// Remove ingredients line in recipe form except first line
+$("#remove-ingredient").click(function (){
+  $(".ingredients-list").children(".additional-line").last().remove();
 })
 
 // User favourite a recipe

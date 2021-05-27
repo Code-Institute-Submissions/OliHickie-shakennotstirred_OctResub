@@ -12,12 +12,11 @@
                 <!-- Cocktail name  -->
                 <div class="input-field col s12">
                     <i class="prefix fas fa-glass-martini-alt"></i>
-                    <input id="cocktail_name" name="cocktail_name" type="text" 
-                    maxlength="20" required>
+                    <input id="cocktail_name" name="cocktail_name" type="text" maxlength="20" required>
                     <label for="cocktail_name">Cocktail Name</label>
                 </div>
                 <!-- difficulty -->
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 m6">
                     <i class="prefix fas fa-star"></i>
                     <select name="difficulty">
                         <option value="easy" selected>Easy</option>
@@ -27,7 +26,7 @@
                     <label>Difficulty</label>
                 </div>
                 <!-- category -->
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 m6">
                     <i class="prefix fas fa-glass-whiskey"></i>
                     <select name="category">
                         <option value="vodka" selected>Vodka</option>
@@ -40,18 +39,20 @@
                     <label>Category</label>
                 </div>
                 <!-- Add ingredients  -->
-                <div class="input-field col s12">
-                    <div class="row ingredients-list">
-                        <div class="col s10 m8 input-field">
-                            <i class="prefix fas fa-wine-bottle"></i>
-                            <input name="ingredients" type="text" required>
-                            <label for="ingredients">Add Quantity/Ingredient</label>
-                        </div>
-                        <div class="input-field col s2 m4 add-ingredient-buttons">
-                            <i id="add-ingredient" class="fas fa-plus-circle"></i>
-                        </div>
-                    </div>
+                <div class="input-field ingredients-list col s12">
+                    <i class="prefix fas fa-wine-bottle"></i>
+                    <input name="ingredients" type="text" required>
+                    <label for="ingredients">Add Quantity/Ingredient</label>
                 </div>
+                <span class="btn-small edit-btn" id="add-ingredient">
+                    <i class="fas fa-plus-circle"></i>
+                    Add Ingredient
+                </span>
+                <span class="btn-small edit-btn hide" id="remove-ingredient">
+                    <i class="fas fa-minus-circle"></i>
+                    Remove line
+                </span>
+
                 <!-- method  -->
                 <div class="input-field col s12">
                     <i class="prefix fas fa-glass-cheers"></i>

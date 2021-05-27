@@ -26,10 +26,10 @@
     <div class="card create-recipe-form">
         <form method="POST" action="{{ url_for('edit_recipe', cocktail_id=recipe._id) }}">
             <div class="row">
-                <div class="input-field col s12 m8">
+                <div class="input-field col s12">
                     <i class="prefix fas fa-glass-martini-alt"></i>
-                    <input id="cocktail_name" name="cocktail_name" type="text" maxlength="20" 
-                    value="{{ recipe.cocktail_name }}" required>
+                    <input id="cocktail_name" name="cocktail_name" type="text" maxlength="20"
+                        value="{{ recipe.cocktail_name }}" required>
                     <label for="cocktail_name">Cocktail Name</label>
                 </div>
                 <div class="input-field col s12 m4">
@@ -52,7 +52,7 @@
                     <label>Difficulty</label>
                 </div>
 
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 m6">
                     <i class="prefix fas fa-glass-whiskey"></i>
                     <select name="category">
                         {% if recipe.category == "vodka" %}
@@ -100,21 +100,38 @@
                         {% endif %}
                     </select>
                     <label>Category</label>
-
-                <div class="input-field col s12">
-                    <div class="row ingredients-list">
-                        {% for ingredient in recipe.ingredients %}
-                        <div class="col s10 m8 input-field">
-                            <i class="prefix fas fa-wine-bottle"></i>
-                            <input name="ingredients" type="text" value="{{ ingredient }}" required>
-                            <label for="ingredients">Add Quantity/Ingredient</label>
-                        </div>
-                        {% endfor %}
-                        <div class="input-field col s2 m4 add-ingredient-buttons">
-                            <i id="add-ingredient" class="fas fa-plus-circle"></i>
-                        </div>
-                    </div>
                 </div>
+
+                <!-- Ingredients list -->
+                <div class="ingredients-list col s12">
+                    <div class="input-field">
+                        <i class="prefix fas fa-wine-bottle"></i>
+                        <input name="ingredients" type="text"
+                        value="{{ recipe.ingredients[0] }}" required>
+                        <label for="ingredients">Add Quantity/Ingredient</label>
+                    </div>
+
+                    {% for ingredient in recipe.ingredients[1:] %}
+                    <div class="input-field additional-line">
+                        <i class="prefix fas fa-wine-bottle"></i>
+                        <input name="ingredients" type="text"
+                        value="{{ ingredient }}" required>
+                        <label for="ingredients">Add Quantity/Ingredient</label>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <span class="btn-small edit-btn" id="add-ingredient">
+                    <i class="fas fa-plus-circle"></i>
+                    Add Ingredient
+                </span>
+                <span class="btn-small edit-btn" id="remove-ingredient">
+                    <i class="fas fa-minus-circle"></i>
+                    Remove line
+                </span>
+
+
+
                 <div class="input-field col s12">
                     <i class="prefix fas fa-glass-cheers"></i>
                     <textarea id="method" name="method" class="materialize-textarea">
@@ -129,12 +146,12 @@
                 </div>
                 <div class="center-align col s12">
                     <button type="submit" class="btn-small">
-                        confirm 
+                        confirm
                     </button>
                     <button type="reset" class="btn-small ghost-btn">
                         <i class="fas fa-redo-alt"></i> reset
                     </button>
-                </div>        
+                </div>
             </div>
         </form>
     </div>
