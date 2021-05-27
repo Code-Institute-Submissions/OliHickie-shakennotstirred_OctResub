@@ -54,10 +54,10 @@ def cocktail_list():
         'cocktail_list.html', spirits=spirits, recipes=recipes)
 
 
-@app.route("/search")
-def search_vodka():
+@app.route("/search/<spirit>")
+def search_spirit(spirit):
     spirits = mongo.db.spirits.find()
-    recipes = mongo.db.recipes.find()
+    recipes = mongo.db.recipes.find({"category": spirit})
     return render_template('cocktail_list.html',
                            spirits=spirits, recipes=recipes)
 

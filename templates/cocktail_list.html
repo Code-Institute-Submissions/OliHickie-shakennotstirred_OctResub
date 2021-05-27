@@ -14,18 +14,16 @@
                 <button type="submit" class="btn-small">
                     <i class="fas fa-search"></i> Search
                 </button>
+                <a href="{{ url_for('cocktail_list') }}" class="btn-small edit-btn">
+                    <i class="fas fa-redo-alt"></i> Reset
+                </a>
             </div>
             <ul class="spirit-list hide-on-small-only">
-                <li id="">
-                    <a href="{{ url_for('search_vodka') }}">Hot Toddy</a>
-                </li>
 
                 {% for spirit in spirits %}
-
-                <li id="{{ spirit.name|lower }}">
-                    {{ spirit.name }}
-                </li>
-
+                <li >
+                    <a id="{{ spirit.name|lower }}" href="{{ url_for('search_spirit', spirit=spirit.name|lower) }}">{{ spirit.name }}</a>
+                </li>                            
                 {% endfor %}
             </ul>
         </div>
