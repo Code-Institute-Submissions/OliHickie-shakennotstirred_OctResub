@@ -153,6 +153,8 @@ h5 {
 
 .cocktail-card-title {
     text-transform: capitalize;
+    overflow-wrap: break-word;
+    height: 64px;
 }
 
 .cocktail-card-img {
@@ -162,7 +164,7 @@ h5 {
 }
 
 .card-content {
-    height: 180px;
+    height: 210px;
 }
 
 .card-content {
@@ -241,6 +243,7 @@ h5 {
 .spirit-list {
     color: #231F20;
     font-size: 20px;
+    display: inline;
 }
 
 .spirit-list:hover {
