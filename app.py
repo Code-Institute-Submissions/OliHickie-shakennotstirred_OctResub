@@ -54,6 +54,15 @@ def cocktail_list():
         'cocktail_list.html', spirits=spirits, recipes=recipes)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    spirits = mongo.db.spirits.find()
+    query = request.form.get("query")
+    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+    return render_template("cocktail_list.html", spirits=spirits,
+                           recipes=recipes)
+
+
 @app.route("/search/<spirit>")
 def search_spirit(spirit):
     spirits = mongo.db.spirits.find()

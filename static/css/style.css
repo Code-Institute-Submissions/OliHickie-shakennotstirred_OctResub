@@ -23,6 +23,7 @@ h2 {
     font-family: 'Yeseva One', 'cursive';
     font-size: 52px;
     color: #231F20;
+    text-transform: capitalize;
 }
 
 h3 {
