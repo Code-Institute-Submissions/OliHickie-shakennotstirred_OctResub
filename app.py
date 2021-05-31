@@ -208,9 +208,22 @@ def delete_recipe(cocktail_id):
     return redirect(url_for('mycocktails', username=username))
 
 
-@app.route("/recipe/<cocktail_id>")
+@app.route("/recipe/<cocktail_id>", methods=["GET", "POST"])
 def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
+    if request.method == "POST":
+        new_review = {
+            "cocktail_id": cocktail_id,
+            "comment": request.form.get("comment"),
+            "rating": request.form.get("rating"),
+            "user": session["user"]
+        }
+        mongo.db.user_comments.insert_one(new_review)
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        return render_template("recipe.html", recipe=recipe,
+                               username=username)
+
     return render_template("recipe.html", recipe=recipe)
 
 

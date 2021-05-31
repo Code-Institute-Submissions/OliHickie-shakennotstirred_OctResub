@@ -76,18 +76,6 @@ h5 {
 .btn-small:hover {
     background-color: #AD974F;
 }
-/* 
-.ghost-btn,
-.ghost-btn:focus {
-    background-color: #EAEAEA;
-    color: #231F20;
-    transition: 0.5s;
-}
-
-.ghost-btn:hover {
-    background-color: #231F20;
-    color: #EAEAEA;
-} */
 
 .edit-btn,
 .edit-btn:hover {
@@ -130,6 +118,10 @@ h5 {
 
 .modal p {
     font-size: 18px;
+}
+
+#add-review-modal {
+    max-width: 700px;
 }
 
 /* recipe cards  */
