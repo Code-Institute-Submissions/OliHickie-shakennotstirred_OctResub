@@ -25,14 +25,14 @@ $("#add-ingredient").click(function () {
   $("#remove-ingredient").removeClass("hide");
 })
 
-// Remove ingredients line in recipe form except first line
+// Remove add ingredients line in recipe form except first line
 $("#remove-ingredient").click(function (){
   $(".ingredients-list").children(".additional-line").last().remove();
 })
 
 // User favourite a recipe
 $(".fa-heart").click(function () {
-  $(this).toggleClass("far").toggleClass("fas");
+  $(this).toggleClass("far fas favourite");
 })
 
 

@@ -24,13 +24,13 @@
         </form>
     </div>
     <div class="row">
-        <div class="col s12">
+        <div class="col s10 offset-s1 m8 offset-m2">
             <ul class="spirit-list hide-on-small-only">
 
                 {% for spirit in spirits %}
                 <li>
-                    <a id="{{ spirit.name|lower }}" href="{{ url_for('search_spirit', spirit=spirit.name|lower) }}">{{
-                        spirit.name }}</a>
+                    <a id="{{ spirit.name|lower }}" href="{{ url_for('search_spirit', spirit=spirit.name|lower) }}">
+                        {{spirit.name }}</a>
                 </li>
                 {% endfor %}
 

@@ -68,12 +68,15 @@ h5 {
 
 .btn-small a {
     color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-small:hover {
     background-color: #AD974F;
 }
-
+/* 
 .ghost-btn,
 .ghost-btn:focus {
     background-color: #EAEAEA;
@@ -84,7 +87,7 @@ h5 {
 .ghost-btn:hover {
     background-color: #231F20;
     color: #EAEAEA;
-}
+} */
 
 .edit-btn,
 .edit-btn:hover {
@@ -96,6 +99,9 @@ h5 {
 .edit-btn a,
 .edit-btn a:hover {
     color: #231F20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete-btn,
@@ -132,6 +138,10 @@ h5 {
     position: absolute;
     top: 0;
     right: 0;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 50%;
+    background-color: #231F20;
 }
 
 .recipe-favourite i {
@@ -215,7 +225,7 @@ h5 {
     .carousel {
         height: 300px;
     }
-  }
+}
 
 
 /* cocktail list - banner  */
@@ -243,15 +253,23 @@ h5 {
 
 .spirit-list {
     display: flex;
-    justify-content: space-around;    
-    background-color: #AD974F;
+    justify-content: space-around;
     padding: 5px 0px;
 }
 
+.spirit-list li {
+    width: 100%;
+    border: 1px solid black;
+    margin: 5px;
+
+}
+
 .spirit-list li a {
-    color: #EAEAEA;
     font-size: 20px;
-    display: inline;
+    color: #231F20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .spirit-list li:hover {
@@ -364,6 +382,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .cocktail-img img {
     width: 80%;
+    margin-top: 30px;
 }
 
 .recipe-container {
