@@ -9,6 +9,7 @@ font-family: 'Yeseva One', cursive;
 body {
     background-color: #EAEAEA;
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
 h1 {
@@ -31,6 +32,14 @@ h3 {
     font-size: 42px;
     color: #231F20;
     text-transform: capitalize;
+}
+
+h4 {
+    font-family: 'Yeseva One', 'cursive';
+    font-size: 36px;
+    color: #231F20;
+    text-transform: capitalize;
+    margin: 0px;
 }
 
 h5 {
@@ -96,6 +105,14 @@ h5 {
 .delete-btn:hover {
     background-color: #CC2828;
     margin: 5px;
+}
+
+.picker-btn,
+.picker-btn:hover {
+    color: #321f20;
+    background: rgb(173, 151, 79);
+    background: linear-gradient(188deg, rgba(173, 151, 79, 1) 0%, rgba(234, 234, 234, 1) 50%, rgba(173, 151, 79, 1) 100%);
+    margin-bottom: 10px;
 }
 
 
@@ -188,6 +205,7 @@ h5 {
 
 .link-to-recipes p {
     background-color: #231F20;
+    margin: 60px 0px;
     padding: 5px 0px;
     font-size: 24px;
 }
@@ -201,6 +219,10 @@ h5 {
     color: #AD974F;
 }
 
+.season-img {
+    margin: 60px 0px;
+}
+
 .season-img img {
     width: 100%;
 }
@@ -208,6 +230,26 @@ h5 {
 .home-icon {
     font-size: 48px;
     color: #AD974F;
+}
+
+.random-file-card {
+    max-width: 400px;
+    margin: 45px auto;
+}
+
+.random-file-title {
+    background: rgba(234, 234, 234, 0.3);
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.random-file-title h3 {
+    margin: 0px;
+}
+
+.home-sign-up {
+    margin: 90px 0px;
 }
 
 @media screen and (max-width: 600px) {
@@ -320,7 +362,7 @@ hr {
     border: 0;
     height: 3px;
     background-image: linear-gradient(to right, rgba(173, 151, 79, 0), rgba(173, 151, 79, 0.75), rgba(173, 151, 79, 0));
-    margin: 20px 0px;
+    margin: 30px 0px;
 }
 
 .users-recipes a {

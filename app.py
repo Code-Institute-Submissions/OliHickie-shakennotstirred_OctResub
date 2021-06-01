@@ -41,7 +41,7 @@ def home():
             "image": "/static/images/classicmojito.png"
         }
     ]
-    random_file = mongo.db.recipes.aggregate([{"$sample": {"size": 5}}])
+    random_file = mongo.db.recipes.aggregate([{"$sample": {"size": 1}}])
     number_of_recipes = mongo.db.recipes.count()
     return render_template('home.html', number_of_recipes=number_of_recipes,
                            carousel_items=carousel_items,
