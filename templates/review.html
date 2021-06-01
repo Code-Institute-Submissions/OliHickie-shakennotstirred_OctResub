@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="container">
+    <div class="center-align">
+        <h3 class="create-recipe-title">Add a review</h3>
+    </div>
+
+    <section>
+        <div class="card review-card">
+            <form method="POST" action="{{ url_for('review', cocktail_id=recipe._id) }}">
+                <div class="row">
+                    <div class="input-field col s12 m6 offset-m3">
+                        <i class="prefix fas fa-star"></i>
+                        <select name="rating" required>
+                            <option value="" disabled selected>Rating</option>
+                            <option value="1">
+                                1 star
+                            </option>
+                            <option value="2">
+                                2 stars
+                            </option>
+                            <option value="3">
+                                3 stars
+                            </option>
+                            <option value="4">
+                                4 stars
+                            </option>
+                            <option value="5">
+                                5 stars
+                            </option>
+                        </select>
+                        <label class="sr-only">Rating</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="prefix fas fa-pencil-alt"></i>
+                        <textarea id="comment" name="comment" class="materialize-textarea" required></textarea>
+                        <label for="comment">Comments</label>
+                    </div>
+                </div>
+                <div class="s12 center-align">
+                    <button type="submit" class="btn-small">
+                        <i class="fab fa-telegram-plane"></i> submit
+                    </button>
+                    <button type="reset" class="btn-small edit-btn">
+                        <i class="fas fa-redo-alt"></i> reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+
+
+{% endblock %}

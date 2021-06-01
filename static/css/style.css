@@ -120,9 +120,6 @@ h5 {
     font-size: 18px;
 }
 
-#add-review-modal {
-    max-width: 700px;
-}
 
 /* recipe cards  */
 
@@ -394,4 +391,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .recipe-method {
     font-size: 18px;
     margin: 45px;
+}
+
+/* review page */
+
+.review-card {
+    width: 80%;
+    max-width: 800px;
+    margin: 45px auto;
+    padding: 30px;
 }

@@ -208,8 +208,15 @@ def delete_recipe(cocktail_id):
     return redirect(url_for('mycocktails', username=username))
 
 
-@app.route("/recipe/<cocktail_id>", methods=["GET", "POST"])
+@app.route("/recipe/<cocktail_id>")
 def recipe(cocktail_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
+    reviews = mongo.db.reviews.find()
+    return render_template("recipe.html", recipe=recipe, reviews=reviews)
+
+
+@app.route("/review/<cocktail_id>", methods=["GET", "POST"])
+def review(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     if request.method == "POST":
         new_review = {
@@ -218,13 +225,14 @@ def recipe(cocktail_id):
             "rating": request.form.get("rating"),
             "user": session["user"]
         }
-        mongo.db.user_comments.insert_one(new_review)
+        mongo.db.reviews.insert_one(new_review)
+        reviews = mongo.db.reviews.find()
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
-        return render_template("recipe.html", recipe=recipe,
-                               username=username)
+        return render_template("recipe.html", username=username,
+                               recipe=recipe, reviews=reviews)
 
-    return render_template("recipe.html", recipe=recipe)
+    return render_template("review.html", recipe=recipe)
 
 
 if __name__ == "__main__":
