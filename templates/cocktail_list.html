@@ -59,6 +59,11 @@
 
                     {% if session.user %}
                     <span class="recipe-favourite"><i class="far fa-heart"></i></span>
+                    {% else %}
+                    <a href="{{ url_for('login') }}">
+                        <span class="recipe-favourite"><i class="far fa-heart"></i></span>
+                    </a>
+
                     {% endif %}
 
                 </div>
