@@ -41,11 +41,35 @@ def home():
             "image": "/static/images/classicmojito.png"
         }
     ]
+    seasonal_recipes = [
+        {
+            "cocktail_id": "60abd6b85afe387784d624c2",
+            "image": "/static/images/spring.png",
+            "alt": "img of southside cocktail"
+        },
+        {
+            "cocktail_id": "60ab7d8dc47a342be1648ccc",
+            "image": "/static/images/margarita.png",
+            "alt": "img of margarita cocktail"
+        },
+        {
+            "cocktail_id": "60abd77b5afe387784d624c3",
+            "image": "/static/images/autumn.png",
+            "alt": "img of manhattan cocktail"
+        },
+        {
+            "cocktail_id": "60a6b605ccda71deb2cd57fc",
+            "image": "/static/images/winter.png",
+            "alt": "img of hot toddy cocktail"
+        }
+    ]
+
     random_file = mongo.db.recipes.aggregate([{"$sample": {"size": 1}}])
     number_of_recipes = mongo.db.recipes.count()
     return render_template('home.html', number_of_recipes=number_of_recipes,
                            carousel_items=carousel_items,
-                           random_file=random_file)
+                           random_file=random_file,
+                           seasonal_recipes=seasonal_recipes)
 
 
 @app.route("/cocktail_list")

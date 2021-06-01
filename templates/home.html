@@ -3,8 +3,8 @@
 
 
 <main class="container">
-
-  <div class="carousel carousel-slider" id="home-carousel">
+  <!-- carousel  -->
+  <section class="carousel carousel-slider" id="home-carousel">
 
     {% for item in carousel_items %}
     <a class="carousel-item" href="{{ url_for( item.url, cocktail_id=item.cocktail_id )  }}">
@@ -12,8 +12,9 @@
     </a>
     {% endfor %}
 
-  </div>
+  </section>
 
+  <!-- link to all recipes  -->
   <div class="link-to-recipes center-align">
     <p><a href="{{ url_for('cocktail_list') }}">
         Click here for all {{ number_of_recipes }} recipes <i class="fas fa-arrow-alt-circle-right"></i>
@@ -21,6 +22,7 @@
   </div>
   <hr>
 
+  <!-- Random cocktail picker -->
   <section>
     <h3>Need Inspiration?</h3>
     <p>Sometimes, there are just too many cocktails to choose from. Use our random cocktail picker to help decide what your next drink will be!</p>
@@ -59,39 +61,31 @@
         </div>
       </div>
     </div>
-
     {% endfor %}
 
   </section>
 
   <hr>
 
+  <!-- cocktails for different seasons  -->
   <section>
     <h3>Cocktails for every season...</h3>
     <div class="row">
+
+      {% for recipe in seasonal_recipes %}
       <div class="col s6 l3 season-img">
-        <a href="{{ url_for('recipe', cocktail_id='60abd6b85afe387784d624c2') }}">
-          <img src="/static/images/Spring.png" alt="Southside">
+        <a href="{{ url_for('recipe', cocktail_id=recipe.cocktail_id) }}">
+          <img src="{{ recipe.image }}" alt="{{ recipe.alt }}">
         </a>
       </div>
-      <div class="col s6 l3 season-img">
-        <a href="{{ url_for('recipe', cocktail_id='60ab7d8dc47a342be1648ccc') }}">
-          <img src="/static/images/Margarita.png" alt="Margarita">
-        </a>
-      </div>
-      <div class="col s6 l3 season-img">
-        <a href="{{ url_for('recipe', cocktail_id='60abd77b5afe387784d624c3') }}">
-          <img src="/static/images/Autumn.png" alt="Manhattan">
-        </a>
-      </div>
-      <div class="col s6 l3 season-img">
-        <a href="{{ url_for('recipe', cocktail_id='60a6b605ccda71deb2cd57fc') }}">
-          <img src="/static/images/Winter.png" alt="Hot Toddy">
-        </a>
-      </div>
+      {% endfor %}
+
     </div>
   </section>
+
   <hr>
+
+  <!-- sign up  -->
   <section class="home-sign-up">
     <h3 class="center-align">sign up for free!</h3>
 
@@ -119,8 +113,5 @@
     </div>
   </section>
 </main>
-
-
-
 
 {% endblock %}
