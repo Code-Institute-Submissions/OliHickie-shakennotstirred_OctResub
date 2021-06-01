@@ -16,23 +16,23 @@
             {% else %}
             <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 alt="Picture of bar">
-
             {% endif %}
 
         </div>
         <div class="col s12 l6">
             <h3>{{ recipe.cocktail_name }}</h3>
+            <p>Added by:<em> {{ recipe.created_by }}</em></p>
             <hr>
             <div>
                 Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
             </div>
             <div>Rating</div>
             <ul class="ingredients-list">
+
                 {% for ingredient in recipe.ingredients %}
-
                 <li><i class="fas fa-caret-right"></i> {{ ingredient }}</li>
-
                 {% endfor %}
+
             </ul>
         </div>
         <div class="col s12">
@@ -46,37 +46,28 @@
     <section class="row">
         <div class="col s12">
             <h3>Reviews</h3>
-
             <a href="{{ url_for('review', cocktail_id=recipe._id) }}" class="btn-small">
                 <i class="far fa-comments"></i> add review
             </a>
-
-            <!-- add review modal  -->
-            
         </div>
+        <!-- reviews  -->
         <div class="col s12">
-         
 
             {% for review in reviews %}
             {% if review.cocktail_id == recipe._id %}
-               <div class="row">
-                   <div class="col s6 m2 offset-m2">
-                       <p class="rating-{{ review.rating }}"></p>
-                   </div>
-                   <div class="col s6 review-comment">
-                       <p>"{{ review.comment }}" ... <small><em>{{ review.user }}</em></small> </p>
-                   </div>
-               </div>
-            
-             
+            <div class="row">
+                <div class="col s6 m2 offset-m2">
+                    <p class="rating-{{ review.rating }}"></p>
+                </div>
+                <div class="col s6 review-comment">
+                    <p>"{{ review.comment }}" ... <small><em>{{ review.user }}</em></small> </p>
+                </div>
+            </div>
             {% endif %}
             {% endfor %}
+
         </div>
-
     </section>
-
-
-
 </main>
 
 

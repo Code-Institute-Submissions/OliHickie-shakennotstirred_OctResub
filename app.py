@@ -212,7 +212,10 @@ def delete_recipe(cocktail_id):
 def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     reviews = mongo.db.reviews.find()
-    return render_template("recipe.html", recipe=recipe, reviews=reviews)
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+    return render_template("recipe.html", recipe=recipe, reviews=reviews,
+                           username=username)
 
 
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])

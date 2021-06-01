@@ -15,9 +15,8 @@
             <p>Are you sure you would like to delete this recipe?</p>
         </div>
         <div class="modal-footer">
-            <button class="btn-small delete-btn">
-                <a href="{{ url_for('delete_recipe', cocktail_id=recipe._id) }}">delete</a>
-            </button>
+            <a class="btn-small delete-btn" href="{{ url_for('delete_recipe', cocktail_id=recipe._id) }}">delete
+            </a>
             <button class="btn-small edit-btn modal-close">cancel</button>
         </div>
     </div>
