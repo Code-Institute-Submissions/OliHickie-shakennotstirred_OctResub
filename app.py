@@ -220,7 +220,7 @@ def review(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     if request.method == "POST":
         new_review = {
-            "cocktail_id": cocktail_id,
+            "cocktail_id": ObjectId(cocktail_id),
             "comment": request.form.get("comment"),
             "rating": request.form.get("rating"),
             "user": session["user"]
@@ -229,8 +229,10 @@ def review(cocktail_id):
         reviews = mongo.db.reviews.find()
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
-        return render_template("recipe.html", username=username,
-                               recipe=recipe, reviews=reviews)
+        flash('Review Successfully Added')
+        return redirect(url_for('recipe', username=username,
+                                recipe=recipe, reviews=reviews,
+                                cocktail_id=cocktail_id))
 
     return render_template("review.html", recipe=recipe)
 

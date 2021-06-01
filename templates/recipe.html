@@ -45,9 +45,9 @@
     <hr>
     <section class="row">
         <div class="col s12">
-            <h3>Comments</h3>
+            <h3>Reviews</h3>
 
-            <a href="{{ url_for('review', cocktail_id=recipe._id) }}" class="btn-small modal-trigger">
+            <a href="{{ url_for('review', cocktail_id=recipe._id) }}" class="btn-small">
                 <i class="far fa-comments"></i> add review
             </a>
 
@@ -55,18 +55,22 @@
             
         </div>
         <div class="col s12">
-            <h3>comments</h3>
+         
 
             {% for review in reviews %}
-                
-                <h3>{{ review.rating }}</h3>
-                <h5>{{ review.comment }}</h5>
-                <p> {{ review.user }} </p>
-                <p> {{ review.cocktail_id }} </p>
-                
+            {% if review.cocktail_id == recipe._id %}
+               <div class="row">
+                   <div class="col s6 m2 offset-m2">
+                       <p class="rating-{{ review.rating }}"></p>
+                   </div>
+                   <div class="col s6 review-comment">
+                       <p>"{{ review.comment }}" ... <small><em>{{ review.user }}</em></small> </p>
+                   </div>
+               </div>
+            
+             
+            {% endif %}
             {% endfor %}
-
-            <h3>end comments</h3>
         </div>
 
     </section>

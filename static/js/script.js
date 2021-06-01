@@ -4,14 +4,6 @@ setTimeout(function () {
 }, 3000);
 
 
-// Add glass icon to recipes side bar on hover
-// $(".spirit-list").hover(function () {
-//   $(this).children().removeClass("hide")
-// })
-// $(".spirit-list").mouseleave(function () {
-//   $(this).children().addClass("hide")
-// })
-
 
 // Add ingredients line in recipe form
 $("#add-ingredient").click(function () {
@@ -56,12 +48,29 @@ $(document).ready(function () {
 
   // change recipe difficulty to icons
   $(".difficulty-easy").append(
-    `<span><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>`
+    `<span><i class="fas fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i></span>`
   )
   $(".difficulty-medium").append(
-    `<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>`
+    `<span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i></span>`
   )
   $(".difficulty-difficult").append(
-    `<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>`
+    `<span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></span>`
+  )
+
+  // change recipe review ratings to icons
+  $(".rating-1").append(
+    `<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`
+  )
+  $(".rating-2").append(
+    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`
+  )
+  $(".rating-3").append(
+    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`
+  )
+  $(".rating-4").append(
+    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>`
+  )
+  $(".rating-5").append(
+    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>`
   )
 });

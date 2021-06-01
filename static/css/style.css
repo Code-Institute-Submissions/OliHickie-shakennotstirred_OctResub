@@ -393,7 +393,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin: 45px;
 }
 
-/* review page */
+.review-comment {
+    font-size: 18px
+}
+
+/* write review page */
 
 .review-card {
     width: 80%;
