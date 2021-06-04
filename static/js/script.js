@@ -4,7 +4,6 @@ setTimeout(function () {
 }, 3000);
 
 
-
 // Add ingredients line in recipe form
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(
@@ -17,15 +16,36 @@ $("#add-ingredient").click(function () {
   $("#remove-ingredient").removeClass("hide");
 })
 
+
 // Remove add ingredients line in recipe form except first line
 $("#remove-ingredient").click(function (){
   $(".ingredients-list").children(".additional-line").last().remove();
 })
 
+
 // User favourite a recipe
 $(".fa-heart").click(function () {
   $(this).toggleClass("far fas favourite");
 })
+
+
+// implement review ratings
+function ratingStars(rating) {
+  goldStars = "<i class='fas fa-star'></i>".repeat(rating)
+  emptyStars = "<i class='far fa-star'></i>".repeat(5 - rating)
+
+  return goldStars + emptyStars
+}
+
+
+// implement difficulty ratings
+function ratingCircles(difficulty) {
+  fasIcon = "<i class='fas fa-circle'></i>".repeat(difficulty)
+  farIcon = "<i class='far fa-circle'></i>".repeat(3 - difficulty)
+
+  return fasIcon + farIcon
+}
+
 
 
 $(document).ready(function () {
@@ -49,29 +69,29 @@ $(document).ready(function () {
 
   // change recipe difficulty to icons
   $(".difficulty-easy").append(
-    `<span><i class="fas fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i></span>`
+    ratingCircles(1)
   )
   $(".difficulty-medium").append(
-    `<span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i></span>`
+    ratingCircles(2)
   )
   $(".difficulty-difficult").append(
-    `<span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></span>`
+    ratingCircles(3)
   )
 
   // change recipe review ratings to icons
   $(".rating-1").append(
-    `<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`
+    ratingStars(1)
   )
   $(".rating-2").append(
-    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`
+    ratingStars(2)
   )
   $(".rating-3").append(
-    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`
+    ratingStars(3)
   )
   $(".rating-4").append(
-    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>`
+    ratingStars(4)
   )
   $(".rating-5").append(
-    `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>`
+    ratingStars(5)
   )
 });
