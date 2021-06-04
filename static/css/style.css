@@ -457,3 +457,19 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin: 45px auto;
     padding: 30px;
 }
+
+/* footer  */
+
+.page-footer {
+    background-color: #231F20;
+    color: #eaeaea;
+}
+
+.quick-link {
+    font-size: 18px;
+    color: #eaeaea;
+}
+
+.quick-link:hover {
+    color: #AD974F;
+}

@@ -54,7 +54,6 @@ $(document).ready(function () {
   $('select').formSelect();
   $('.modal').modal();
   $('.tooltipped').tooltip();
-  M.textareaAutoResize($('#textarea1'));
 
 
   // set up carousel and interval

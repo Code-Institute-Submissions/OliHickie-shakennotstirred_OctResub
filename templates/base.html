@@ -21,9 +21,9 @@
         <!-- navbar -->
         <nav class="navbar">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo"><img src="/static/images/shakenlogo2.png" alt="shaken not stirred logo">
+                <a href="{{ url_for('home') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/shakenlogo2.png' )}}" alt="shaken not stirred logo">
                 </a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars"></i></a>
+                <a href="{{ url_for('home') }}" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('cocktail_list') }}">Recipes</a></li>
@@ -70,6 +70,34 @@
 
     {% block content %}
     {% endblock %}
+
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <a href="{{ url_for('home') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/shakenlogo2.png' )}}" alt="shaken not stirred logo">
+              </a>
+              <p class="">Shaken, Not Stirred is a community where users can discover, share and enjoy cocktails of all shapes and sizes. </p>
+              <p>Register for free and submit your own recipes, save your favourites and comment on other user's ideas.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="">Quick Search</h5>
+              <ul>
+                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='vodka') }}">Vodka</a></li>
+                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='gin') }}">Gin</a></li>
+                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='whiskey') }}">Whiskey</a></li>
+                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='rum') }}">Rum</a></li>
+                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='tequila') }}">Tequila</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 Oli Hickie
+          </div>
+        </div>
+      </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
