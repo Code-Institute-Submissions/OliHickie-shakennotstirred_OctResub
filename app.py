@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_paginate import Pagination, get_page_args
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os. path.exists("env.py"):
@@ -17,6 +18,30 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+# Pagination
+"""
+Code taken from
+ https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e and
+ https://github.com/alandoherty95/reciprocate-app
+"""
+PER_PAGE = 12
+
+
+def paginate(recipes):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    offset = page * PER_PAGE - PER_PAGE
+
+    return recipes[offset: offset + PER_PAGE]
+
+
+def pagination_args(recipes):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(recipes)
+
+    return Pagination(page=page, per_page=PER_PAGE, total=total)
 
 
 @app.route("/")
@@ -75,9 +100,12 @@ def home():
 @app.route("/cocktail_list")
 def cocktail_list():
     spirits = mongo.db.spirits.find()
-    recipes = mongo.db.recipes.find().sort("cocktail_name", 1)
+    recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
+    paginated_recipes = paginate(recipes)
+    pagination = pagination_args(recipes)
     return render_template(
-        'cocktail_list.html', spirits=spirits, recipes=recipes)
+        'cocktail_list.html', spirits=spirits, recipes=paginated_recipes,
+        pagination=pagination)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -85,16 +113,23 @@ def search():
     spirits = mongo.db.spirits.find()
     query = request.form.get("query")
     recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+    paginated_recipes = paginate(recipes)
+    pagination = pagination_args(recipes)
     return render_template("cocktail_list.html", spirits=spirits,
-                           recipes=recipes)
+                           recipes=paginated_recipes,
+                           pagination=pagination)
 
 
 @app.route("/search/<spirit>")
 def search_spirit(spirit):
     spirits = mongo.db.spirits.find()
-    recipes = mongo.db.recipes.find({"category": spirit})
+    recipes = list(mongo.db.recipes.find(
+        {"category": spirit}).sort("cocktail_name", 1))
+    paginated_recipes = paginate(recipes)
+    pagination = pagination_args(recipes)
     return render_template('cocktail_list.html',
-                           spirits=spirits, recipes=recipes)
+                           spirits=spirits, recipes=paginated_recipes,
+                           pagination=pagination)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -236,7 +271,11 @@ def delete_recipe(cocktail_id):
 def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     reviews = mongo.db.reviews.find()
-    return render_template("recipe.html", recipe=recipe, reviews=reviews)
+    rating = mongo.db.reviews.aggregate(
+        [{"$group": {"_id": "cocktail_id",
+                     "pop": {"$avg": "$rating"}}}])
+    return render_template("recipe.html", recipe=recipe, reviews=reviews,
+                           rating=rating)
 
 
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])
@@ -246,7 +285,7 @@ def review(cocktail_id):
         new_review = {
             "cocktail_id": ObjectId(cocktail_id),
             "comment": request.form.get("comment"),
-            "rating": request.form.get("rating"),
+            "rating": int(request.form.get("rating")),
             "user": session["user"]
         }
         mongo.db.reviews.insert_one(new_review)

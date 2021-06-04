@@ -62,7 +62,7 @@
             {% for review in reviews %}
             {% if review.cocktail_id == recipe._id %}
             <div class="row">
-                <div class="col s6 m2 offset-m2">
+                <div class="col s6 m2 offset-m2 right-align">
                     <p class="rating-{{ review.rating }}"></p>
                 </div>
                 <div class="col s6 review-comment">
@@ -73,6 +73,7 @@
             {% endfor %}
 
         </div>
+        
     </section>
 </main>
 
