@@ -310,6 +310,10 @@ h5 {
     color: #eaeaea;
 }
 
+.no-results h3 {
+    padding: 45px 0px;
+}
+
 /* Pagination */
 
 .pagination {
@@ -447,6 +451,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .review-comment {
     font-size: 18px
+}
+
+.no-reviews h5 {
+    padding: 45px 0px;
 }
 
 /* write review page */

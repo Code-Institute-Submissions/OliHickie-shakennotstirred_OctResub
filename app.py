@@ -112,7 +112,7 @@ def cocktail_list():
 def search():
     spirits = mongo.db.spirits.find()
     query = request.form.get("query")
-    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     paginated_recipes = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template("cocktail_list.html", spirits=spirits,
@@ -215,9 +215,12 @@ def mycocktails(username):
     my_recipes = mongo.db.recipes.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    paginated_recipes = paginate(my_recipes)
+    pagination = pagination_args(my_recipes)
     if session['user']:
         return render_template(
-            "mycocktails.html", username=username, my_recipes=my_recipes)
+            "mycocktails.html", username=username,
+            my_recipes=paginated_recipes, pagination=pagination)
 
 
 @app.route('/create_recipe', methods=['GET', 'POST'])
@@ -276,7 +279,9 @@ def delete_recipe(cocktail_id):
 @app.route("/recipe/<cocktail_id>")
 def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
-    reviews = mongo.db.reviews.find()
+    reviews = list(mongo.db.reviews.find({
+        "cocktail_id": ObjectId(cocktail_id)
+    }))
     return render_template("recipe.html", recipe=recipe, reviews=reviews)
 
 
