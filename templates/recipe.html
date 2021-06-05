@@ -48,6 +48,7 @@
     </section>
 
     <hr>
+    <!-- reviews  -->
     <section class="row">
         <div class="col s12">
             <h3>Reviews</h3>
@@ -61,28 +62,32 @@
                     <i class="far fa-comments"></i> add review
                 </a>
         </div>
-        <!-- reviews  -->
-        <div class="col s12">
+        <div class="row">
+            <div class="col s12">
 
-            {% if reviews| length > 0 %}
+                {% if reviews| length > 0 %}
 
-            {% for review in reviews %}
-            <div class="row">
-                <div class="col s6 m2 offset-m2 right-align">
-                    <p class="rating-{{ review.rating }}"></p>
+                {% for review in reviews %}
+                <div class="row">
+                    <div class="col s6 m4 right-align">
+                        <p class="rating-{{ review.rating }}">
+                        </p>
+                    </div>
+                    <div class="col s6 review-comment">
+                        <p>
+                            "{{ review.comment }}" ... <small><em>{{ review.user }}</em></small>
+                        </p>
+                    </div>
                 </div>
-                <div class="col s6 review-comment">
-                    <p>"{{ review.comment }}" ... <small><em>{{ review.user }}</em></small> </p>
+                {% endfor %}
+
+                {% else %}
+                <div class="center-align no-reviews">
+                    <h5>Be the first to review this cocktail...</h5>
                 </div>
-            </div>
-            {% endfor %}
+                {% endif %}
 
-            {% else %}
-            <div class="center-align no-reviews">
-                <h5>Be the first to review this cocktail...</h5>
             </div>
-            {% endif %}
-
         </div>
 
     </section>

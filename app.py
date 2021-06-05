@@ -47,23 +47,32 @@ def pagination_args(recipes):
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+    Displays carousel of items
+    Displays four seasonal recips
+    Picks a random file on each apge load
+    Returns number of recipes in database
+    """
     carousel_items = [
         {
             # old fashioned card
             "url": "recipe",
             "cocktail_id": "60a6b327ccda71deb2cd57fa",
-            "image": "/static/images/old-fashioned.jpg"
+            "image": "/static/images/old-fashioned.jpg",
+            "alt": "Old fashioned recipe"
         },
         {
             # login card
             "url": "login",
-            "image": "/static/images/friends-join.png"
+            "image": "/static/images/friends-join.png",
+            "alt": "link to login"
         },
         {
             # classic mojito card
             "url": "recipe",
             "cocktail_id": "60abc1d55afe387784d624c1",
-            "image": "/static/images/classicmojito.png"
+            "image": "/static/images/classicmojito.png",
+            "alt": "mojito recipe"
         }
     ]
     seasonal_recipes = [
@@ -99,6 +108,11 @@ def home():
 
 @app.route("/cocktail_list")
 def cocktail_list():
+    """
+    Returns a list of spirits from database
+    Returns all recipes as a list and sorts alphabetically
+    Paginates recipes - 12 per page
+    """
     spirits = mongo.db.spirits.find()
     recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
     paginated_recipes = paginate(recipes)
@@ -110,6 +124,11 @@ def cocktail_list():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    returns list of spirits
+    Searches recipes and returns them as a list
+    Paginates search results
+    """
     spirits = mongo.db.spirits.find()
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
@@ -122,6 +141,10 @@ def search():
 
 @app.route("/search/<spirit>")
 def search_spirit(spirit):
+    """
+    Returns recipes depending on spirit category
+    Paginates search results
+    """
     spirits = mongo.db.spirits.find()
     recipes = list(mongo.db.recipes.find(
         {"category": spirit}).sort("cocktail_name", 1))
@@ -134,6 +157,12 @@ def search_spirit(spirit):
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    """
+    Allows user to login to profile.
+    Checks whether user exists and that passwords match
+    password stored.
+    Upon successful log in, user redirected to user profile page.
+    """
     if request.method == "POST":
         # check if user exists
         existing_user = mongo.db.users.find_one(
@@ -163,12 +192,22 @@ def login():
 
 @app.route("/redirect_login")
 def redirect_login():
+    """
+    If user not logged in, redirects user to log in page
+    and asks user to log in. 
+    """
     flash("Please log in to use this function")
     return redirect(url_for('login'))
 
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    """
+    Allows user to register their username and passoword.
+    Checks for existing user with matching username.
+    Checks passwords match.
+    Puts user into session. 
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -195,8 +234,6 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-
-        # change to my recipes once built <----------------------
         return redirect(url_for("mycocktails", username=session["user"]))
 
     return render_template("login.html")
@@ -204,7 +241,9 @@ def register():
 
 @app.route('/logout')
 def logout():
-    # remove user from session cookie
+    """
+    Logs user out. 
+    """
     flash('You have been logged out')
     session.pop('user')
     return redirect(url_for("login"))
@@ -212,6 +251,9 @@ def logout():
 
 @app.route('/mycocktails/<username>', methods=['GET', 'POST'])
 def mycocktails(username):
+    """
+    Returns users cocktails
+    """
     my_recipes = mongo.db.recipes.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -223,6 +265,10 @@ def mycocktails(username):
 
 @app.route('/create_recipe', methods=['GET', 'POST'])
 def create_recipe():
+    """
+    Allows user to create recipe.
+    Stores recipe in database and returns user to profil page.
+    """
     if request.method == "POST":
         # add recipe
         new_recipe = {
@@ -245,6 +291,9 @@ def create_recipe():
 
 @app.route('/edit_recipe/<cocktail_id>', methods=["GET", "POST"])
 def edit_recipe(cocktail_id):
+    """
+    Allows user to edit and update their own recipe.
+    """
     if request.method == "POST":
         edit_recipe = {
             "cocktail_name": request.form.get("cocktail_name").lower(),
@@ -267,6 +316,9 @@ def edit_recipe(cocktail_id):
 
 @app.route("/delete_recipe/<cocktail_id>")
 def delete_recipe(cocktail_id):
+    """
+    Removes recipe from database.
+    """
     mongo.db.recipes.remove({"_id": ObjectId(cocktail_id)})
     flash("Recipe Has Been Removed!")
     username = mongo.db.users.find_one(
@@ -276,6 +328,10 @@ def delete_recipe(cocktail_id):
 
 @app.route("/recipe/<cocktail_id>")
 def recipe(cocktail_id):
+    """
+    Returns recipe information.
+    Returns user reviews that relate to that recipe.
+    """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     reviews = list(mongo.db.reviews.find({
         "cocktail_id": ObjectId(cocktail_id)
@@ -285,6 +341,10 @@ def recipe(cocktail_id):
 
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])
 def review(cocktail_id):
+    """
+    Allows users to review recipes. 
+    Add a rating and a comment and stores in database.
+    """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     if request.method == "POST":
         new_review = {
@@ -304,21 +364,23 @@ def review(cocktail_id):
 
     return render_template("review.html", recipe=recipe)
 
-# ERRORS
 
+# ERRORS
+"""
+404 and 500 error pages
+"""
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('errors/404.html'), 404
 
 
-@app.errorhandler(404)
+@app.errorhandler(500)
 def internal_server_error(e):
-    return render_template('500.html'), 500
+    return render_template('errors/500.html'), 500
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-            

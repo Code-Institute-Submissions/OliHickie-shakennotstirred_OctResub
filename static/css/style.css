@@ -9,7 +9,16 @@ font-family: 'Yeseva One', cursive;
 body {
     background-color: #EAEAEA;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Headings  */
 
 h1 {
     font-family: 'Yeseva One', 'cursive';
@@ -277,8 +286,8 @@ h5 {
     /* border: 1px solid black; */
     margin: 5px;
     padding: 10px 0px;
-    background: rgb(234,234,234);
-    background: linear-gradient(90deg, rgba(234,234,234,1) 10%, rgba(173,151,79,1) 50%, rgba(234,234,234,1) 90%);
+    background: rgb(234, 234, 234);
+    background: linear-gradient(90deg, rgba(234, 234, 234, 1) 10%, rgba(173, 151, 79, 1) 50%, rgba(234, 234, 234, 1) 90%);
 
 }
 

@@ -4,15 +4,15 @@
 
 <main class="container">
   <!-- carousel  -->
-  <section class="carousel carousel-slider" id="home-carousel">
+  <div class="carousel carousel-slider" id="home-carousel">
 
     {% for item in carousel_items %}
     <a class="carousel-item" href="{{ url_for( item.url, cocktail_id=item.cocktail_id )  }}">
-      <img src="{{ item.image }}">
+      <img src="{{ item.image }}" alt="{{ item.alt }}">
     </a>
     {% endfor %}
 
-  </section>
+  </div>
 
   <!-- link to all recipes  -->
   <div class="link-to-recipes center-align">
@@ -51,12 +51,12 @@
               alt="Picture of bar">
             {% endif %}
 
-            <span class="card-title random-file-title">
+            <div class="card-title random-file-title">
               <h4>{{ recipe.cocktail_name }}</h4>
-              <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}" class="btn-small right">
+              <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}" class="btn-small">
                 view recipe
               </a>
-            </span>
+            </div>
 
           </div>
         </div>
