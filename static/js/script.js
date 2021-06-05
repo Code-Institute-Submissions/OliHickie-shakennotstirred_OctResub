@@ -4,6 +4,12 @@ setTimeout(function () {
 }, 3000);
 
 
+// Back button
+function back() {
+  window.history.back();
+}
+
+
 // Add ingredients line in recipe form
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(

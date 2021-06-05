@@ -73,13 +73,6 @@ h5 {
     color: #EAEAEA;
 }
 
-.btn-small a {
-    color: #EAEAEA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .btn-small:hover {
     background-color: #AD974F;
 }
@@ -89,14 +82,6 @@ h5 {
     background-color: #EAEAEA;
     color: #231F20;
     margin: 5px;
-}
-
-.edit-btn a,
-.edit-btn a:hover {
-    color: #231F20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .delete-btn,
@@ -480,4 +465,19 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .quick-link:hover {
     color: #AD974F;
+}
+
+/* 404 page  */
+
+.error-page {
+    margin: 120px 0px;
+}
+
+.error-page img {
+    width: 80%;
+    max-width: 500px;
+}
+
+.error-page a {
+    margin: 45px;
 }

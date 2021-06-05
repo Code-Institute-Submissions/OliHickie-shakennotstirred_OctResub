@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="{{  url_for('static', filename='css/style.css') }}" type="text/css">
+    <title>404</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="error-page center-align">
+            <img src="https://image1.masterfile.com/getImage/NjQwLTAxMzY0OTA5ZW4uMDAwMDAwMDA=AAc7Aq/640-01364909en_Masterfile.jpg"
+                alt="spilt drink">
+            <h3>404</h3>
+            <h3>Oops!</h3>
+            <h5>Lets head back to the bar...</h5>
+            <a class="btn-small" href="{{ url_for('home') }}">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

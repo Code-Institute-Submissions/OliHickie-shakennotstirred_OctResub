@@ -215,12 +215,10 @@ def mycocktails(username):
     my_recipes = mongo.db.recipes.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    paginated_recipes = paginate(my_recipes)
-    pagination = pagination_args(my_recipes)
     if session['user']:
         return render_template(
             "mycocktails.html", username=username,
-            my_recipes=paginated_recipes, pagination=pagination)
+            my_recipes=my_recipes)
 
 
 @app.route('/create_recipe', methods=['GET', 'POST'])
@@ -306,8 +304,21 @@ def review(cocktail_id):
 
     return render_template("review.html", recipe=recipe)
 
+# ERRORS
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(404)
+def internal_server_error(e):
+    return render_template('500.html'), 500
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+            

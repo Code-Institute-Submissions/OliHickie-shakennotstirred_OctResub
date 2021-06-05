@@ -62,9 +62,7 @@
                         <p>{{ recipe.cocktail_name }}</p>
                     </div>
                     <div class="center-align see-recipe-btn">
-                        <button class="btn-small">
-                            <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}">see recipe</a>
-                        </button>
+                        <a class="btn-small" href="{{ url_for('recipe', cocktail_id=recipe._id) }}">see recipe</a>
                     </div>
                     <div>Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span></div>
                     <div>Rating</div>

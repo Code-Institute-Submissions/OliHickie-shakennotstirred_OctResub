@@ -5,7 +5,7 @@
     <section class="row recipe-container">
         <div class="col s12">
             <a href="{{ url_for('cocktail_list') }}" class="btn-small">
-                <i class="fas fa-hand-point-left"></i> back to recipes
+                <i class="fas fa-hand-point-left"></i> all recipes
             </a>
 
             {% if session.user == recipe.created_by or session.user == 'admin' %}
