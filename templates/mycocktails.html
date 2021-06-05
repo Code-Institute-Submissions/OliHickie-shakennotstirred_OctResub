@@ -30,14 +30,12 @@
                         <div class="card-title center-align cocktail-card-title">{{ my_recipe.cocktail_name }}
                         </div>
                         <div class="center-align">
-                            <button class="btn-small see-recipe-btn">
-                                <a href="{{ url_for('recipe', cocktail_id=my_recipe._id) }}">see recipe</a>
-                            </button>
+                            <a class="btn-small see-recipe-btn"
+                                href="{{ url_for('recipe', cocktail_id=my_recipe._id) }}">see recipe</a>
                         </div>
                         <div class="center-align">
-                            <button class="btn-small edit-btn">
-                                <a href="{{ url_for('edit_recipe', cocktail_id=my_recipe._id) }}">edit / delete</a>
-                            </button>
+                            <a class="btn-small edit-btn"
+                                href="{{ url_for('edit_recipe', cocktail_id=my_recipe._id) }}">edit / delete</a>
                         </div>
                     </div>
                 </div>

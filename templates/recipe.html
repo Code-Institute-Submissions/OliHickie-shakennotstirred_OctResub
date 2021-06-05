@@ -7,6 +7,12 @@
             <a href="{{ url_for('cocktail_list') }}" class="btn-small">
                 <i class="fas fa-hand-point-left"></i> back to recipes
             </a>
+
+            {% if session.user == recipe.created_by or session.user == 'admin' %}
+            <a class="btn-small edit-btn"
+            href="{{ url_for('edit_recipe', cocktail_id=recipe._id) }}">edit / delete</a>
+            {% endif %}
+
         </div>
         <div class="col s12 l6 center-align cocktail-img">
 
