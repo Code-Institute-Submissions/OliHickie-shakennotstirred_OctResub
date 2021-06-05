@@ -161,6 +161,12 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/redirect_login")
+def redirect_login():
+    flash("Please log in to use this function")
+    return redirect(url_for('login'))
+
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
@@ -271,11 +277,7 @@ def delete_recipe(cocktail_id):
 def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     reviews = mongo.db.reviews.find()
-    rating = mongo.db.reviews.aggregate(
-        [{"$group": {"_id": "cocktail_id",
-                     "pop": {"$avg": "$rating"}}}])
-    return render_template("recipe.html", recipe=recipe, reviews=reviews,
-                           rating=rating)
+    return render_template("recipe.html", recipe=recipe, reviews=reviews)
 
 
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])

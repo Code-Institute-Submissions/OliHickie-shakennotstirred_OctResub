@@ -62,9 +62,6 @@ $(document).ready(function () {
     $('.carousel').carousel('next');
   }, 6000);
 
-  $('.slider').slider();
-
-
 
   // change recipe difficulty to icons
   $(".difficulty-easy").append(
