@@ -24,7 +24,7 @@
             {% endif %}
 
         </div>
-        <div class="col s12 l6">
+        <div class="col s12 l6 recipe-info">
             <h3>{{ recipe.cocktail_name }}</h3>
             <p>Added by:<em> {{ recipe.created_by }}</em></p>
             <hr>
@@ -32,10 +32,8 @@
                 <p>
                     Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
                 </p>
-            </div>
-            <div>
                 <p>
-                    Rating (/5): {{ average_rating }}
+                   Rating (/5): {{ average_rating }}
                 </p>
             </div>
             <ul class="ingredients-list">

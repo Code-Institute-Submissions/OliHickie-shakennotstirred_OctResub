@@ -44,6 +44,8 @@ def pagination_args(recipes):
     return Pagination(page=page, per_page=PER_PAGE, total=total)
 
 
+# Routes
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -109,11 +111,11 @@ def home():
 @app.route("/cocktail_list")
 def cocktail_list():
     """
-    Returns a list of spirits from database
     Returns all recipes as a list and sorts alphabetically
     Paginates recipes - 12 per page
     """
-    spirits = mongo.db.spirits.find()
+    spirits = ["Vodka", "Gin", "Whiskey", "Rum", "Tequila"]
+
     recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
 
     # Pagination
@@ -147,7 +149,8 @@ def search_spirit(spirit):
     Returns recipes depending on spirit category
     Paginates search results
     """
-    spirits = mongo.db.spirits.find()
+    spirits = ["Vodka", "Gin", "Whiskey", "Rum", "Tequila"]
+
     recipes = list(mongo.db.recipes.find(
         {"category": spirit}).sort("cocktail_name", 1))
     paginated_recipes = paginate(recipes)

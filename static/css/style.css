@@ -141,34 +141,6 @@ hr {
 
 /* recipe cards  */
 
-.recipe-favourite {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 5px;
-    padding: 3px;
-    border-radius: 50%;
-    background-color: #231F20;
-}
-
-.recipe-favourite i {
-    font-size: 32px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.recipe-favourite .far {
-    color: #EAEAEA;
-}
-
-.recipe-favourite .fas {
-    color: #AD974F;
-}
-
-.recipe-card {
-    min-height: 364px;
-}
-
 .cocktail-card-title {
     text-transform: capitalize;
     overflow-wrap: break-word;
@@ -182,7 +154,7 @@ hr {
 }
 
 .card-content {
-    height: 210px;
+    height: 190px;
 }
 
 .card-content {
@@ -361,8 +333,7 @@ hr {
 .tabs .tab a:hover,
 .tabs .tab a.active,
 .tabs .tab a:focus,
-.tabs .tab a:focus.active,
-.tabs .tab a:hover {
+.tabs .tab a:focus.active {
     color: #AD974F;
     background-color: #EAEAEA;
 }
@@ -371,12 +342,11 @@ hr {
     background-color: #AD974F;
 }
 
-/* My Cocktails  */
-
-.users-recipes a {
-    margin-bottom: 30px;
+@media screen and (max-width: 600px) {
+    .login-card {
+        padding: 30px 10px;
+    }
 }
-
 
 /* Add Cocktail Form  */
 
@@ -434,6 +404,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin-top: 60px;
 }
 
+.recipe-info p {
+    font-size: 16px;
+}
+
 .ingredients-list {
     margin-left: 45px;
     margin-top: 45px;
@@ -446,7 +420,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .recipe-method {
     font-size: 18px;
-    margin: 45px;
+    max-width: 900px;
+    margin: 45px auto;
 }
 
 .review-comment {
