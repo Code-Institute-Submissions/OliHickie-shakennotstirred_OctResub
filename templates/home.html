@@ -69,7 +69,7 @@
   <hr>
 
   <!-- cocktails for different seasons  -->
-  <section>
+  <section class="season-drinks">
     <h3>Cocktails for every season...</h3>
     <div class="row">
 
@@ -88,8 +88,10 @@
 
   <!-- sign up  -->
   <section class="home-sign-up">
-    <h3 class="center-align">sign up for free!</h3>
-
+    <a href="{{ url_for('login') }}">
+      <h3 class="center-align">sign up for free!</h3>
+    </a>
+    
     <div class="row center-align">
       <div class="col s12 m4">
         <h5>Create your own recipes</h5>

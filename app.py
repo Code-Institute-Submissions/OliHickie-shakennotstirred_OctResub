@@ -115,10 +115,6 @@ def cocktail_list():
     """
     spirits = mongo.db.spirits.find()
     recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
-    # ratings = list(mongo.db.reviews.find(
-    #     {"cocktail_id": "recipe._id"}, {"rating":1, "_id":0}))
-    # numbers = [x['rating'] for x in ratings]
-    # average_rating = round(sum(numbers)/len(numbers), 2)
 
     # Pagination
     paginated_recipes = paginate(recipes)
@@ -217,29 +213,29 @@ def register():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("register-username").lower()})
 
         if existing_user:
             flash("Username already in use!")
             return redirect(url_for("login"))
 
         # check if passwords match
-        if request.form.get("password") != request.form.get(
-                    "confirm-password"):
+        if request.form.get("register-password") != request.form.get(
+                    "register-confirm-password"):
             flash("Passwords do not match!")
             return redirect(url_for("login"))
 
         # register user
         register = {
-            "username": request.form.get("username").lower(),
+            "username": request.form.get("register-username").lower(),
             "password": generate_password_hash(request.form.get(
-                "password"))
+                "register-password"))
         }
         mongo.db.users.insert_one(register)
         flash("Successfully Registered!")
 
         # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
+        session["user"] = request.form.get("register-username").lower()
         return redirect(url_for("mycocktails", username=session["user"]))
 
     return render_template("login.html")
@@ -349,7 +345,7 @@ def recipe(cocktail_id):
         {"cocktail_id": ObjectId(cocktail_id)}, {"rating": 1, "_id": 0}))
     numbers = [x['rating'] for x in ratings]
     try:
-        average_rating = round(sum(numbers)/len(numbers), 2)
+        average_rating = round(sum(numbers)/len(numbers), 1)
 
     except ZeroDivisionError:
         average_rating = "No Ratings"
