@@ -336,7 +336,12 @@ def recipe(cocktail_id):
     reviews = list(mongo.db.reviews.find({
         "cocktail_id": ObjectId(cocktail_id)
     }))
-    return render_template("recipe.html", recipe=recipe, reviews=reviews)
+    ratings = list(mongo.db.reviews.find(
+        {"cocktail_id": ObjectId(cocktail_id)}, {"rating":1, "_id":0}))
+    numbers = [x['rating'] for x in ratings]
+    average_rating = round(sum(numbers)/len(numbers), 2)
+    return render_template("recipe.html", recipe=recipe, reviews=reviews,
+                            ratings=ratings, average_rating=average_rating)
 
 
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])

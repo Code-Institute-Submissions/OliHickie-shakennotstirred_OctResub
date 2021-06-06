@@ -29,9 +29,15 @@
             <p>Added by:<em> {{ recipe.created_by }}</em></p>
             <hr>
             <div>
-                Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
+                <p>
+                    Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
+                </p>
             </div>
-            <div>Rating</div>
+            <div>
+                <p>
+                    Rating: {{ average_rating }} / 5
+                </p>
+            </div>
             <ul class="ingredients-list">
 
                 {% for ingredient in recipe.ingredients %}
