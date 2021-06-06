@@ -62,8 +62,16 @@
                     <div class="center-align see-recipe-btn">
                         <a class="btn-small" href="{{ url_for('recipe', cocktail_id=recipe._id) }}">see recipe</a>
                     </div>
-                    <div>Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span></div>
-                    <div>Rating</div>
+                    <div>
+                        <p>
+                            Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Rating: 
+                        </p>
+                    </div>
                     <div><small>Added by: <em>{{ recipe.created_by }}</em></small></div>
                 </div>
             </div>

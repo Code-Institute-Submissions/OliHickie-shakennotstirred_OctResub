@@ -115,6 +115,12 @@ def cocktail_list():
     """
     spirits = mongo.db.spirits.find()
     recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
+    # ratings = list(mongo.db.reviews.find(
+    #     {"cocktail_id": "recipe._id"}, {"rating":1, "_id":0}))
+    # numbers = [x['rating'] for x in ratings]
+    # average_rating = round(sum(numbers)/len(numbers), 2)
+
+    # Pagination
     paginated_recipes = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template(
@@ -194,7 +200,7 @@ def login():
 def redirect_login():
     """
     If user not logged in, redirects user to log in page
-    and asks user to log in. 
+    and asks user to log in.
     """
     flash("Please log in to use this function")
     return redirect(url_for('login'))
@@ -206,7 +212,7 @@ def register():
     Allows user to register their username and passoword.
     Checks for existing user with matching username.
     Checks passwords match.
-    Puts user into session. 
+    Puts user into session.
     """
     if request.method == "POST":
         # check if username already exists in db
@@ -242,7 +248,7 @@ def register():
 @app.route('/logout')
 def logout():
     """
-    Logs user out. 
+    Logs user out.
     """
     flash('You have been logged out')
     session.pop('user')
@@ -331,23 +337,31 @@ def recipe(cocktail_id):
     """
     Returns recipe information.
     Returns user reviews that relate to that recipe.
+    Find average rating for recipe
     """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     reviews = list(mongo.db.reviews.find({
         "cocktail_id": ObjectId(cocktail_id)
     }))
+
+    # find average rating
     ratings = list(mongo.db.reviews.find(
-        {"cocktail_id": ObjectId(cocktail_id)}, {"rating":1, "_id":0}))
+        {"cocktail_id": ObjectId(cocktail_id)}, {"rating": 1, "_id": 0}))
     numbers = [x['rating'] for x in ratings]
-    average_rating = round(sum(numbers)/len(numbers), 2)
+    try:
+        average_rating = round(sum(numbers)/len(numbers), 2)
+
+    except ZeroDivisionError:
+        average_rating = "No Ratings"
+
     return render_template("recipe.html", recipe=recipe, reviews=reviews,
-                            ratings=ratings, average_rating=average_rating)
+                           average_rating=average_rating)
 
 
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])
 def review(cocktail_id):
     """
-    Allows users to review recipes. 
+    Allows users to review recipes.
     Add a rating and a comment and stores in database.
     """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
@@ -374,6 +388,7 @@ def review(cocktail_id):
 """
 404 and 500 error pages
 """
+
 
 @app.errorhandler(404)
 def page_not_found(e):
