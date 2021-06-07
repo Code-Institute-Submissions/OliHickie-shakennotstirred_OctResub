@@ -460,6 +460,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
     color: #AD974F;
 }
 
+.feedback p {
+    font-size: 18px;
+}
+
+.mail-icon:hover {
+    color: #EAEAEA;
+}
+
 /* 404 page  */
 
 .error-page {
