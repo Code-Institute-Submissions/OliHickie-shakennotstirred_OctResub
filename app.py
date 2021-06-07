@@ -255,13 +255,26 @@ def myrecipes(username):
     """
     Returns users cocktails
     """
-    my_recipes = mongo.db.recipes.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+
+    # seperated lists for admin and user in order
+    # pagination is implemented correctly
+    if username == 'admin':
+        my_recipes = list(mongo.db.recipes.find())
+    else:
+        my_recipes = list(mongo.db.recipes.find({
+                          "created_by": username}))
+
+    # Pagination
+    paginated_recipes = paginate(my_recipes)
+    pagination = pagination_args(my_recipes)
+
     if session['user']:
         return render_template(
             "myrecipes.html", username=username,
-            my_recipes=my_recipes)
+            my_recipes=paginated_recipes,
+            pagination=pagination)
 
 
 @app.route('/create_recipe', methods=['GET', 'POST'])
