@@ -26,6 +26,7 @@ Code taken from
  https://github.com/alandoherty95/reciprocate-app
 """
 PER_PAGE = 12
+SPIRITS = ["vodka", "gin", "whiskey", "rum", "tequila"]
 
 
 def paginate(recipes):
@@ -114,15 +115,13 @@ def cocktail_list():
     Returns all recipes as a list and sorts alphabetically
     Paginates recipes - 12 per page
     """
-    spirits = ["Vodka", "Gin", "Whiskey", "Rum", "Tequila"]
-
     recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
 
     # Pagination
     paginated_recipes = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template(
-        'cocktail_list.html', spirits=spirits, recipes=paginated_recipes,
+        'cocktail_list.html', spirits=SPIRITS, recipes=paginated_recipes,
         pagination=pagination)
 
 
@@ -133,12 +132,11 @@ def search():
     Searches recipes and returns them as a list
     Paginates search results
     """
-    spirits = mongo.db.spirits.find()
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     paginated_recipes = paginate(recipes)
     pagination = pagination_args(recipes)
-    return render_template("cocktail_list.html", spirits=spirits,
+    return render_template("cocktail_list.html", spirits=SPIRITS,
                            recipes=paginated_recipes,
                            pagination=pagination)
 
@@ -149,14 +147,12 @@ def search_spirit(spirit):
     Returns recipes depending on spirit category
     Paginates search results
     """
-    spirits = ["Vodka", "Gin", "Whiskey", "Rum", "Tequila"]
-
     recipes = list(mongo.db.recipes.find(
         {"category": spirit}).sort("cocktail_name", 1))
     paginated_recipes = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template('cocktail_list.html',
-                           spirits=spirits, recipes=paginated_recipes,
+                           spirits=SPIRITS, recipes=paginated_recipes,
                            pagination=pagination)
 
 

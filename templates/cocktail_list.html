@@ -28,7 +28,7 @@
 
                 {% for spirit in spirits %}
                 <li>
-                    <a href="{{ url_for('search_spirit', spirit=spirit|lower) }}">
+                    <a class="capitalize-spirits" href="{{ url_for('search_spirit', spirit=spirit|lower) }}">
                         {{ spirit }}</a>
                 </li>
                 {% endfor %}

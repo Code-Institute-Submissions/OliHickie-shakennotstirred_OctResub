@@ -264,7 +264,6 @@ hr {
 
 .spirit-list li {
     width: 100%;
-    /* border: 1px solid black; */
     margin: 5px;
     padding: 10px 0px;
     background: rgb(234, 234, 234);
@@ -287,6 +286,10 @@ hr {
 
 .no-results h3 {
     padding: 45px 0px;
+}
+
+.capitalize-spirits {
+    text-transform: capitalize;
 }
 
 /* Pagination */

@@ -83,11 +83,12 @@
             <div class="col l4 offset-l2 s12">
               <h5 class="">Quick Search</h5>
               <ul>
-                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='vodka') }}">Vodka</a></li>
-                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='gin') }}">Gin</a></li>
-                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='whiskey') }}">Whiskey</a></li>
-                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='rum') }}">Rum</a></li>
-                <li><a class="quick-link" href="{{ url_for('search_spirit', spirit='tequila') }}">Tequila</a></li>
+                {% for spirit in spirits %}
+
+                <li><a class="quick-link capitalize-spirits" href="{{ url_for('search_spirit', spirit=spirit) }}">{{ spirit }}</a></li>
+
+                {% endfor %}
+              
               </ul>
             </div>
           </div>
