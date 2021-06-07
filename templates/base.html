@@ -26,10 +26,10 @@
                 <a href="{{ url_for('home') }}" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('cocktail_list') }}">Recipes</a></li>
+                    <li><a href="{{ url_for('cocktail_list') }}">Cocktails</a></li>
 
                     {% if session.user %}
-                    <li><a href="{{ url_for('mycocktails', username=session['user']) }}">My Cocktails</a></li>
+                    <li><a href="{{ url_for('myrecipes', username=session['user']) }}">My Recipes</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
 
                     {% else %}
@@ -42,10 +42,10 @@
         <!-- mobile navbar -->
         <ul id="mobile-demo" class="sidenav">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('cocktail_list') }}">Recipes</a></li>
+            <li><a href="{{ url_for('cocktail_list') }}">Cocktails</a></li>
 
             {% if session.user %}
-            <li><a href="{{ url_for('mycocktails', username=session['user']) }}">My Cocktails</a></li>
+            <li><a href="{{ url_for('myrecipes', username=session['user']) }}">My Recipes</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
 
             {% else %}

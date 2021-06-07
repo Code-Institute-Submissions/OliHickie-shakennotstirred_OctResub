@@ -180,7 +180,7 @@ def login():
                 session["user"] = request.form.get("username").lower()
 
                 return redirect(url_for(
-                    "mycocktails", username=session["user"]))
+                    "myrecipes", username=session["user"]))
 
             else:
                 # invalid password match
@@ -239,7 +239,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("register-username").lower()
-        return redirect(url_for("mycocktails", username=session["user"]))
+        return redirect(url_for("myrecipes", username=session["user"]))
 
     return render_template("login.html")
 
@@ -254,8 +254,8 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route('/mycocktails/<username>', methods=['GET', 'POST'])
-def mycocktails(username):
+@app.route('/myrecipes/<username>', methods=['GET', 'POST'])
+def myrecipes(username):
     """
     Returns users cocktails
     """
@@ -264,7 +264,7 @@ def mycocktails(username):
         {"username": session["user"]})["username"]
     if session['user']:
         return render_template(
-            "mycocktails.html", username=username,
+            "myrecipes.html", username=username,
             my_recipes=my_recipes)
 
 
@@ -289,7 +289,7 @@ def create_recipe():
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         flash("Successfully Added Recipe")
-        return redirect(url_for("mycocktails", username=username))
+        return redirect(url_for("myrecipes", username=username))
 
     return render_template('create_recipe.html')
 
@@ -313,7 +313,7 @@ def edit_recipe(cocktail_id):
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         flash('Recipe has been Updated')
-        return redirect(url_for('mycocktails', username=username))
+        return redirect(url_for('myrecipes', username=username))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     return render_template('edit_recipe.html', recipe=recipe)
@@ -328,7 +328,7 @@ def delete_recipe(cocktail_id):
     flash("Recipe Has Been Removed!")
     username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
-    return redirect(url_for('mycocktails', username=username))
+    return redirect(url_for('myrecipes', username=username))
 
 
 @app.route("/recipe/<cocktail_id>")
@@ -346,7 +346,7 @@ def recipe(cocktail_id):
     # find average rating
     ratings = list(mongo.db.reviews.find(
         {"cocktail_id": ObjectId(cocktail_id)}, {"rating": 1, "_id": 0}))
-    numbers = [x['rating'] for x in ratings]
+    numbers = [num['rating'] for num in ratings]
     try:
         average_rating = round(sum(numbers)/len(numbers), 1)
 
