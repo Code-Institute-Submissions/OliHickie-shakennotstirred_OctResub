@@ -392,6 +392,28 @@ def review(cocktail_id):
     return render_template("review.html", recipe=recipe)
 
 
+@app.route('/edit_review/<review_id>', methods=["GET", "POST"])
+def edit_review(review_id):
+    """
+    Allows user to edit and update their own review.
+    """
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    cocktail_id = review['cocktail_id']
+    if request.method == "POST":
+        edit_review = {
+            "cocktail_id": ObjectId(cocktail_id),
+            "comment": request.form.get("comment"),
+            "rating": int(request.form.get("rating")),
+            "user": session["user"]
+        }
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, edit_review)
+        flash('Review has been Updated')
+        return redirect(url_for('recipe', cocktail_id=cocktail_id))
+
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    return render_template('edit_review.html', review=review)
+
+
 @app.route('/delete_review/<review_id>')
 def delete_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
