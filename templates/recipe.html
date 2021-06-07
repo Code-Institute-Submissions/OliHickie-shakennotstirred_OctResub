@@ -81,6 +81,7 @@
                             "{{ review.comment }}" ... <small><em>{{ review.user }}</em></small>
                         </p>
                     </div>
+                    {% if session.user == "admin" or session.user == review.user %}
                     <div class="col s1">
                         <a class="btn-small delete-btn modal-trigger"
                         data-toggle="modal" data-target="modal-{{ review._id }}"
@@ -99,7 +100,7 @@
                                 <button class="btn-small edit-btn modal-close">cancel</button>
                             </div>
                         </div>
-                        
+                    {% endif %}    
                     </div>
                 </div>
                 {% endfor %}
