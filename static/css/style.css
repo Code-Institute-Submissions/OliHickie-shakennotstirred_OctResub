@@ -58,7 +58,7 @@ h5 {
 .navbar {
     height: 100px;
     line-height: 100px;
-    background-color: #1f1a1b;
+    background-color: #1e1a1a;
 }
 
 .navbar a {
@@ -113,7 +113,7 @@ h5 {
 .flashes {
     position: absolute;
     margin-top: 0px;
-    padding: 45px;
+    padding: 20px;
     width: 100%;
     background-color: #e7dcb7;
     z-index: 10;
@@ -145,6 +145,7 @@ hr {
     text-transform: capitalize;
     overflow-wrap: break-word;
     height: 64px;
+    color: #231F20;
 }
 
 .cocktail-card-img {
@@ -154,7 +155,7 @@ hr {
 }
 
 .card-content {
-    height: 190px;
+    height: 150px;
 }
 
 .card-content {
@@ -447,7 +448,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 /* footer  */
 
 .page-footer {
-    background-color: #231F20;
+    background-color: #1e1a1a;
     color: #eaeaea;
 }
 

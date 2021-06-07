@@ -30,7 +30,7 @@ SPIRITS = ["vodka", "gin", "whiskey", "rum", "tequila"]
 
 
 def paginate(recipes):
-    page, per_page, offset = get_page_args(
+    page, _, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     offset = page * PER_PAGE - PER_PAGE
 
@@ -58,17 +58,17 @@ def home():
     """
     carousel_items = [
         {
+            # login card
+            "url": "login",
+            "image": "/static/images/friends-join.png",
+            "alt": "link to login"
+        },
+        {
             # old fashioned card
             "url": "recipe",
             "cocktail_id": "60a6b327ccda71deb2cd57fa",
             "image": "/static/images/old-fashioned.jpg",
             "alt": "Old fashioned recipe"
-        },
-        {
-            # login card
-            "url": "login",
-            "image": "/static/images/friends-join.png",
-            "alt": "link to login"
         },
         {
             # classic mojito card

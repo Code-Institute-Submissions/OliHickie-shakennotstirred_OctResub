@@ -43,34 +43,33 @@
         {% for recipe in recipes %}
         <div class="col s12 m6 l4 xl3">
             <div class="card">
-                <div class="card-image">
+                <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}">
+                    <div class="card-image">
 
-                    {% if recipe.image_url %}
-                    <img class="cocktail-card-img" src="{{ recipe.image_url }}"
-                        alt="Picture of {{ recipe.cocktail_name }}">
-                    {% else %}
-                    <img class="cocktail-card-img"
-                        src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt="Picture of bar">
-                    {% endif %}
+                        {% if recipe.image_url %}
+                        <img class="cocktail-card-img" src="{{ recipe.image_url }}"
+                            alt="Picture of {{ recipe.cocktail_name }}">
+                        {% else %}
+                        <img class="cocktail-card-img"
+                            src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            alt="Picture of bar">
+                        {% endif %}
 
-                </div>
-                <div class="card-content">
-                    <div class="card-title center-align cocktail-card-title">
-                        <p>{{ recipe.cocktail_name }}</p>
                     </div>
-                    <div class="center-align see-recipe-btn">
-                        <a class="btn-small" href="{{ url_for('recipe', cocktail_id=recipe._id) }}">see recipe</a>
+                    <div class="card-content">
+                        <div class="card-title center-align cocktail-card-title">
+                            <p>{{ recipe.cocktail_name }}</p>
+                        </div>
+                        <div>
+                            <p>
+                                Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
+                            </p>
+                        </div>
+                        <div>
+                            <small>Added by: <em>{{ recipe.created_by }}</em></small>
+                        </div>
                     </div>
-                    <div>
-                        <p>
-                            Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
-                        </p>
-                    </div>
-                    <div>
-                        <small>Added by: <em>{{ recipe.created_by }}</em></small>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
         {% endfor %}

@@ -39,11 +39,13 @@
                 <div class="input-field col s12 m4">
                     <i class="prefix fas fa-star"></i>
                     <select name="difficulty">
-                        {% if recipe.difficulty == "easy" %}
-                        <option value="easy" selected>Easy</option>
+                        <!-- {% if recipe.difficulty == "easy" %} -->
+                        <option value="easy" selected="{{ 'true' if recipe.difficulty == 'easy' else 'false'  }}">Easy</option>
                         <option value="medium">Medium</option>
-                        <option value="difficult">Difficult</option>
-                        {% elif recipe.difficulty == "medium" %}
+                        <option value="difficult" >Difficult</option>
+                        <!-- <option value="medium" selected="{{ recipe.difficulty == 'medium' }}">Medium</option>
+                        <option value="difficult" selected="{{ recipe.difficulty == 'difficult' }}">Difficult</option> -->
+                        <!-- {% elif recipe.difficulty == "medium" %}
                         <option value="easy">Easy</option>
                         <option value="medium" selected>Medium</option>
                         <option value="difficult">Difficult</option>
@@ -51,7 +53,7 @@
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="difficult" selected>Difficult</option>
-                        {% endif %}
+                        {% endif %} -->
                     </select>
                     <label>Difficulty</label>
                 </div>

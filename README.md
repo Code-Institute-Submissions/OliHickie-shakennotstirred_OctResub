@@ -84,15 +84,63 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     ![Image of a calligraphhic font in use](static/images/readme/bethellen.png)
 
-- imagery
-- wireframes
+- Imagery
+
+    Imagery is widely used on this site. The colors break up the black and white template and add a friendly and inviting feel. 
+    The homepage is littered with imagery to welcome the user and help a new user understand the function of the site. There is little control over what imagery is uploaded by the user when adding a cocktail recipe. However, to ensure the image is visible, the height has been fixed and, if any inappropriate imagery is added, the admin (or site owner) is able to edit and change the image. Imagery is an important way of enticing the user into clicking a recipe. With that in mind, if no image url is added to a recipe, a default image loads instead. 
+
+- Wireframes
+
+    Below are my wireframes for the site, showing examples of the pages across three screen sizes. 
 
 # Features
+- **Header**
+    
+    The header is available on all pages and houses a website logo (which links the user to the home page) and navigation item. On smaller screens, the navigation items are located in a collapsible menu which is accessed using a hamburger icon in the top left of the screen. 
+
+- **Nav bar items**
+
+    The nav bar items are listed as follows:
+
+     ![Image of a calligraphhic font in use](static/images/readme/navbar.png)
+
+     'My Recipes' is only visible and available to users once logged in. 'Log In' replaces 'Log Out' if no user is currently logged in and both items take the user to the log in page.
+
+- **Footer**
+
+    The footer appears on all pages and comprises of three main componants. 
+    
+    1. A repitition of the logo along with a description of the purpose of the site. 
+    2. A quick search feature which, when a spirit is chosen, will take the user directly to the cocktails page and display a list of cocktails containing that base spirit.
+    3. A feedback link to email the site owner in case a user has any feedback or would like to report an issue. 
+
+
+- **Home Page**
+
+    The home page is a welcoming page designed to give the user an outlook of the whole site as well as offer some suggestions for cocktails. As a site owner, it is also designed to encourage a new user to sign up for an account. 
+
+    The top banner consists of a carousel with three slides; the first (upon the page loading) is a slide directing the user to log in or create an account. Two further slides are suggesting favourite cocktail recipes to try. All three slides are clickable a link the user to the desired page (whether the login page or recipe page).
+
+    Below the carousel is a wide clickable button taking the user to all the recipes available. The button also contains a counter displaying how many cocktails are currently on the database. 
+
+    The next section is a random cocktail picker that, on each page load, will return a random recipe from the database and display it to the user. 
+
+    Below that is a 'Cocktail for Every Season' section, again, designed to inspire and entice a user into clicking onto a cocktail recipe and trying it out. 
+
+    N.B. all cocktails that appear on to home page as page 
 - **Nav bar**
+- **Nav bar**
+- **Nav bar**
+- **Nav bar**
+- **Nav bar**
+- **Nav bar**
+- **Flashes**
+
 
 ### Future Features
 
 # Technologies
+## Database Design
 
 ## Languages
 
