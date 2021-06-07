@@ -84,7 +84,7 @@
             <div class="col l3 offset-l2 s12">
               <h5 class="">Quick Search <i class="fas fa-search"></i></h5>
               <ul>
-                {% for spirit in spirits %}
+                {% for spirit in SPIRITS %}
 
                 <li><a class="quick-link capitalize-spirits" href="{{ url_for('search_spirit', spirit=spirit) }}">{{ spirit }}</a></li>
 

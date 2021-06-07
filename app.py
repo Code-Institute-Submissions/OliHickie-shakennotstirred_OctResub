@@ -379,6 +379,15 @@ def review(cocktail_id):
     return render_template("review.html", recipe=recipe)
 
 
+@app.route('/delete_review/<review_id>')
+def delete_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    cocktail_id = review['cocktail_id']
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review Deleted")
+    return redirect(url_for("recipe", cocktail_id=cocktail_id))
+
+
 # ERRORS
 """
 404 and 500 error pages
