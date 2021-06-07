@@ -14,9 +14,8 @@ function back() {
 $("#add-ingredient").click(function () {
   $(".ingredients-list").append(
     `<div class="input-field additional-line">
-        <i class="prefix fas fa-wine-bottle"></i>
         <input name="ingredients" type="text" required>
-        <label for="ingredients">Add Quantity/Ingredient</label>
+        <label for="ingredients" class="sr-only">Add Quantity/Ingredient</label>
     </div>`
   );
   $("#remove-ingredient").removeClass("hide");

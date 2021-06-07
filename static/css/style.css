@@ -397,6 +397,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
     font-size: 18px;
 }
 
+.additional-line {
+    margin-left: 45px;
+}
+
 /* cocktail recipe page  */
 
 .cocktail-img img {
