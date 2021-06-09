@@ -40,25 +40,26 @@ I would like to be able to:
 - (US07) Add a cocktail recipe.
 - (US08) Review other people's cocktail recipes.
 - (US09) Be able to edit and delete my recipes.
-- (US10) Be able to delete my reviews.
+- (US10) Be able to edit and delete my reviews.
 - (US11) Be able to log out easily. 
 
 **Shared user stories**
 I would like to be able to:
 
-- (US12) Search for and find cocktail recipes.
-- (US13) Access to a quick search feature relying on the base spirit of the cocktail. 
-- (US14) Read recipes and reviews left by users. 
-- (US15) See an average rating for each recipe. 
-- (US16) Discover a randomly chosen recipe when struggling for inspiration.
-- (US17) Discover a popular recipe depending on the season. 
-- (US18) Be able to contact the site owner with feedback or comments. 
+- (US12) Experience intuitive navigation with quick and easy links to pages as well as return back to pages without needing to use the browser's back button. 
+- (US13) Search for and find cocktail recipes.
+- (US14) Have access to a quick search feature relying on the base spirit of the cocktail. 
+- (US15) Read recipes and reviews left by users. 
+- (US16) See an average rating for each recipe. 
+- (US17) Discover a randomly chosen recipe when struggling for inspiration.
+- (US18) Discover a popular recipe depending on the season. 
+- (US19) Be able to contact the site owner with feedback or comments. 
 
 **As the site owner**
 I would like to be able to:
 
-- (US19) Be able to edit and delete any cocktail recipe. 
-- (US20) Be able to delete any rating. 
+- (US20) Be able to edit and delete any cocktail recipe. 
+- (US21) Be able to delete and edit any rating. 
 
 
 ## Design
@@ -114,6 +115,7 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
     2. A quick search feature which, when a spirit is chosen, will take the user directly to the cocktails page and display a list of cocktails containing that base spirit.
     3. A feedback link to email the site owner in case a user has any feedback or would like to report an issue. 
 
+    ![Image of footer](static/images/readme/footer.png)
 
 - **Home Page**
 
@@ -123,12 +125,35 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     Below the carousel is a wide clickable button taking the user to all the recipes available. The button also contains a counter displaying how many cocktails are currently on the database. 
 
-    The next section is a random cocktail picker that, on each page load, will return a random recipe from the database and display it to the user. 
+    The next section is a random cocktail picker that, on each page load, will return a random recipe from the database and display it to the user. There is also a button to quickly refresh the page and display an alternative cocktail. 
 
     Below that is a 'Cocktail for Every Season' section, again, designed to inspire and entice a user into clicking onto a cocktail recipe and trying it out. 
 
-    N.B. all cocktails that appear on to home page as page 
-- **Nav bar**
+    ![Image of a seasonal cocktails](static/images/readme/seasonal-cocktails.png)
+
+    N.B. all cocktails that appear on the home page are have been added by the site owner, so cannot be deleted or edited. 
+
+    The final section is a brief description of what is available to a user when they sign up for the website. The three sections; create, discover and rate and review, lead to a sign up button which will take the user to a log in/register page. 
+
+- **Cocktails Page**
+
+    The cocktails page is the main page of recipes. This is available to users whether they are signed in or not. Before the list of cocktails are displayed, there is a search feature and quick search tabs. The search feature uses key words and searches the cocktail names as well as ingredients. If no cocktail is found then a message is displayed informing the user of this.
+
+    The quick search tabs are a quick way of searching for the base alcohol in the cocktail. These are the main six spirit bases that are used and will return cocktails containing those spirits. 
+
+    ![Image of a calligraphhic font in use](static/images/readme/searchresults.png)
+    
+    We then come to the recipe cards themselves. The cards are all clickable links which take the user to the specific recipe page. The cards display four pieces of information about the cocktail:
+        
+    - An image of the cocktail, taken from a url provided by the recipe author. If the author hasn't provided a url (which is optional), a default image will be displayed. 
+    - The name of the cocktail. This is limited to 20 characters in order to prevent any overflow. 
+    - The difficulty of the recipe, which is presented as dots to portray easy, medium or difficult. 
+    - and the creator of the recipe. 
+
+    The recipe cards are designed so that overflow is not possible and reduce in number per row as the screen size reduces. The recipe cards are also paginated and have a limit of twelve cards per page to prevent the page from getting too long. 
+
+    ![Image of a calligraphhic font in use](static/images/readme/cocktail-cards.png)
+
 - **Nav bar**
 - **Nav bar**
 - **Nav bar**

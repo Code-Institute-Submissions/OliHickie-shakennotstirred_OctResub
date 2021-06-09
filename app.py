@@ -222,7 +222,7 @@ def search():
     pagination = pagination_args(recipes)
     return render_template("cocktail_list.html", spirits=SPIRITS,
                            recipes=paginated_recipes,
-                           pagination=pagination)
+                           pagination=pagination, query=query)
 
 
 @app.route("/search/<spirit>")

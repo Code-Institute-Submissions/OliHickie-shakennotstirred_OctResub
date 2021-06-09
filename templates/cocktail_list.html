@@ -38,6 +38,10 @@
         </div>
     </div>
 
+    {% if query %}
+    <h5>Search results for "{{ query }}"</h5>
+    {% endif %}
+
     <!-- cocktail list  -->
     <div class="row">
         {% if recipes| length > 0 %}
