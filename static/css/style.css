@@ -450,6 +450,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
     padding: 30px;
 }
 
+@media screen and (max-width: 600px) {
+    .review-card {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
 /* footer  */
 
 .page-footer {
