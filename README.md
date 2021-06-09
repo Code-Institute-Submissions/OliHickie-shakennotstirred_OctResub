@@ -317,13 +317,13 @@ MongoDB was used to store the data for this site and in three seperate collectio
 6. Head over to the settings menu and update the _Config Vars_ to the following key, value pairs:
 <br>
 
-    | Key  | Value    |
-    |---|---|
-    | IP | 0.0.0.0 |
-    |MONGO_DBNAME| _your_mongodb_name_|
-    | MONGO_URI | mongodb+srv://root:<_your_password_>@cluster0.sgi7e.mongodb.net/<_your_database_>?retryWrites=true&w=majority |
-    | PORT | 5000 |
-    |SECRET_KEY |_your_secret_key_|
+| Key  | Value    |
+|---|---|
+| IP | 0.0.0.0 |
+|MONGO_DBNAME| _your_mongodb_name_|
+| MONGO_URI | mongodb+srv://root:<_your_password_>@cluster0.sgi7e.mongodb.net/<_your_database_>?retryWrites=true&w=majority |
+| PORT | 5000 |
+|SECRET_KEY |_your_secret_key_|
 
 <br>
 
