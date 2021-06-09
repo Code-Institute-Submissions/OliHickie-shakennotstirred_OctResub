@@ -15,6 +15,7 @@
         <div class="card review-card">
             <form method="POST" action="{{ url_for('review', cocktail_id=recipe._id) }}">
                 <div class="row">
+                    <!-- Rating  -->
                     <div class="input-field col s12 m6 offset-m3">
                         <i class="prefix fas fa-star"></i>
                         <select name="rating" required>
@@ -27,12 +28,14 @@
                         </select>
                         <label class="sr-only">Rating</label>
                     </div>
+                    <!-- Comments  -->
                     <div class="input-field col s12">
                         <i class="prefix fas fa-pencil-alt"></i>
                         <textarea id="comment" name="comment" class="materialize-textarea" required></textarea>
                         <label for="comment">Comments</label>
                     </div>
                 </div>
+                <!-- Buttons  -->
                 <div class="s12 center-align">
                     <button type="submit" class="btn-small">
                         <i class="fab fa-telegram-plane"></i> submit
@@ -44,9 +47,6 @@
             </form>
         </div>
     </section>
-
 </main>
-
-
 
 {% endblock %}

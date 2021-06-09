@@ -3,7 +3,7 @@
 
 
 <main class="container">
-  <!-- carousel  -->
+  <!-- Carousel  -->
   <div class="carousel carousel-slider" id="home-carousel">
 
     {% for item in carousel_items %}
@@ -14,7 +14,7 @@
 
   </div>
 
-  <!-- link to all recipes  -->
+  <!-- Link to all recipes  -->
   <div class="link-to-recipes center-align">
     <p><a href="{{ url_for('cocktail_list') }}">
         Click here for all {{ number_of_recipes }} recipes <i class="fas fa-arrow-alt-circle-right"></i>
@@ -31,7 +31,7 @@
       <i class="fas fa-chevron-right"></i>
       <i class="fas fa-chevron-right"></i>
       <a href="{{ url_for('home') }}" class="btn-small picker-btn">
-        pick again
+        refresh
       </a>
       <i class="fas fa-chevron-left"></i>
       <i class="fas fa-chevron-left"></i>
@@ -40,7 +40,7 @@
     {% for recipe in random_file %}
     <div class="row">
       <div class="col s12">
-        <div class="card random-file-card">
+        <div class="card hoverable random-file-card">
           <div class="card-image">
 
             {% if recipe.image_url %}
@@ -57,7 +57,6 @@
                 view recipe
               </a>
             </div>
-
           </div>
         </div>
       </div>
@@ -68,7 +67,7 @@
 
   <hr>
 
-  <!-- cocktails for different seasons  -->
+  <!-- Cocktails for different seasons  -->
   <section class="season-drinks">
     <h3>Cocktails for every season...</h3>
     <div class="row">
@@ -86,12 +85,12 @@
 
   <hr>
 
-  <!-- sign up  -->
+  <!-- About site  -->
   <section class="home-sign-up">
     <a href="{{ url_for('login') }}">
       <h3 class="center-align">sign up for free!</h3>
     </a>
-    
+
     <div class="row center-align">
       <div class="col s12 m4">
         <h5>Create your own recipes</h5>

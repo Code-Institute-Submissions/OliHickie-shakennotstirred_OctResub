@@ -38,7 +38,7 @@ def paginate(recipes):
 
 
 def pagination_args(recipes):
-    page, per_page, offset = get_page_args(
+    page, _, _ = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     total = len(recipes)
 
@@ -109,53 +109,6 @@ def home():
                            seasonal_recipes=seasonal_recipes)
 
 
-@app.route("/cocktail_list")
-def cocktail_list():
-    """
-    Returns all recipes as a list and sorts alphabetically
-    Paginates recipes - 12 per page
-    """
-    recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
-
-    # Pagination
-    paginated_recipes = paginate(recipes)
-    pagination = pagination_args(recipes)
-    return render_template(
-        'cocktail_list.html', spirits=SPIRITS, recipes=paginated_recipes,
-        pagination=pagination)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    """
-    returns list of spirits
-    Searches recipes and returns them as a list
-    Paginates search results
-    """
-    query = request.form.get("query")
-    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    paginated_recipes = paginate(recipes)
-    pagination = pagination_args(recipes)
-    return render_template("cocktail_list.html", spirits=SPIRITS,
-                           recipes=paginated_recipes,
-                           pagination=pagination)
-
-
-@app.route("/search/<spirit>")
-def search_spirit(spirit):
-    """
-    Returns recipes depending on spirit category
-    Paginates search results
-    """
-    recipes = list(mongo.db.recipes.find(
-        {"category": spirit}).sort("cocktail_name", 1))
-    paginated_recipes = paginate(recipes)
-    pagination = pagination_args(recipes)
-    return render_template('cocktail_list.html',
-                           spirits=SPIRITS, recipes=paginated_recipes,
-                           pagination=pagination)
-
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     """
@@ -189,16 +142,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
-
-@app.route("/redirect_login")
-def redirect_login():
-    """
-    If user not logged in, redirects user to log in page
-    and asks user to log in.
-    """
-    flash("Please log in to use this function")
-    return redirect(url_for('login'))
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -250,6 +193,65 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/cocktail_list")
+def cocktail_list():
+    """
+    Returns all recipes as a list and sorts alphabetically
+    Paginates recipes - 12 per page
+    """
+    recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
+
+    # Pagination
+    paginated_recipes = paginate(recipes)
+    pagination = pagination_args(recipes)
+    return render_template(
+        'cocktail_list.html', spirits=SPIRITS, recipes=paginated_recipes,
+        pagination=pagination)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """
+    returns list of spirits
+    Searches recipes and returns them as a list
+    Paginates search results
+    """
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    paginated_recipes = paginate(recipes)
+    pagination = pagination_args(recipes)
+    return render_template("cocktail_list.html", spirits=SPIRITS,
+                           recipes=paginated_recipes,
+                           pagination=pagination)
+
+
+@app.route("/search/<spirit>")
+def search_spirit(spirit):
+    """
+    Returns recipes depending on spirit category
+    Paginates search results
+    """
+    recipes = list(mongo.db.recipes.find(
+        {"category": spirit}).sort("cocktail_name", 1))
+
+    # Pagination
+    paginated_recipes = paginate(recipes)
+    pagination = pagination_args(recipes)
+    return render_template('cocktail_list.html',
+                           spirits=SPIRITS, recipes=paginated_recipes,
+                           pagination=pagination)
+
+
+@app.route("/redirect_login")
+def redirect_login():
+    """
+    If user not logged in, redirects user to log in page
+    and asks user to log in.
+    """
+    flash("Please log in to use this function")
+    return redirect(url_for('login'))
+
+
 @app.route('/myrecipes/<username>', methods=['GET', 'POST'])
 def myrecipes(username):
     """
@@ -258,8 +260,8 @@ def myrecipes(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    # seperated lists for admin and user in order
-    # pagination is implemented correctly
+    # seperated lists for admin and user in order for
+    # pagination to be implemented correctly
     if username == 'admin':
         my_recipes = list(mongo.db.recipes.find())
     else:
@@ -277,6 +279,31 @@ def myrecipes(username):
             pagination=pagination)
 
 
+@app.route("/recipe/<cocktail_id>")
+def recipe(cocktail_id):
+    """
+    Returns recipe information.
+    Returns user reviews that relate to that recipe.
+    Find average rating for recipe
+    """
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
+    reviews = list(mongo.db.reviews.find({
+        "cocktail_id": ObjectId(cocktail_id)
+    }))
+
+    # find average rating
+    ratings = list(mongo.db.reviews.find(
+        {"cocktail_id": ObjectId(cocktail_id)}, {"rating": 1, "_id": 0}))
+    numbers = [num['rating'] for num in ratings]
+    try:
+        average_rating = round(sum(numbers)/len(numbers), 1)
+    except ZeroDivisionError:
+        average_rating = "No Ratings"
+
+    return render_template("recipe.html", recipe=recipe, reviews=reviews,
+                           average_rating=average_rating)
+
+
 @app.route('/create_recipe', methods=['GET', 'POST'])
 def create_recipe():
     """
@@ -284,7 +311,6 @@ def create_recipe():
     Stores recipe in database and returns user to profil page.
     """
     if request.method == "POST":
-        # add recipe
         new_recipe = {
             "cocktail_name": request.form.get("cocktail_name").lower(),
             "difficulty": request.form.get("difficulty"),
@@ -340,32 +366,6 @@ def delete_recipe(cocktail_id):
     return redirect(url_for('myrecipes', username=username))
 
 
-@app.route("/recipe/<cocktail_id>")
-def recipe(cocktail_id):
-    """
-    Returns recipe information.
-    Returns user reviews that relate to that recipe.
-    Find average rating for recipe
-    """
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
-    reviews = list(mongo.db.reviews.find({
-        "cocktail_id": ObjectId(cocktail_id)
-    }))
-
-    # find average rating
-    ratings = list(mongo.db.reviews.find(
-        {"cocktail_id": ObjectId(cocktail_id)}, {"rating": 1, "_id": 0}))
-    numbers = [num['rating'] for num in ratings]
-    try:
-        average_rating = round(sum(numbers)/len(numbers), 1)
-
-    except ZeroDivisionError:
-        average_rating = "No Ratings"
-
-    return render_template("recipe.html", recipe=recipe, reviews=reviews,
-                           average_rating=average_rating)
-
-
 @app.route("/review/<cocktail_id>", methods=["GET", "POST"])
 def review(cocktail_id):
     """
@@ -416,6 +416,9 @@ def edit_review(review_id):
 
 @app.route('/delete_review/<review_id>')
 def delete_review(review_id):
+    """
+    Allows user to delete review
+    """
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     cocktail_id = review['cocktail_id']
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})

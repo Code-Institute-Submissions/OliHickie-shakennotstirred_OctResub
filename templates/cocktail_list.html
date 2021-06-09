@@ -5,7 +5,7 @@
         <h1 class="col s12 center-align">Cocktail Recipes</h1>
     </div>
 
-    <!-- side bar -->
+    <!-- search bar -->
     <div class="row">
         <form action="{{ url_for('search') }}" method="POST" class="col s10 offset-s1 m8 offset-m2">
             <div class="input-field">
@@ -22,6 +22,7 @@
             </div>
         </form>
     </div>
+    <!-- spirit quick search  -->
     <div class="row">
         <div class="col s10 offset-s1 m8 offset-m2">
             <ul class="spirit-list hide-on-small-only">
@@ -37,12 +38,12 @@
         </div>
     </div>
 
+    <!-- cocktail list  -->
     <div class="row">
-
         {% if recipes| length > 0 %}
         {% for recipe in recipes %}
         <div class="col s12 m6 l4 xl3">
-            <div class="card">
+            <div class="card hoverable">
                 <a href="{{ url_for('recipe', cocktail_id=recipe._id) }}">
                     <div class="card-image">
 
@@ -73,23 +74,19 @@
             </div>
         </div>
         {% endfor %}
-
+        <!-- if no search results  -->
         {% else %}
         <div class="center-align no-results">
             <h3>No Results Found</h3>
         </div>
         {% endif %}
+        <!-- pagination  -->
         <div class="row">
             <div class="col s12 center-align">
                 {{ pagination.links }}
             </div>
         </div>
-
     </div>
-
 </main>
-
-
-
 
 {% endblock %}

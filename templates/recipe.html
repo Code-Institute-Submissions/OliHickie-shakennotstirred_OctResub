@@ -3,6 +3,7 @@
 
 <main class="container">
     <section class="row recipe-container">
+        <!-- Buttons  -->
         <div class="col s12">
             <a href="{{ url_for('cocktail_list') }}" class="btn-small">
                 <i class="fas fa-hand-point-left"></i> all recipes
@@ -13,6 +14,7 @@
             {% endif %}
 
         </div>
+        <!-- Recipe image  -->
         <div class="col s12 l6 center-align cocktail-img">
 
             {% if recipe.image_url %}
@@ -24,17 +26,14 @@
             {% endif %}
 
         </div>
+        <!-- Recipe details  -->
         <div class="col s12 l6 recipe-info">
             <h3>{{ recipe.cocktail_name }}</h3>
             <p>Added by:<em> {{ recipe.created_by }}</em></p>
             <hr>
             <div>
-                <p>
-                    Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span>
-                </p>
-                <p>
-                    Rating (/5): {{ average_rating }}
-                </p>
+                <p>Difficulty: <span class="difficulty-{{ recipe.difficulty }}"></span></p>
+                <p>Rating (/5): {{ average_rating }}</p>
             </div>
             <ul class="ingredients-list">
 
@@ -52,7 +51,7 @@
     </section>
 
     <hr>
-    <!-- reviews  -->
+    <!-- Reviews  -->
     <section class="row">
         <div class="col s12">
             <h3>Reviews</h3>
@@ -72,17 +71,21 @@
                 {% if reviews| length > 0 %}
                 {% for review in reviews %}
                 <div class="row">
-                    <div class="col s6 m4 right-align">
+                    <!-- Rating stars -->
+                    <div class="col s12 m3 center-align">
                         <p class="rating-{{ review.rating }}">
                         </p>
                     </div>
-                    <div class="col s5 review-comment">
+                    <!-- Rating comment  -->
+                    <div class="col s12 m6 review-comment">
                         <p>
                             "{{ review.comment }}" ... <small><em>{{ review.user }}</em></small>
                         </p>
                     </div>
+
+                    <!-- Review buttons  -->
                     {% if session.user == "admin" or session.user == review.user %}
-                    <div class="col s2">
+                    <div class="col s12 m2 center-align">
                         <a href="{{ url_for('edit_review', review_id=review._id) }}">
                             <i class="btn-small fas fa-pencil-alt"></i>
                         </a>
@@ -90,9 +93,8 @@
                             data-target="modal-{{ review._id }}">
                             <i class="fas fa-times"></i>
                         </button>
-                        
 
-                        <!-- modal -->
+                        <!-- Confirm delete modal -->
                         <div id="modal-{{ review._id }}" class="modal">
                             <div class="modal-content">
                                 <p>Are you sure you wish to delete this review?</p>
@@ -103,8 +105,9 @@
                                 <button class="btn-small edit-btn modal-close">cancel</button>
                             </div>
                         </div>
-                        {% endif %}
                     </div>
+                    {% endif %}
+
                 </div>
                 {% endfor %}
 
@@ -114,11 +117,8 @@
                 </div>
                 {% endif %}
 
-
-
             </div>
         </div>
-
     </section>
 </main>
 

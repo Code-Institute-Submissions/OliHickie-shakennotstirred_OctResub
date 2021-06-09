@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col s12 l8 offset-l4 login-card-container">
 
-
+      <!-- Login card  -->
       <div class="card login-card">
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
@@ -13,7 +13,7 @@
             <li class="tab"><a href="#register">Register</a></li>
           </ul>
         </div>
-        <!-- log in form -->
+        <!-- Log in form -->
         <form id="login" class="col s12" method="POST" action="{{ url_for('login') }}">
           <div class="input-field">
             <i class="prefix fas fa-user"></i>
@@ -26,44 +26,47 @@
             <label for="password">Password</label>
           </div>
           <div class="center-align">
-          <button type="submit" class="waves-effect waves-light btn-small">
-            Log In
-          </button>
+            <button type="submit" class="waves-effect waves-light btn-small">
+              Log In
+            </button>
           </div>
         </form>
 
-        <!-- register form -->
+        <!-- Register form -->
         <form id="register" method="POST" action="{{ url_for('register') }}">
           <div class="input-field">
             <i class="prefix fas fa-user"></i>
-            <input id="register-username" name="register-username" type="text" class="validate" minlength="5" maxlength="20" required>
+            <input id="register-username" name="register-username" type="text" class="validate" minlength="5"
+              maxlength="20" required>
             <label for="register-username">Username</label>
-            <span class="helper-text" data-error="Invalid Username" data-success="Username OK">Must be between 5 and 20 characters</span>
+            <span class="helper-text" data-error="Invalid Username" data-success="Username OK">Must be between 5 and 20
+              characters</span>
           </div>
           <div class="input-field">
             <i class="prefix fas fa-lock"></i>
-            <input id="register-password" name="register-password" type="password" class="validate" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="Must contain one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input id="register-password" name="register-password" type="password" class="validate"
+              pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain one uppercase and lowercase letter, and at least 8 or more characters" required>
             <label for="register-password">Password</label>
-            <span class="helper-text">Must be 8 characters and include upper and lower case</span>
+            <span class="helper-text">At least 8 characters and include upper and lower case</span>
           </div>
           <div class="input-field">
             <i class="prefix fas fa-lock"></i>
-            <input id="register-confirm-password" name="register-confirm-password" type="password" class="validate" required>
+            <input id="register-confirm-password" name="register-confirm-password" type="password" class="validate"
+              required>
             <label for="register-confirm-password">Confirm Password</label>
             <span class="helper-text" data-error="Password does not match"></span>
           </div>
           <div class="center-align">
-          <button type="submit" class="waves-effect waves-light btn-small">
-            Register
-          </button>
+            <button type="submit" class="waves-effect waves-light btn-small">
+              Register
+            </button>
           </div>
         </form>
       </div>
+
     </div>
   </div>
-
-
 </main>
 
 {% endblock %}
