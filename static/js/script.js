@@ -28,13 +28,7 @@ $("#remove-ingredient").click(function (){
 })
 
 
-// User favourite a recipe
-$(".fa-heart").click(function () {
-  $(this).toggleClass("far fas favourite");
-})
-
-
-// implement review ratings
+// Implement review ratings
 function ratingStars(rating) {
   goldStars = "<i class='fas fa-star'></i>".repeat(rating)
   emptyStars = "<i class='far fa-star'></i>".repeat(5 - rating)
@@ -43,7 +37,7 @@ function ratingStars(rating) {
 }
 
 
-// implement difficulty ratings
+// Implement difficulty ratings
 function ratingCircles(difficulty) {
   fasIcon = "<i class='fas fa-circle'></i>".repeat(difficulty)
   farIcon = "<i class='far fa-circle'></i>".repeat(3 - difficulty)
@@ -52,8 +46,8 @@ function ratingCircles(difficulty) {
 }
 
 
-
 $(document).ready(function () {
+  // Materialize Initialization
   $('.sidenav').sidenav();
   $('.tabs').tabs();
   $('select').formSelect();
@@ -61,14 +55,14 @@ $(document).ready(function () {
   $('.tooltipped').tooltip();
 
 
-  // set up carousel and interval
+  // Set up carousel and interval
   $('.carousel').carousel();
   setInterval(function () {
     $('.carousel').carousel('next');
   }, 6000);
 
 
-  // change recipe difficulty to icons
+  // Change recipe difficulty to icons
   $(".difficulty-easy").append(
     ratingCircles(1)
   )

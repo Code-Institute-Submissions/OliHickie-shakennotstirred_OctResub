@@ -263,10 +263,10 @@ def myrecipes(username):
     # seperated lists for admin and user in order for
     # pagination to be implemented correctly
     if username == 'admin':
-        my_recipes = list(mongo.db.recipes.find())
+        my_recipes = list(mongo.db.recipes.find().sort("cocktail_name", 1))
     else:
         my_recipes = list(mongo.db.recipes.find({
-                          "created_by": username}))
+                          "created_by": username}).sort("cocktail_name", 1))
 
     # Pagination
     paginated_recipes = paginate(my_recipes)
@@ -289,7 +289,7 @@ def recipe(cocktail_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(cocktail_id)})
     reviews = list(mongo.db.reviews.find({
         "cocktail_id": ObjectId(cocktail_id)
-    }))
+    }).sort("_id", -1))
 
     # find average rating
     ratings = list(mongo.db.reviews.find(
