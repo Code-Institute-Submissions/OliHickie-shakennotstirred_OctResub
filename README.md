@@ -1,7 +1,8 @@
 # Shaken, Not Stirred!
 ### An online community where users can discover, share and enjoy cocktails of all shapes and sizes!
 
-![Image of website mock up]()
+![Image of website](static/images/readme/amiresponsive.png)
+
 
 [&#x1F378;  &nbsp; **View Live Website**  &nbsp; &#x1F378;](http://shakennotstirred.herokuapp.com/)
 
@@ -261,20 +262,30 @@ MongoDB was used to store the data for this site and in three seperate collectio
 - [JQuery](https://jquery.com/)
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 - [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
-- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
-- [Materialize CSS](https://materializecss.com/)
-- [FontAwesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) 
+- [Materialize CSS](https://materializecss.com/) - used for front end templates, elements and styling.
+- [FontAwesome](https://fontawesome.com/) - used to import icons
+- [Google Fonts](https://fonts.google.com/) - used to import fonts
+- [Balsamiq](https://balsamiq.com/) - used to build wireframes
+- [RandomKeygen](https://randomkeygen.com/) - used to generate SECRET KEY
+- [Tiny JPG](https://tinyjpg.com/) - used to compress images
+- [Git](https://git-scm.com/) - used for version control
+- [GitPod](https://gitpod.io/) - IDE used
+- [GitHub](https://github.com/) - used to house the repository
+- [Heroku](https://id.heroku.com/) - used for deploying the website.
 
-## Languages
+### Validators and Testing
 
-## Libraries, Frameworks and other Programmes
+- [HTML Validator](https://validator.w3.org/)
+- [CSS Validator](https://jigsaw.w3.org/css-validator/)
+- [PEP8 Validator](http://pep8online.com/)
+- [JSHint](https://jshint.com/)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+
 
 # Testing
 
 ## Functionality Testing
-
-- **Nav bar**
 
 ## Validation
 
@@ -285,5 +296,53 @@ MongoDB was used to store the data for this site and in three seperate collectio
 ## Testing User Stories
 
 # Deployment
+
+### Deploying on Heroku
+<br>
+
+1.  Create a requirements.txt file by typing the following command into the terminal:
+
+        pip3 freeze --local > requirements.txt
+
+2. Create a Procfile by typing the following command into the terminal:
+
+        echo web: python run.py > Procfile
+
+3. Save and push the new files to your repository. 
+
+4. Sign Up/Login into [Heorku](https://id.heroku.com/) and create a new app. Give the app a unique name.
+
+5. Select 'GitHub' from Deployment method options and search for the repository name. Once found, click on connect.
+
+6. Head over to the settings menu and update the _Config Vars_ to the following key, value pairs:
+<br>
+
+    | Key  | Value    |
+    |---|---|
+    | IP | 0.0.0.0 |
+    |MONGO_DBNAME| _your_mongodb_name_|
+    | MONGO_URI | mongodb+srv://root:<_your_password_>@cluster0.sgi7e.mongodb.net/<_your_database_>?retryWrites=true&w=majority |
+    | PORT | 5000 |
+    |SECRET_KEY |_your_secret_key_|
+
+<br>
+
+7. Go to the deploy tab and click on **Deploy Branch**
+
+### Cloning the Repository
+<br>
+
+To clone the site follow the following steps.
+
+1. Log into GitHub.
+2. Go to the site's [repository](https://github.com/OliHickie/shakennotstirred).
+3. Next to the green 'Gitpod' button, click the dropdown arrow and copy the url. 
+5. Open your terminal and type the following followed by the copied url:
+
+            git clone <paste_url_here>
+
+6. Install the requirements with the following command:
+
+            pip3 install -r requirements.txt
 
 # Credits
