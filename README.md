@@ -135,6 +135,14 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     The final section is a brief description of what is available to a user when they sign up for the website. The three sections; create, discover and rate and review, lead to a sign up button which will take the user to a log in/register page. 
 
+- **Log in/Register**
+
+    The login and register functions share a page and are both accessed via a card with movable tabs. 
+
+    The registration form is simple and requires a user to offer a username (that does not already exist in the database) which is at least 5 characters in length. They also need to submit a password twice to confirm matching data before beging logged in and directed to the "My Recipes" page. A flash message lets the user know that the registration has been successful. 
+    
+    It's is similar for a returning user, although the form checks to see whether the username exists and whether the password matches the stored data. 
+
 - **Cocktails Page and Cocktail Cards**
 
     The cocktails page is the main page of recipes. This is available to users whether they are signed in or not. Before the list of cocktails are displayed, there is a search feature and quick search tabs. The search feature uses key words and searches the cocktail names as well as ingredients. If no cocktail is found then a message is displayed informing the user of this.
@@ -166,17 +174,83 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     ![Image of a cocktail cards](static/images/readme/cocktail-cards.png)
 
-- **Add/Edit a Recipe **
-- **Nav bar**
-- **Nav bar**
-- **Nav bar**
-- **Flashes**
+- **Add/Edit a Recipe**
+
+    To create a new recipe, the Add Recipe button (found in "My Cocktails") will take the user to a form on a new page. This form allows for the following information to be added:
+
+    - Cocktail Name - limited to 20 characters to avoid overflow when displayed as a card.
+    - Difficulty - this is a dropdown option for easy, medum or difficult. 
+    - Category - To help categorise the cocktail by it's base spirit.
+    - Add ingredient/quantity -  This is where the user can add the cocktail ingredients. There is an add and a remove button to add/remove extra lines. However, the initial line cannot be deleted as at least one ingredient is required. 
+    - Method - a text box to describe the method. 
+    - Image URL - For the user to add a url to a cocktail image. If no image is added then, when the cocktail information is loaded, a default image will appear in it's place. There is also a tooltip next to this field to help a user find an image url. 
+    - Submit and reset button. 
+
+    This form has the same layout when the user has chosen to edit the cocktail with two additional features. 
+
+    - The existing data already appears as the input section. 
+    - A delete button - this allows the user to permanantly delete the recipe, as well as all corresponding reviews, from the database. For added security, there are several steps the user must go through, including a confirmation modal, in order to delete a recipe:
+    
+        My Cocktails > Edit Recipe > Delete Recipe > Confirm Modal
+
+    Once edited/deleted, a flash message will appear at the top of the screen confirming the function has been successful. 
+
+- **Recipe**
+
+    The recipe page displays the the details of the cocktail including the image, name, difficulty, author, list of ingredients and the method. It also displays a rating, which is the average rating of all the reviews committed by users.
+
+    ![Image of a French 75 recipe](static/images/readme/french75.png)
+    
+    Below the recipe method is the review section where users may add a rating and a comment about the cocktail. The ratings here are displayed out of 5 stars.
+    There is a button to take the user to the review form which works in much the same way as the add/edit recipe function (above). 
+    As demonstrated in the image below,the review can be edited and deleted (via confirmation modal for added security) by the review author or the Admin user. This is confirmed by a flash message.  
+
+    ![Image of review section](static/images/readme/review.png)
 
 
-### Future Features
+## Future Features
+
+In due course, I would like to implement the following features:
+
+- Users are able to add cocktails to their favourites which would be displayed on their profile page. 
+- Update the contact/feedback link in the footer to become a functioning feedback form. 
+- Implement Ajax so that the random cocktail selector and the search cocktail feature doesn't require a full page reload to display the results. 
+- Allow users to upload images of the cocktail without relying on urls. 
+
+# Database Design
+
+| Users |    |
+|-------|-----|
+|_id | ObjectId |
+| username | string |
+| password | string |
+
+<br>
+
+| Recipes |    |
+|---|---|
+| _id | ObjectId |
+|cocktail_name|string|
+| difficulty | string |
+| category | string |
+| ingredients | array |
+|method | string |
+| image-url | string |
+| created_by | string |
+
+<br>
+
+| Reiews |    |
+|---|---|
+| _id | ObjectId |
+|cocktail_id |ObjectId|
+| comment | string |
+| rating | integer |
+| user | string |
+
 
 # Technologies
-## Database Design
+
 
 ## Languages
 

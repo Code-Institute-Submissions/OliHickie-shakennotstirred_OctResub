@@ -30,6 +30,7 @@ SPIRITS = ["vodka", "gin", "whiskey", "rum", "tequila"]
 
 
 def paginate(recipes):
+    # pylint: disable=unbalanced-tuple-unpacking
     page, _, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     offset = page * PER_PAGE - PER_PAGE
@@ -38,6 +39,7 @@ def paginate(recipes):
 
 
 def pagination_args(recipes):
+    # pylint: disable=unbalanced-tuple-unpacking
     page, _, _ = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     total = len(recipes)
