@@ -257,7 +257,14 @@ MongoDB was used to store the data for this site and in three seperate collectio
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
 - [Python3](https://www.python.org/) 
-
+- [Javascript](https://www.javascript.com/)
+- [JQuery](https://jquery.com/)
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
+- [Materialize CSS](https://materializecss.com/)
+- [FontAwesome](https://fontawesome.com/)
+- [Google Fonts](https://fonts.google.com/)
 
 ## Languages
 

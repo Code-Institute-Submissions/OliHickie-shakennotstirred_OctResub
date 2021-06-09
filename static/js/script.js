@@ -19,30 +19,30 @@ $("#add-ingredient").click(function () {
     </div>`
   );
   $("#remove-ingredient").removeClass("hide");
-})
+});
 
 
 // Remove add ingredients line in recipe form except first line
 $("#remove-ingredient").click(function (){
   $(".ingredients-list").children(".additional-line").last().remove();
-})
+});
 
 
 // Implement review ratings
 function ratingStars(rating) {
-  goldStars = "<i class='fas fa-star'></i>".repeat(rating)
-  emptyStars = "<i class='far fa-star'></i>".repeat(5 - rating)
+  var goldStars = "<i class='fas fa-star'></i>".repeat(rating);
+  var emptyStars = "<i class='far fa-star'></i>".repeat(5 - rating);
 
-  return goldStars + emptyStars
+  return goldStars + emptyStars;
 }
 
 
 // Implement difficulty ratings
 function ratingCircles(difficulty) {
-  fasIcon = "<i class='fas fa-circle'></i>".repeat(difficulty)
-  farIcon = "<i class='far fa-circle'></i>".repeat(3 - difficulty)
+  var fasIcon = "<i class='fas fa-circle'></i>".repeat(difficulty);
+  var farIcon = "<i class='far fa-circle'></i>".repeat(3 - difficulty);
 
-  return fasIcon + farIcon
+  return fasIcon + farIcon;
 }
 
 
@@ -65,28 +65,28 @@ $(document).ready(function () {
   // Change recipe difficulty to icons
   $(".difficulty-easy").append(
     ratingCircles(1)
-  )
+  );
   $(".difficulty-medium").append(
     ratingCircles(2)
-  )
+  );
   $(".difficulty-difficult").append(
     ratingCircles(3)
-  )
+  );
 
   // change recipe review ratings to icons
   $(".rating-1").append(
     ratingStars(1)
-  )
+  );
   $(".rating-2").append(
     ratingStars(2)
-  )
+  );
   $(".rating-3").append(
     ratingStars(3)
-  )
+  );
   $(".rating-4").append(
     ratingStars(4)
-  )
+  );
   $(".rating-5").append(
     ratingStars(5)
-  )
+  );
 });
