@@ -204,7 +204,7 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
     
     Below the recipe method is the review section where users may add a rating and a comment about the cocktail. The ratings here are displayed out of 5 stars.
     There is a button to take the user to the review form which works in much the same way as the add/edit recipe function (above). 
-    As demonstrated in the image below,the review can be edited and deleted (via confirmation modal for added security) by the review author or the Admin user. This is confirmed by a flash message.  
+    As demonstrated in the image below,the review can be edited and deleted (via confirmation modal for added security) by the review author or the Admin user. The review option is only available to users who are logged in, oterhwise the button will take you to the login page.  
 
     ![Image of review section](static/images/readme/review.png)
 
@@ -264,15 +264,16 @@ MongoDB was used to store the data for this site and in three seperate collectio
 - [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) 
 - [Materialize CSS](https://materializecss.com/) - used for front end templates, elements and styling.
-- [FontAwesome](https://fontawesome.com/) - used to import icons
-- [Google Fonts](https://fonts.google.com/) - used to import fonts
-- [Balsamiq](https://balsamiq.com/) - used to build wireframes
-- [RandomKeygen](https://randomkeygen.com/) - used to generate SECRET KEY
-- [Tiny JPG](https://tinyjpg.com/) - used to compress images
-- [Git](https://git-scm.com/) - used for version control
-- [GitPod](https://gitpod.io/) - IDE used
-- [GitHub](https://github.com/) - used to house the repository
+- [FontAwesome](https://fontawesome.com/) - used to import icons.
+- [Google Fonts](https://fonts.google.com/) - used to import fonts.
+- [Balsamiq](https://balsamiq.com/) - used to build wireframes.
+- [RandomKeygen](https://randomkeygen.com/) - used to generate SECRET KEY.
+- [Tiny JPG](https://tinyjpg.com/) - used to compress images.
+- [Git](https://git-scm.com/) - used for version control.
+- [GitPod](https://gitpod.io/) - IDE used.
+- [GitHub](https://github.com/) - used to house the repository.
 - [Heroku](https://id.heroku.com/) - used for deploying the website.
+- [Canva](https://www.canva.com/)  - used for visual designs including logo.
 
 ### Validators and Testing
 
@@ -346,3 +347,20 @@ To clone the site follow the following steps.
             pip3 install -r requirements.txt
 
 # Credits
+
+### Images and Content
+
+- The majority of the admin's cocktail images, as well as the site images were taken from [Pexels](https://www.pexels.com/) and [Shutterstock](https://www.shutterstock.com/home).
+- The cocktail recipes added by the admin were taken from [BBC Good Food](https://www.bbcgoodfood.com/), [Spruce Eats](https://www.thespruceeats.com/classic-cocktails-you-must-try-759886) and the [Codex Book](https://www.amazon.co.uk/Cocktail-Codex-Fundamentals-Formulas-Evolutions/dp/160774970X).
+- The design and idea for the website was taken from [The Cocktail Project](https://www.thecocktailproject.com/).
+
+### Code
+
+- The Pagination code was taken from this [article](https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e), this [repository](https://github.com/alandoherty95/reciprocate-app) and this [video](https://www.youtube.com/watch?v=PSWf2TjTGNY) helped too!
+
+- Inspiration and ideas came from the Code Institute Task Manager Project. 
+
+
+### Acknowledgements
+
+I would like to thank my mentor Maranatha Illesanmi for his time and patience and for making the road ahead look clearer, and the Tutor team at Code Institute for their help and support.
