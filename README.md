@@ -219,6 +219,8 @@ In due course, I would like to implement the following features:
 
 # Database Design
 
+MongoDB was used to store the data for this site and in three seperate collections. The layout of the data can be seen below. 
+
 | Users |    |
 |-------|-----|
 |_id | ObjectId |
@@ -248,8 +250,13 @@ In due course, I would like to implement the following features:
 | rating | integer |
 | user | string |
 
+<br>
 
 # Technologies
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [Python3](https://www.python.org/) 
 
 
 ## Languages
