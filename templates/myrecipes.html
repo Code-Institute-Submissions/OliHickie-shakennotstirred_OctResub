@@ -2,17 +2,18 @@
 {% block content %}
 
 <main class="container">
-    <h2 class="center-align">Welcome back, {{ session.user }} !</h2>
+    <h2 class="center-align">Welcome back, {{ session.user }}!</h2>
 
     <section class="users-recipes">
         <h3>My Recipes</h3>
         <hr>
+        {% if my_recipes| length > 0 %}
         <a href="{{ url_for('create_recipe') }}" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
+       
         <div class="row">
 
-            <!-- My recipe cards  -->
             {% for my_recipe in my_recipes %}
-            {% if my_recipe.created_by == session.user or session.user == 'admin' %}
+             <!-- My recipe cards  -->
             <div class="col s12 m6 l4 xl3 ">
                 <a href="{{ url_for('recipe', cocktail_id=my_recipe._id) }}">
                     <div class="card hoverable">
@@ -39,8 +40,16 @@
                     </div>
                 </a>
             </div>
-            {% endif %}
             {% endfor %}
+            
+            {% else %}
+            <!-- if user has no cocktails  -->
+            <div class="center-align no-results">
+                <h5>Add your own recipes here...</h5>
+                <br>
+                <a href="{{ url_for('create_recipe') }}" class="btn-small"><i class="fas fa-plus"></i> Add Recipe</a>
+            </div>
+            {% endif %}
 
         </div>
         <!-- Pagination  -->

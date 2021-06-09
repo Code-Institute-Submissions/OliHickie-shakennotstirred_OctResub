@@ -103,7 +103,7 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     The nav bar items are listed as follows:
 
-     ![Image of a calligraphhic font in use](static/images/readme/navbar.png)
+     ![Image of navbar](static/images/readme/navbar.png)
 
      'My Recipes' is only visible and available to users once logged in. 'Log In' replaces 'Log Out' if no user is currently logged in and both items take the user to the log in page.
 
@@ -135,13 +135,13 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     The final section is a brief description of what is available to a user when they sign up for the website. The three sections; create, discover and rate and review, lead to a sign up button which will take the user to a log in/register page. 
 
-- **Cocktails Page**
+- **Cocktails Page and Cocktail Cards**
 
     The cocktails page is the main page of recipes. This is available to users whether they are signed in or not. Before the list of cocktails are displayed, there is a search feature and quick search tabs. The search feature uses key words and searches the cocktail names as well as ingredients. If no cocktail is found then a message is displayed informing the user of this.
 
     The quick search tabs are a quick way of searching for the base alcohol in the cocktail. These are the main six spirit bases that are used and will return cocktails containing those spirits. 
 
-    ![Image of a calligraphhic font in use](static/images/readme/searchresults.png)
+    ![Image of a search results](static/images/readme/searchresults.png)
     
     We then come to the recipe cards themselves. The cards are all clickable links which take the user to the specific recipe page. The cards display four pieces of information about the cocktail:
         
@@ -152,10 +152,21 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     The recipe cards are designed so that overflow is not possible and reduce in number per row as the screen size reduces. The recipe cards are also paginated and have a limit of twelve cards per page to prevent the page from getting too long. 
 
-    ![Image of a calligraphhic font in use](static/images/readme/cocktail-cards.png)
+    ![Image of User's profile](static/images/readme/graceprofile.png)
 
-- **Nav bar**
-- **Nav bar**
+- **My Recipes**
+
+    The "My Recipes" page is similar to the "Cocktail" page, however, this page only displays cocktails contributed by the current user. From here, the user is able to progress to an edit page allowing them to edit or delete the recipe. This page also includes a link so the user can add more of their own recipes.
+
+    The site Admin account has acces to all cocktails on this page in order to allow edit and delete functionality across all data. 
+
+    Before adding any cocktails, a message is displayed and the "add recipe" button is more central. 
+
+    Below is an example of a users profile page who has added three cocktails to the site. 
+
+    ![Image of a cocktail cards](static/images/readme/cocktail-cards.png)
+
+- **Add/Edit a Recipe **
 - **Nav bar**
 - **Nav bar**
 - **Nav bar**

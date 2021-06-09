@@ -360,6 +360,7 @@ def delete_recipe(cocktail_id):
     Removes recipe from database.
     """
     mongo.db.recipes.remove({"_id": ObjectId(cocktail_id)})
+    mongo.db.reviews.remove({"cocktail_id": ObjectId(cocktail_id)})
     flash("Recipe Has Been Removed!")
     username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
