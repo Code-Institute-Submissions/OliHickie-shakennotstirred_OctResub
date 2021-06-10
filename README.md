@@ -1,5 +1,5 @@
 # Shaken, Not Stirred!
-### An online community where users can discover, share and enjoy cocktails of all shapes and sizes!
+
 
 ![Image of website](static/images/readme/amiresponsive.png)
 
@@ -93,7 +93,9 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
 - Wireframes
 
-    Below are my wireframes for the site, showing examples of the pages across three screen sizes. 
+    Follow the link below to view the wireframes. 
+
+    [Wireframes.md](wireframes.md)
 
 # Features
 - **Header**
