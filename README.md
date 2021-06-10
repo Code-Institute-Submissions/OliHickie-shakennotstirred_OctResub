@@ -95,7 +95,7 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     Follow the link below to view the wireframes. 
 
-    [Wireframes.md](wireframes.md)
+    [WIREFRAMES.md](WIREFRAMES.md)
 
 # Features
 - **Header**
@@ -288,15 +288,7 @@ MongoDB was used to store the data for this site and in three seperate collectio
 
 # Testing
 
-## Functionality Testing
 
-## Validation
-
-## Compatibility Testing
-
-## Lighthouse
-
-## Testing User Stories
 
 # Deployment
 
@@ -305,11 +297,11 @@ MongoDB was used to store the data for this site and in three seperate collectio
 
 1.  Create a requirements.txt file by typing the following command into the terminal:
 
-        pip3 freeze --local > requirements.txt
+    > pip3 freeze --local > requirements.txt
 
 2. Create a Procfile by typing the following command into the terminal:
 
-        echo web: python run.py > Procfile
+    > echo web: python run.py > Procfile
 
 3. Save and push the new files to your repository. 
 
@@ -342,11 +334,11 @@ To clone the site follow the following steps.
 3. Next to the green 'Gitpod' button, click the dropdown arrow and copy the url. 
 5. Open your terminal and type the following followed by the copied url:
 
-            git clone <paste_url_here>
+    > git clone <paste_url_here>
 
 6. Install the requirements with the following command:
 
-            pip3 install -r requirements.txt
+    > pip3 install -r requirements.txt
 
 # Credits
 
