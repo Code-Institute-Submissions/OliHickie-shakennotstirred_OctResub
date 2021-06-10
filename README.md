@@ -26,10 +26,10 @@ Shaken, Not Stirred! is a website designed for users to share, discover, rate an
 
 ## User Stories
 
-As a user of this website, I have come here to searh for new and exciting cocktails to make. I would also like to become part of a recipe sharing community where I can share some of the best recipes I used in the past. 
+As a user of this website, I have come here to search for new and exciting cocktails to make. I would also like to become part of a recipe sharing community where I can share some of the best recipes I used in the past. 
 
 **As a new user (without a profile):**
-I would like ot be able to:
+I would like to be able to:
     
 - (US01) Quickly understand the purpose of the website. 
 - (US02) Easily navigate around the various pages.
@@ -84,9 +84,9 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
     ![Image of Yeseva One font in use](static/images/readme/yesevaone.png)
     ![Image of Roboto font in use](static/images/readme/roboto.png)
 
-    Occassionally, a more calligraphic style font is used in some of the feature content. This is to add a welcoming feel to the home page and the logo. The fonts are not as easy to read as the main fonts, however, the added style adds a warmth and a conversational feel to the (often) subtitles in contrast to 'Yeseva One'. 
+    Occasionally, a more calligraphic style font is used in some of the feature content. This is to add a welcoming feel to the home page and the logo. The fonts are not as easy to read as the main fonts however, the added style adds a warmth and a conversational feel to the (often) subtitles in contrast to 'Yeseva One'. 
 
-    ![Image of a calligraphhic font in use](static/images/readme/bethellen.png)
+    ![Image of a calligraphic font in use](static/images/readme/bethellen.png)
 
 - Imagery
 
@@ -117,9 +117,9 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
 - **Footer**
 
-    The footer appears on all pages and comprises of three main componants. 
+    The footer appears on all pages and comprises of three main components. 
     
-    1. A repitition of the logo along with a description of the purpose of the site. 
+    1. A repetition of the logo along with a description of the purpose of the site. 
     2. A quick search feature which, when a spirit is chosen, will take the user directly to the cocktails page and display a list of cocktails containing that base spirit.
     3. A feedback link to email the site owner in case a user has any feedback or would like to report an issue. 
 
@@ -141,13 +141,13 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     N.B. all cocktails that appear on the home page are have been added by the site owner, so cannot be deleted or edited. 
 
-    The final section is a brief description of what is available to a user when they sign up for the website. The three sections; create, discover and rate and review, lead to a sign up button which will take the user to a log in/register page. 
+    The final section is a brief description of what is available to a user when they sign up for the website. The three sections; create, discover and rate and review, lead to a sign-up button which will take the user to a log in/register page. 
 
 - **Log in/Register**
 
     The login and register functions share a page and are both accessed via a card with movable tabs. 
 
-    The registration form is simple and requires a user to offer a username (that does not already exist in the database) which is at least 5 characters in length. They also need to submit a password twice to confirm matching data before beging logged in and directed to the "My Recipes" page. A flash message lets the user know that the registration has been successful. 
+    The registration form is simple and requires a user to offer a username (that does not already exist in the database) which is at least 5 characters in length. They also need to submit a password twice to confirm matching data before logging in and being directed to the "My Recipes" page. A flash message lets the user know that the registration has been successful. 
     
     It's is similar for a returning user, although the form checks to see whether the username exists and whether the password matches the stored data. 
 
@@ -172,13 +172,13 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
 - **My Recipes**
 
-    The "My Recipes" page is similar to the "Cocktail" page, however, this page only displays cocktails contributed by the current user. From here, the user is able to progress to an edit page allowing them to edit or delete the recipe. This page also includes a link so the user can add more of their own recipes.
+    The "My Recipes" page is similar to the "Cocktail" page however, this page only displays cocktails contributed by the current user. From here, the user is able to progress to an edit page allowing them to edit or delete the recipe. This page also includes a link so the user can add more of their own recipes.
 
-    The site Admin account has acces to all cocktails on this page in order to allow edit and delete functionality across all data. 
+    The site Admin account has access to all cocktails on this page in order to allow edit and delete functionality across all data. 
 
     Before adding any cocktails, a message is displayed and the "add recipe" button is more central. 
 
-    Below is an example of a users profile page who has added three cocktails to the site. 
+    Below is an example of a user's profile page who has added three cocktails to the site. 
 
     ![Image of a cocktail cards](static/images/readme/cocktail-cards.png)
 
@@ -187,17 +187,17 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
     To create a new recipe, the Add Recipe button (found in "My Cocktails") will take the user to a form on a new page. This form allows for the following information to be added:
 
     - Cocktail Name - limited to 20 characters to avoid overflow when displayed as a card.
-    - Difficulty - this is a dropdown option for easy, medum or difficult. 
-    - Category - To help categorise the cocktail by it's base spirit.
-    - Add ingredient/quantity -  This is where the user can add the cocktail ingredients. There is an add and a remove button to add/remove extra lines. However, the initial line cannot be deleted as at least one ingredient is required. 
+    - Difficulty - this is a dropdown option for easy, medium or difficult. 
+    - Category - To help categorise the cocktail by its base spirit.
+    - Add ingredient/quantity - This is where the user can add the cocktail ingredients. There is an add and a remove button to add/remove extra lines. However, the initial line cannot be deleted as at least one ingredient is required. 
     - Method - a text box to describe the method. 
-    - Image URL - For the user to add a url to a cocktail image. If no image is added then, when the cocktail information is loaded, a default image will appear in it's place. There is also a tooltip next to this field to help a user find an image url. 
+    - Image URL - For the user to add a url to a cocktail image. If no image is added then, when the cocktail information is loaded, a default image will appear in its place. There is also a tooltip next to this field to help a user find an image url. 
     - Submit and reset button. 
 
     This form has the same layout when the user has chosen to edit the cocktail with two additional features. 
 
     - The existing data already appears as the input section. 
-    - A delete button - this allows the user to permanantly delete the recipe, as well as all corresponding reviews, from the database. For added security, there are several steps the user must go through, including a confirmation modal, in order to delete a recipe:
+    - A delete button - this allows the user to permanently delete the recipe, as well as all corresponding reviews, from the database. For added security, there are several steps the user must go through, including a confirmation modal, in order to delete a recipe:
     
         My Cocktails > Edit Recipe > Delete Recipe > Confirm Modal
 
@@ -205,13 +205,13 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
 - **Recipe**
 
-    The recipe page displays the the details of the cocktail including the image, name, difficulty, author, list of ingredients and the method. It also displays a rating, which is the average rating of all the reviews committed by users.
+    The recipe page displays the details of the cocktail including the image, name, difficulty, author, list of ingredients and the method. It also displays a rating, which is the average rating of all the reviews committed by users.
 
     ![Image of a French 75 recipe](static/images/readme/french75.png)
     
     Below the recipe method is the review section where users may add a rating and a comment about the cocktail. The ratings here are displayed out of 5 stars.
     There is a button to take the user to the review form which works in much the same way as the add/edit recipe function (above). 
-    As demonstrated in the image below,the review can be edited and deleted (via confirmation modal for added security) by the review author or the Admin user. The review option is only available to users who are logged in, oterhwise the button will take you to the login page.  
+    As demonstrated in the image below, the review can be edited and deleted (via confirmation modal for added security) by the review author or the Admin user. The review option is only available to users who are logged in, otherwise the button will take you to the login page.  
 
     ![Image of review section](static/images/readme/review.png)
 
@@ -229,7 +229,7 @@ In due course, I would like to implement the following features:
 
 # Database Design
 
-MongoDB was used to store the data for this site and in three seperate collections. The layout of the data can be seen below. 
+MongoDB was used to store the data for this site and in three separate collections. The layout of the data can be seen below. 
 
 | Users |    |
 |-------|-----|
@@ -316,7 +316,7 @@ Please for [Testing](TESTING.md) document here.
 
 3. Save and push the new files to your repository. 
 
-4. Sign Up/Login into [Heorku](https://id.heroku.com/) and create a new app. Give the app a unique name.
+4. Sign Up/Login into [Heroku](https://id.heroku.com/) and create a new app. Give the app a unique name.
 
 5. Select 'GitHub' from Deployment method options and search for the repository name. Once found, click on connect.
 
@@ -338,7 +338,7 @@ Please for [Testing](TESTING.md) document here.
 ### Cloning the Repository
 <br>
 
-To clone the site follow the following steps.
+To clone the site, follow the following steps.
 
 1. Log into GitHub.
 2. Go to the site's [repository](https://github.com/OliHickie/shakennotstirred).
