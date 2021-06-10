@@ -1,16 +1,5 @@
 # Testing
 
-## User feedback
-
-Some changes were made to the site after receiving user feedback:
-
-- Originally, 'Cocktails' was called 'Recipes' and 'My Recipes' had the title 'My Cocktails'. The wording Cocktails and Recipes was swapped to give the user a clearer idea of the function of these pages. 
-
-- The recipe card had a button to click in order to take the user to the recipe page. Instad, this has been been removed and now, the card is a clickable anchor link performing the same function. Visually, this created less clutter on the page with the removal of many buttons. 
-
-- Reviews were listed with the newest review first. 
-
-
 ## Functionality Testing
 
 - Manual testing was carried out on:
@@ -53,13 +42,38 @@ Some changes were made to the site after receiving user feedback:
 
     - If no user is logged in, any url requiring a valid username redirect user to 404 page which includes a link back to the home page. 
 
-    ![No results found](static/images/readme/404.png)
+    ![404 page](static/images/readme/404.png)
 
     - Before any recipe or review can be deleted, the user must confirm deletion via a modal. 
 
     - All passwords are successfully scrambled when saving in the database using Werkzeug security.
 
 ## Validation
+
+The following results were returned from validating my code. 
+
+- **HTML** passed with one warning
+
+![HTML Validator](static/images/readme/htmlvalid.png)
+
+- **CSS** passed.
+
+![CSS Validator](static/images/readme/cssvalid.png)
+
+- [JS Hint](https://jshint.com/) and [PEP8](http://pep8online.com/) also failed to return any issues. 
+
+## User feedback
+
+Some changes were made to the site after receiving user feedback:
+
+- Originally, 'Cocktails' was called 'Recipes' and 'My Recipes' had the title 'My Cocktails'. The wording Cocktails and Recipes was swapped to give the user a clearer idea of the function of these pages. 
+
+- The recipe card had a button to click in order to take the user to the recipe page. Instad, this has been been removed and now, the card is a clickable anchor link performing the same function. Visually, this created less clutter on the page with the removal of many buttons. 
+
+- Reviews were listed with the newest review first. 
+
+
+
 
 ## Compatibility Testing
 

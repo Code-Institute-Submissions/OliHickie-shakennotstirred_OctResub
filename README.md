@@ -350,6 +350,8 @@ To clone the site follow the following steps.
 
 ### Code
 
+- Many elements were taken from [Materialize CSS](https://materializecss.com/). Notably, the nav bar, footer, cards and forms elements. 
+
 - The Pagination code was taken from this [article](https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e), this [repository](https://github.com/alandoherty95/reciprocate-app) and this [video](https://www.youtube.com/watch?v=PSWf2TjTGNY) helped too!
 
 - Inspiration and ideas came from the Code Institute Task Manager Project. 
