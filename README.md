@@ -37,30 +37,29 @@ I would like to be able to:
 
 - (US04) Easily navigate to the login page.
 - (US05) Be directed to my personal profile page.
-- (US06) Search for previously visited cocktail recipes. 
-- (US07) Add a cocktail recipe.
-- (US08) Review other people's cocktail recipes.
-- (US09) Be able to edit and delete my recipes.
-- (US10) Be able to edit and delete my reviews.
-- (US11) Be able to log out easily. 
+- (US06) Add a cocktail recipe.
+- (US07) Review other people's cocktail recipes.
+- (US08) Be able to edit and delete my recipes.
+- (US09) Be able to edit and delete my reviews.
+- (US10) Be able to log out easily. 
 
 **Shared user stories**
 I would like to be able to:
 
-- (US12) Experience intuitive navigation with quick and easy links to pages as well as return back to pages without needing to use the browser's back button. 
-- (US13) Search for and find cocktail recipes.
-- (US14) Have access to a quick search feature relying on the base spirit of the cocktail. 
-- (US15) Read recipes and reviews left by users. 
-- (US16) See an average rating for each recipe. 
-- (US17) Discover a randomly chosen recipe when struggling for inspiration.
-- (US18) Discover a popular recipe depending on the season. 
-- (US19) Be able to contact the site owner with feedback or comments. 
+- (US11) Experience intuitive navigation with quick and easy links to pages as well as return back to pages without needing to use the browser's back button. 
+- (US12) Search for and find cocktail recipes.
+- (US13) Have access to a quick search feature relying on the base spirit of the cocktail. 
+- (US14) Read recipes and reviews left by users. 
+- (US15) See an average rating for each recipe. 
+- (US16) Discover a randomly chosen recipe when struggling for inspiration.
+- (US17) Discover a popular recipe depending on the season. 
+- (US18) Be able to contact the site owner with feedback or comments. 
 
 **As the site owner**
 I would like to be able to:
 
-- (US20) Be able to edit and delete any cocktail recipe. 
-- (US21) Be able to delete and edit any rating. 
+- (US19) Be able to edit and delete any cocktail recipe. 
+- (US20) Be able to delete and edit any rating. 
 
 
 ## Design
