@@ -72,11 +72,30 @@ Some changes were made to the site after receiving user feedback:
 
 - Reviews were listed with the newest review first. 
 
-
-
-
-## Compatibility Testing
-
 ## Lighthouse
+
+I used Chrome Dev Tools' Lighthouse feature to test Performance, Accessibility, Best Practices and SEO. Below are the results:
+
+### Home Page
+![Performance 98; Accessibility 96; Best Practices 87; SEO; 90](static/images/readme/lighthouse-home.png)
+
+### Cocktails
+![Performance 93; Accessibility 94; Best Practices 87; SEO; 80](static/images/readme/lighthouse-cocktails.png))
+
+    * SEO is noticably lower on this page due to Pagination links not being crawlable. 
+
+### My Recipes
+![Performance 99; Accessibility 91; Best Practices 87; SEO; 90](static/images/readme/lighthouse-myrecipe.png)
+
+### Login
+![Performance 99; Accessibility 97; Best Practices 93; SEO; 90](static/images/readme/lighthouse-login.png)
+
+### Recipe
+![Performance 99; Accessibility 97; Best Practices 87; SEO; 90](static/images/readme/lighthouse-recipe.png)
+
+### Form
+![Performance 97; Accessibility 83; Best Practices 100; SEO; 90](static/images/readme/lighthouse-form.png)
+
+    * Accessibility was lower on this page as it flagged the contrast between the form labels not being large enough. 
 
 ## Testing User Stories
