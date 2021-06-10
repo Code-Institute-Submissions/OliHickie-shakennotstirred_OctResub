@@ -14,10 +14,13 @@ Shaken, Not Stirred! is a website designed for users to share, discover, rate an
 
 1) [User Experience](#user-experience)
 2) [Features](#features)
+3) [Database Design](#database-design)
 3) [Technologies](#technologies)
 4) [Testing](#testing)
 5) [Deployment](#deployment)
 6) [Credits](#credits)
+
+<br>
 
 # User Experience
 
@@ -96,7 +99,10 @@ The overall design was aimed at being sophisticated with a touch of fun. I wante
 
     [WIREFRAMES.md](WIREFRAMES.md)
 
+<br>
+
 # Features
+
 - **Header**
     
     The header is available on all pages and houses a website logo (which links the user to the home page) and navigation item. On smaller screens, the navigation items are located in a collapsible menu which is accessed using a hamburger icon in the top left of the screen. 
@@ -219,6 +225,8 @@ In due course, I would like to implement the following features:
 - Implement Ajax so that the random cocktail selector and the search cocktail feature doesn't require a full page reload to display the results. 
 - Allow users to upload images of the cocktail without relying on urls. 
 
+<br>
+
 # Database Design
 
 MongoDB was used to store the data for this site and in three seperate collections. The layout of the data can be seen below. 
@@ -284,7 +292,8 @@ MongoDB was used to store the data for this site and in three seperate collectio
 - [JSHint](https://jshint.com/)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
- 
+<br>
+
 # Testing
 
 Please for [Testing](TESTING.md) document here. 
@@ -294,6 +303,7 @@ Please for [Testing](TESTING.md) document here.
 # Deployment
 
 ### Deploying on Heroku
+
 <br>
 
 1.  Create a requirements.txt file by typing the following command into the terminal:
@@ -340,6 +350,8 @@ To clone the site follow the following steps.
 6. Install the requirements with the following command:
 
     > pip3 install -r requirements.txt
+
+<br>
 
 # Credits
 
