@@ -90,16 +90,16 @@
         <div class="col l4 offset-l1 s12">
           <h5 class="">Quick Search <i class="fas fa-search"></i></h5>
           <ul>
-            <li><a class="quick-link capitalize-spirits" href="{{ url_for('search_spirit', spirit='vodka') }}">vodka</a>
+            <li><a class="quick-link capitalize-spirits" href="{{ url_for('filter_spirit', spirit='vodka') }}">vodka</a>
             </li>
-            <li><a class="quick-link capitalize-spirits" href="{{ url_for('search_spirit', spirit='gin') }}">gin</a>
-            </li>
-            <li><a class="quick-link capitalize-spirits"
-                href="{{ url_for('search_spirit', spirit='whiskey') }}">whiskey</a></li>
-            <li><a class="quick-link capitalize-spirits" href="{{ url_for('search_spirit', spirit='rum') }}">rum</a>
+            <li><a class="quick-link capitalize-spirits" href="{{ url_for('filter_spirit', spirit='gin') }}">gin</a>
             </li>
             <li><a class="quick-link capitalize-spirits"
-                href="{{ url_for('search_spirit', spirit='tequila') }}">tequila</a></li>
+                href="{{ url_for('filter_spirit', spirit='whiskey') }}">whiskey</a></li>
+            <li><a class="quick-link capitalize-spirits" href="{{ url_for('filter_spirit', spirit='rum') }}">rum</a>
+            </li>
+            <li><a class="quick-link capitalize-spirits"
+                href="{{ url_for('filter_spirit', spirit='tequila') }}">tequila</a></li>
           </ul>
         </div>
         <div class="col l3 s12 feedback center-align">

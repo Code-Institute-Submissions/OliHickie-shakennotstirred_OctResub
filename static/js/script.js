@@ -23,7 +23,7 @@ $("#add-ingredient").click(function () {
 
 
 // Remove add ingredients line in recipe form except first line
-$("#remove-ingredient").click(function (){
+$("#remove-ingredient").click(function () {
   $(".ingredients-list").children(".additional-line").last().remove();
 });
 
@@ -35,7 +35,6 @@ function ratingStars(rating) {
 
   return goldStars + emptyStars;
 }
-
 
 // Implement difficulty ratings
 function ratingCircles(difficulty) {

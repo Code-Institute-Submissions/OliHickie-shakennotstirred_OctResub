@@ -220,6 +220,8 @@ def search():
     """
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+
+    # Pagination
     paginated_recipes = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template("cocktail_list.html", spirits=SPIRITS,
@@ -228,7 +230,7 @@ def search():
 
 
 @app.route("/search/<spirit>")
-def search_spirit(spirit):
+def filter_spirit(spirit):
     """
     Returns recipes depending on spirit category
     Paginates search results

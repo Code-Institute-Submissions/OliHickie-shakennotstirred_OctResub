@@ -60,7 +60,9 @@ The following results were returned from validating my code.
 
 ![CSS Validator](static/images/readme/cssvalid.png)
 
-- [JS Hint](https://jshint.com/) and [PEP8](http://pep8online.com/) also failed to return any issues. 
+- [JS Hint](https://jshint.com/) returned no issues.
+
+- [PEP8](http://pep8online.com/) returned linting errors with regards to pagination. Firstly, 'variables being declared and not being used' was solved by swapping out unused variables with an underscore. Secondly, 'Possible unbalanced tuple unpacking' was solved by including '# pylint: disable=unbalanced-tuple-unpacking' before the line (as suggested here - https://stackoverflow.com/questions/27980121/pylint-warning-possible-unbalanced-tuple-unpacking-with-sequence) Neither warning affected the codes functionality. No other issues were reported.
 
 ## User feedback
 

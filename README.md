@@ -284,19 +284,11 @@ MongoDB was used to store the data for this site and in three separate collectio
 - [Heroku](https://id.heroku.com/) - used for deploying the website.
 - [Canva](https://www.canva.com/)  - used for visual designs including logo.
 
-### Validators and Testing
-
-- [HTML Validator](https://validator.w3.org/)
-- [CSS Validator](https://jigsaw.w3.org/css-validator/)
-- [PEP8 Validator](http://pep8online.com/)
-- [JSHint](https://jshint.com/)
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-
 <br>
 
 # Testing
 
-Please for [Testing](TESTING.md) document here. 
+The testing document is available here -> [Testing](TESTING.md). 
 
 <br>
 
