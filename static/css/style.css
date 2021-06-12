@@ -114,16 +114,6 @@ nav a.sidenav-trigger i {
     margin-bottom: 10px;
 }
 
-/* pagination  */
-
-@media screen and (max-width: 992px) {
-
-    .pagination li.prev,
-    .pagination li.next {
-        width: 0px;
-    }
-}
-
 /* flashes  */
 
 .flashes {
